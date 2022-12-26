@@ -1443,7 +1443,7 @@ label {
 .hero {
     text-align: center;
     padding-top: 48px;
-    padding-bottom: 88px
+    padding-bottom: 30px
 }
 
 .hero-copy {
@@ -1458,7 +1458,7 @@ label {
     max-width: 400px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 80px
+    margin-bottom: 50px
 }
 
 .lights-toggle {
@@ -1518,7 +1518,7 @@ label {
     .hero {
         text-align: left;
         padding-top: 88px;
-        padding-bottom: 120px
+        padding-bottom: 40px
     }
 
     .hero-inner {
@@ -1758,8 +1758,8 @@ main {
 
 .section-inner {
     position: relative;
-    padding-top: 48px;
-    padding-bottom: 48px
+    padding-top: 30px;
+    padding-bottom: 40px
 }
 
 @media (min-width: 641px) {
@@ -1906,10 +1906,19 @@ main {
     transform: rotate(5deg);
 }
 
+.hero-3 {
+    transform: rotate(5deg);
+}
+
+.hero-4 {
+    transform: rotate(5deg);
+}
+
 @media (max-width: 641px) {
     .mx-1 {
         margin-left: 2rem;
         margin-right: 2rem;
+        
     }
 }
 
