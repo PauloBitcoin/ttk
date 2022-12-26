@@ -1401,19 +1401,6 @@ label {
     z-index: 2
 }
 
-.site-header::before {
-    content: '';
-    position: absolute;
-    top: -140px;
-    right: -100px;
-    width: 1440px;
-    height: 324px;
-    background-image: url("../images/header-illustration-light.svg")
-}
-
-.lights-off .site-header::before {
-    background-image: url("../images/header-illustration-dark.svg")
-}
 
 .site-header-inner {
     position: relative;
@@ -1714,19 +1701,6 @@ label {
     margin-bottom: 32px
 }
 
-.cta::before {
-    content: '';
-    position: absolute;
-    bottom: -32px;
-    left: calc(50% - 720px);
-    height: 263px;
-    width: 1440px;
-    background-image: url("../images/cta-illustration-light.svg")
-}
-
-.lights-off .cta::before {
-    background-image: url("../images/cta-illustration-dark.svg")
-}
 
 .cta-cta {
     max-width: 400px;
@@ -1921,13 +1895,13 @@ main {
 }
 
 .hero-1 {
-    max-height: 700px;
+    max-height: 650px;
     margin-top: -150px !important;
     transform: rotate(5deg);
 }
 
 .hero-2 {
-    max-height: 700px;
+    max-height: 650px;
     margin-top: -150px !important;
     transform: rotate(5deg);
 }
