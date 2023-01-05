@@ -1365,31 +1365,27 @@ label {
     box-shadow: 0 4px 16px rgba(255, 255, 255, 0.35)
 }
 
+
+         
 .button-primary {
-    color: #fff !important;
-    background-color: #ff0050
-}
+    background-image: linear-gradient(to right, #2FEAFC 0%, #ff0050  51%, #2FEAFC  100%);
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    border-radius: 10px;
+    display: block;
+  }
 
-.button-primary:hover {
-    background: #ff0050
-}
+  .button-primary:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+ 
 
-.button-primary.button-shadow::before {
-    box-shadow: 0 8px 16px rgba(83, 95, 215, 0.25);
-    mix-blend-mode: normal
-}
-
-.button-primary.button-shadow:hover::before {
-    box-shadow: 0 8px 16px rgba(83, 95, 215, 0.35)
-}
-
-.button-primary .button-sm.button-shadow::before {
-    box-shadow: 0 4px 16px rgba(83, 95, 215, 0.25)
-}
-
-.button-primary .button-sm.button-shadow:hover::before {
-    box-shadow: 0 4px 16px rgba(83, 95, 215, 0.35)
-}
 
 .button-block {
     display: flex
@@ -1501,9 +1497,7 @@ label {
 
 
 @media (max-width: 639px) {
-    .hero-cta>* {
-        display: flex
-    }
+    
 
     .hero-cta>*+* {
         margin-top: 32px
@@ -1970,7 +1964,7 @@ main {
 }
 
 .lights-off a {
-    color: #8595AE
+    color: #ffffff
 }
 
 .lights-off h1,
