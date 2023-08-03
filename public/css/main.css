@@ -578,6 +578,10 @@ ul.dropdown-window::-webkit-scrollbar {
   color: rgb(255, 255, 255);
 }
 
+a {
+  color: #222 !important;
+}
+
 .dark-theme a {
   color: #e8eaed !important;
 }
