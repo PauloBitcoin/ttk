@@ -69,8 +69,7 @@
     <link rel="canonical" href="https://www.ttkapp.tk/" />
     <link rel="manifest" href="./manifest.webmanifest" />
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/main.css">
 
 
@@ -189,8 +188,8 @@
 
 
 
-    <!-- MENU MODAL -->
-    <div id="simpleModal" class="modal-overlay">
+      <!-- MENU MODAL -->
+      <div id="simpleModal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title titulo-pub mr-2 text-lg" id="exampleModalLabel">Menu principal</h5>
@@ -227,6 +226,7 @@
             </div>
         </div>
     </div>
+
 
     <div id="ctnClickShort">
         <button class="ctnClick" type="button"><img src="./assets/logo-350.webp" title="ttk downloader app"
@@ -281,8 +281,8 @@
 
     <script src="./js/sweetalert2.all.min.js"></script>
     <script src="./js/jquery-3.6.2.min.js"></script>
-    <script src="./js/search.js"></script>
     <script src="./js/main.js"></script>
+
     <script src="./Service-Worker.js"></script>
 
     <script>
@@ -299,40 +299,10 @@
 
 
 
-        var clearStorageButton = document.getElementById("clear-storage");
-
-        // Create a button to clear localStorage
-        clearStorageButton.addEventListener("click", clearStorage);
-
-        // Wrapper function to localStorage.clear
-        function clearStorage() {
-            localStorage.clear();
-
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 2000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-            })
-
-            Toast.fire({
-                icon: 'success',
-                title: 'O cache foi limpo!',
-                //text: 'Atualize a página.'
-            })
-        }
-
 
     </script>
 
 
-    <script>
-    </script>
 
 
 

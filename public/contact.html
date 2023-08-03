@@ -59,147 +59,133 @@
     <meta name="theme-color" content="#ff0050">
 
     <link rel="manifest" href="./manifest.webmanifest" />
+
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/main.css">
+
     <script src="./sw.js" defer=""></script>
 
 
 </head>
 
-<body class="w-full h-screen  light-theme">
-    <div class="container mx-auto flex flex-col space-y-9">
+<body class="w-100">
 
-
-        <nav class="h-24 flex justify-between p-2 navbar">
-            <a href="./" class="h-full p-1.5 flex items-center">
-                <div class="w-10 h-10" href="#">
-                    <img width="350" height="350" class="w-full h-full" src="./assets/logo-350.webp"
-                        title="TikTok Downloader" alt="ttk log"></img>
-                </div>
-                <div class="hidden sm:block ml-2 font-bold text-2xl dark:text-neutral-200 text-logo">tt<span
-                        style="color: var(--ttk);">k</span></div>
-            </a>
-            <div class="flex space-x-4 md:space-x-6 px-2 items-center">
-
-                <button class="reset-button navbar-btn navbar-lang dropdown" type="button" title="Idioma"
-                    onclick="toggleLang()">
-                    <span><i class="icon translate"></i></span>
-                </button>
-
-                <ul class="dropdown-window" id="SearchLang">
-                    <input type="text" id="LangInput" placeholder="Buscar..." title="Buscar idioma" autocomplete="off">
-
-                    <li><a class="dropdown_link" href="./">Português<span class="badge">Original</span></a></li>
-                    <li><a class="dropdown_link" href="/en/">English</a></li>
-                    <li><a class="dropdown_link" href="/zh/">简体中文</a></li>
-                    <li><a class="dropdown_link" href="/hi/">हिन्दी</a></li>
-                    <li><a class="dropdown_link" href="/es/">Español</a></li>
-                    <li><a class="dropdown_link" href="/ar/">عربي</a></li>
-                    <li><a class="dropdown_link" href="/bn/">বাংলা</a></li>
-                    <li><a class="dropdown_link" href="/ru/">Русский</a></li>
-                    <li><a class="dropdown_link" href="/de/">Deutsch</a></li>
-                    <li><a class="dropdown_link" href="/ja/">日本語<span class="badge badge-ttk">新着</span></a></li>
-                    <li><a class="dropdown_link" href="/ko/">한국인</a></li>
-                    <li><a class="dropdown_link" href="/vi/">Tiếng Việt<span class="badge badge-ttk">Mới</span></a></li>
-                    <li><a class="dropdown_link" href="/th/">ภาษาไทย<span class="badge badge-ttk">ใหม่</span></a></li>
-                    <li><a class="dropdown_link" href="/az/">Azərbaycan dili</a></li>
-                </ul>
-
-
-                <button class="reset-button navbar-btn btn-darkmode" type="button" role="button" title="Modo noite">
-                    <i class="icon navbar-darkmode"></i>
-                </button>
-                <button id="modalBtn"
-                    class="button button flex justify-center items-center whitespace-nowrap cursor-pointer navbar-btn">
-                    <i class="icon btn-menu" title="Menu"></i>
-                </button>
-
-
+    <nav class="h-24 flex justify-between p-2 navbar">
+        <a href="./" class="h-100 text-decoration-none flex items-center">
+            <div class="w-10 h-10" href="#">
+                <img width="350" height="350" class="w-full h-full" src="./assets/logo-350.webp"
+                    title="TikTok Downloader" alt="ttk log"></img>
             </div>
-        </nav>
+            <div class=" me-2 font-bold text-2xl text-secondary text-logo">tt<span style="color: var(--ttk);">k</span>
+            </div>
+        </a>
+        <div class="d-flex">
+            <button class="btn mx-1 reset-button navbar-btn navbar-lang dropdown" type="button" title="Idioma"
+                onclick="toggleLang()">
+                <span><i class="icon translate"></i></span>
+            </button>
+
+            <ul class="dropdown-window" id="SearchLang">
+
+                <li><a class="dropdown-item" href="./">Português<span class="badge">Original</span></a></li>
+                <li><a class="dropdown-item" href="/en/">English<span class="badge badge-ttk">new</span></a></li>
+            </ul>
 
 
-        <div class="h-full w-full px-6 block md:justify-center md:space-x-12 md:mt-0">
-
-            <div class="formbold-main-wrapper mb-3">
-                <h2 class="text-center font-bold text-3xl">Contato</h2>
-                <p class="text-center text-lg mb-2">Preencha os campos para enviar a mensagem.</p>
-                <div class="formbold-form-wrapper">
-
-                    <form id="messageForm">
-                        <div class="formbold-mb-5">
-                            <label for="name" class="formbold-form-label"> Nome <span>*</span></label>
-                            <input type="text" name="Nome" id="name" placeholder="Nome" class="formbold-form-input"
-                                minlength="3" maxlength="20" required />
-                        </div>
-
-                        <div class="formbold-mb-5">
-                            <label for="email" class="formbold-form-label"> E-mail <span>*</span></label>
-                            <input type="email" name="Email" id="email" placeholder="E-mail" class="formbold-form-input"
-                                required />
-                        </div>
-
-                        <div class="formbold-mb-5">
-                            <label for="phone" class="formbold-form-label"> Como ficou sabendo? </label>
-                            <select class="form-control" id="wa_select" name="Como ficou sabendo?">
-                                <option hidden='hidden' selected='selected' value='default'>Opções</option>
-                                <option value="Redes Sociais">Redes Sociais</option>
-                                <option value="Um Amigo">Amigo</option>
-                                <option value="Outros">Outros</option>
-                            </select>
-                        </div>
-
-                        <div class="formbold-mb-5">
-                            <label for="tlg_num" class="formbold-form-label"> Telegram </label>
-                            <input type="text" name="Telegram" id="tlg_num" placeholder="Número ou Usuário"
-                                class="formbold-form-input" />
-                        </div>
-
-                        <div class="formbold-mb-5">
-                            <label for="tlg_num" class="formbold-form-label">Mensagem </label>
-                            <textarea class="form-control" rows="3" id='wa_textarea' placeholder='' row='1'
-                                name="Mensagem" maxlength="250"></textarea>
-                        </div>
-
-                        <div class="relative flex items-center mb-1">
-                            <button class="send_form btn-contact justify-center" href="javascript:void" type="submit"
-                                title="Enviar Mensagem" onclick="toggleSpin()">
-
-                                <span id="text-send" class="flex justify-center items-center">
-                                    <i class="icon icon-send"></i> Enviar Mensagem</span>
+            <button class="btn mx-1 reset-button navbar-btn btn-darkmode " type="button" role="button"
+                title="Modo noite">
+                <i class="icon navbar-darkmode"></i>
+            </button>
+            <button id="modalBtn" class="btn mx-1 navbar-btn">
+                <i class="icon btn-menu" title="Menu"></i>
+            </button>
 
 
+        </div>
+    </nav>
 
-                                <svg class="dots hidden absolute mx-auto h-3/4" id="loader" viewBox="0 0 132 58"
-                                    version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-                                    <g class="fill-neutral-800" id="Page-1" stroke="none" stroke-width="1"
-                                        fill-rule="evenodd" sketch:type="MSPage">
-                                        <g sketch:type="MSArtboardGroup">
-                                            <circle id="dot1" sketch:type="MSShapeGroup" cx="25" cy="30" r="13">
-                                            </circle>
-                                            <circle id="dot2" sketch:type="MSShapeGroup" cx="65" cy="30" r="13">
-                                            </circle>
-                                            <circle id="dot3" sketch:type="MSShapeGroup" cx="105" cy="30" r="13">
-                                            </circle>
-                                        </g>
+    <div class="container-fluid">
+
+        <div class="formbold-main-wrapper mb-3">
+            <h2 class="text-center font-bold text-3xl">Contato</h2>
+            <p class="text-center text-lg mb-2">Preencha os campos para enviar a mensagem.</p>
+            <div class="formbold-form-wrapper">
+
+                <form id="messageForm">
+                    <div class="formbold-mb-5">
+                        <label for="name" class="formbold-form-label"> Nome <span>*</span></label>
+                        <input type="text" name="Nome" id="name" placeholder="Nome" class="formbold-form-input"
+                            minlength="3" maxlength="20" required />
+                    </div>
+
+                    <div class="formbold-mb-5">
+                        <label for="email" class="formbold-form-label"> E-mail <span>*</span></label>
+                        <input type="email" name="Email" id="email" placeholder="E-mail" class="formbold-form-input"
+                            required />
+                    </div>
+
+                    <div class="formbold-mb-5">
+                        <label for="phone" class="formbold-form-label"> Como ficou sabendo? </label>
+                        <select class="form-control" id="wa_select" name="Como ficou sabendo?">
+                            <option hidden='hidden' selected='selected' value='default'>Opções</option>
+                            <option value="Redes Sociais">Redes Sociais</option>
+                            <option value="Um Amigo">Amigo</option>
+                            <option value="Outros">Outros</option>
+                        </select>
+                    </div>
+
+                    <div class="formbold-mb-5">
+                        <label for="tlg_num" class="formbold-form-label"> Telegram </label>
+                        <input type="text" name="Telegram" id="tlg_num" placeholder="Número ou Usuário"
+                            class="formbold-form-input" />
+                    </div>
+
+                    <div class="formbold-mb-5">
+                        <label for="tlg_num" class="formbold-form-label">Mensagem </label>
+                        <textarea class="form-control" rows="3" id='wa_textarea' placeholder='' row='1' name="Mensagem"
+                            maxlength="250"></textarea>
+                    </div>
+
+                    <div class="relative flex items-center mb-1">
+                        <button class="send_form btn-contact justify-center" href="javascript:void" type="submit"
+                            title="Enviar Mensagem" onclick="toggleSpin()">
+
+                            <span id="text-send" class="flex justify-center items-center">
+                                <i class="icon icon-send"></i> Enviar Mensagem</span>
+
+
+
+                            <svg class="dots hidden absolute mx-auto h-3/4" id="loader" viewBox="0 0 132 58"
+                                version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+                                <g class="fill-neutral-800" id="Page-1" stroke="none" stroke-width="1"
+                                    fill-rule="evenodd" sketch:type="MSPage">
+                                    <g sketch:type="MSArtboardGroup">
+                                        <circle id="dot1" sketch:type="MSShapeGroup" cx="25" cy="30" r="13">
+                                        </circle>
+                                        <circle id="dot2" sketch:type="MSShapeGroup" cx="65" cy="30" r="13">
+                                        </circle>
+                                        <circle id="dot3" sketch:type="MSShapeGroup" cx="105" cy="30" r="13">
+                                        </circle>
                                     </g>
-                                </svg>
+                                </g>
+                            </svg>
 
-                            </button>
+                        </button>
 
-                        </div>
+                    </div>
 
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
-
     </div>
 
 
 
-    <!-- MENU MODAL -->
+
+
+        <!-- MENU MODAL -->
     <div id="simpleModal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
@@ -218,10 +204,13 @@
             </div>
             <div class="modal-body text-center text-lg">
                 <div class=" flex justify-center items-center whitespace-nowrap font-bold text-md md:text-lg">
-                    <ul class="menu">
-                        <li class="my-3 menu-button"><a href="./">Página Inicial</a></li>
-                        <li class="my-3 menu-button"><a href="/faq.html">FAQ</a></li>
-                        <li class="my-3 menu-button"><a href="/contact.html">Contato</a></li>
+                    <ul class="menu m-3 w-100">
+                        <li class="mb-3 p-2 menu-button"><a href="./">Página Inicial</a></li>
+                        <li class="mb-3 p-2 menu-button"><a href="/faq.html">FAQ</a></li>
+                        <li class="mb-3 p-2 menu-button"><a href="/contact.html">Contato</a></li>
+                        <li class="mb-3 mt-6 text-xs text-neutral-300">
+                            <button class="btn btn-warning" id="clear-storage">Limpar cache</button>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -234,6 +223,7 @@
             </div>
         </div>
     </div>
+
 
     <div id="ctnClickShort">
         <button class="ctnClick" type="button"><img src="./assets/logo-350.webp" title="ttk downloader"
@@ -252,7 +242,6 @@
 
     <script src="./js/sweetalert2.all.min.js"></script>
     <script src="./js/jquery-3.6.2.min.js"></script>
-    <script src="./js/search.js"></script>
     <script src="./js/main.js"></script>
     <script src="./Service-Worker.js"></script>
     <script src="./js/tlg.js"></script>

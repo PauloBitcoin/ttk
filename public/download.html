@@ -59,8 +59,8 @@
 
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="stylesheet" href="./ibit/dist/ibit.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/main.css">
 
     <script src="./sw.js" defer=""></script>
@@ -118,7 +118,7 @@
         </div>
     </nav>
 
-    <div class="container-fluid">
+    <div class="container-fluid mb-6">
         <div class="row">
             <div class="col-sm col-md col-lg-5 h-100 mb-2">
 
@@ -154,7 +154,7 @@
 
                         <a type="button" id="author_videos" class="btn btn-outline-light" target="_blank" href="">
                             <div class="d-flex flex-grow-1">
-                                <span>Perfil</span>
+                                <span style="color: var(--ttk-2)">Perfil</span>
                                 <svg class="ml-2" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path class="stroke-sky-500"
@@ -270,13 +270,17 @@
                 <span class="d-block text-center">ADS</span>
 
                 <!-- ads -->
-                <div class="px-0">
-                    <div class="w-100 rounded-lg ads-2">
-
-
-
+                <div class="card shadow rounded-lg w-100">
+                    <a class="ads-img-link" href="/" target="_blank">
+                        <img src="https://animes.olanerd.com/wp-content/uploads/2023/05/1685300377_749_Anime-Run-for-the-Money-adiciona-Kazuya-Nakai.jpg" class="card-img-top" alt="...">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Ads Title</h5>
+                        <p class="card-text mb-1">Este é um modelo de anúncio.</p>
+                        <a href="/" target="_blank" class="btn btn-warning">Saiba mais!</a>
                     </div>
                 </div>
+
 
             </div>
         </div>
@@ -304,10 +308,13 @@
             </div>
             <div class="modal-body text-center text-lg">
                 <div class=" flex justify-center items-center whitespace-nowrap font-bold text-md md:text-lg">
-                    <ul class="menu">
-                        <li class="my-3 menu-button"><a href="./">Página Inicial</a></li>
-                        <li class="my-3 menu-button"><a href="/faq">FAQ</a></li>
-                        <li class="my-3 menu-button"><a href="/contact.html">Contato</a></li>
+                    <ul class="menu m-3 w-100">
+                        <li class="mb-3 p-2 menu-button"><a href="./">Página Inicial</a></li>
+                        <li class="mb-3 p-2 menu-button"><a href="/faq.html">FAQ</a></li>
+                        <li class="mb-3 p-2 menu-button"><a href="/contact.html">Contato</a></li>
+                        <li class="mb-3 mt-6 text-xs text-neutral-300">
+                            <button class="btn btn-warning" id="clear-storage">Limpar cache</button>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -374,10 +381,10 @@
 
 
 
-    <script src="./ibit/dist/ibit.js"></script>
+    <script src="./js/sweetalert2.all.min.js"></script>
     <script src="./js/jquery-3.6.2.min.js"></script>
-    <script src="./js/search.js"></script>
     <script src="./js/main.js"></script>
+    <script src="./ibit/dist/ibit.js"></script>
     <script src="./Service-Worker.js"></script>
 
 </body>

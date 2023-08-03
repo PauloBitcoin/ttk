@@ -578,7 +578,7 @@ ul.dropdown-window::-webkit-scrollbar {
   color: rgb(255, 255, 255);
 }
 
-.faqs-item  a {
+.faqs-item a {
   color: #e8eaed !important;
 }
 
@@ -2454,4 +2454,16 @@ textarea#wa_textarea:focus {
 
 .text-tkk {
   color: var(--ttk) !important;
+}
+
+.card img {
+  border-radius: inherit;
+}
+
+.card .ads-img-link {
+  border-radius: inherit;
+}
+
+.card{
+  background: transparent;
 }
