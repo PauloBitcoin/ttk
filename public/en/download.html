@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ttk downloader - Download TikTok videos without watermark!</title>
+
+    <meta name="googlebot" content="noindex">
+    <meta name="color-scheme" content="dark light">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+
+
+    <meta name="description"
+        content="Download TikTok videos without watermark! ttk downloader, is the best app to download videos and music from TikTok without watermark, online, free and without ads." />
+    <meta name="author" content="ttkapp.tk" />
+    <meta property="og:title" content="Download TikTok videos without watermark app!" />
+    <meta property="og:description"
+        content="Download TikTok videos without watermark! ttk downloader, is the best app to download videos and music from TikTok without watermark, online, free and without ads." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.ttkapp.tk/" />
+    <meta property="og:image" content="https://www.ttkapp.tk/assets/logo-350.webp" />
+    <meta property="og:site_name" content="ttkapp.tk" />
+    <meta name="keywords"
+        content="best app to download tiktok video, ssstik, snaptik, tiktok downloader, ttk downloader, ttk downloader, ttk, download, no watermark, Download TikTok videos without watermark, download tiktok video without watermark, tiktok without watermark, tiktok no watermark, no watermark tiktok video, download tiktok video" />
+
+    <!-- meta tags twitt -->
+
+    <meta name="twitter:title" content="ttk downloader - Download TikTok videos without watermark!">
+    <meta name="twitter:description" content="ttk downloader - Download TikTok videos without watermark! app download">
+    <meta name="twitter:image:src" content="https://www.ttkapp.tk/assets/logo-350.webp">
+
+    <!-- meta tags facebook -->
+    <meta property="og:site_name" content="ttk downloader - Download TikTok videos without watermark!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ttk downloader - Download TikTok videos without watermark!" />
+    <meta property="og:url" content="https://www.ttkapp.tk/" />
+    <meta property="og:image" content="https://www.ttkapp.tk/assets/logo-350.webp" />
+    <meta property="og:description" content="Download TikTok videos without watermark! app download" />
+
+    <!-- Código do Schema.org também para o Google+ -->
+    <meta itemprop="name" content="ttk downloader">
+    <meta itemprop="description" content="ttk downloader - Download TikTok videos without watermark!">
+    <meta itemprop="image" content="https://www.ttkapp.tk/assets/logo-350.webp">
+
+
+    <link rel="icon" href="../favicon/favicon.ico" sizes="any">
+    <link href="../favicon/favicon.ico" type="image/x-icon" rel="icon" />
+    <link href="../favicon/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+
+    <meta name="msapplication-TileImage" content="../favicon/favicon-32x32.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ff0050">
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <script src="../sw.js" defer=""></script>
+    <script defer src="../js/download.js"></script>
+
+    <script>
+        const lang = { currentLang: "en", paste: "Paste", clear: "Clear", linkEmpty: "empty!" };
+    </script>
+
+
+</head>
+
+<body class="w-full h-screen">
+    <div id="container" class="hidden container mx-auto h-full flex flex-col space-y-9">
+
+
+        <nav class="h-24 flex justify-between p-2 navbar">
+            <a href="./" class="h-full p-1.5 flex items-center">
+                <div class="w-10 h-10" href="#">
+                    <img width="350" height="350" class="w-full h-full" src="../assets/logo-350.webp"
+                        title="TikTok downloader" alt="ttk log"><span class="prog-bar"></span></img>
+                </div>
+                <div class="hidden sm:block ml-2 font-bold text-2xl dark:text-neutral-200 text-logo">tt<span
+                        style="color: var(--ttk);">k</span></div>
+            </a>
+            <div class="flex space-x-4 md:space-x-6 px-2 items-center">
+
+                <button class="reset-button navbar-btn navbar-lang dropdown" type="button" title="Language"
+                    onclick="toggleLang()">
+                    <span><i class="icon translate"></i></span>
+                </button>
+
+                <ul class="dropdown-window" id="SearchLang">
+                    <input type="text" id="LangInput" placeholder="Search..." title="Search Language"
+                        autocomplete="off">
+
+                    <li><a class="dropdown_link" href="../">Português<span class="badge">Original</span></a></li>
+                    <li><a class="dropdown_link" href="./">English</a></li>
+                    <li><a class="dropdown_link" href="/zh/">简体中文</a></li>
+                    <li><a class="dropdown_link" href="/hi/">हिन्दी</a></li>
+                    <li><a class="dropdown_link" href="/es/">Español</a></li>
+                    <li><a class="dropdown_link" href="/ar/">عربي</a></li>
+                    <li><a class="dropdown_link" href="/bn/">বাংলা</a></li>
+                    <li><a class="dropdown_link" href="/ru/">Русский</a></li>
+                    <li><a class="dropdown_link" href="/de/">Deutsch</a></li>
+                    <li><a class="dropdown_link" href="/ja/">日本語<span class="badge badge-ttk">新着</span></a></li>
+                    <li><a class="dropdown_link" href="/ko/">한국인</a></li>
+                    <li><a class="dropdown_link" href="/vi/">Tiếng Việt<span class="badge badge-ttk">Mới</span></a></li>
+                    <li><a class="dropdown_link" href="/th/">ภาษาไทย<span class="badge badge-ttk">ใหม่</span></a></li>
+                    <li><a class="dropdown_link" href="/az/">Azərbaycan dili</a></li>
+                </ul>
+
+
+
+                <button class="reset-button navbar-btn btn-darkmode" type="button" role="button" title="Dark mode">
+                    <i class="icon navbar-darkmode"></i>
+                </button>
+                <button id="modalBtn"
+                    class="button button flex justify-center items-center whitespace-nowrap cursor-pointer navbar-btn">
+                    <i class="icon btn-menu" title="Main menu"></i>
+                </button>
+
+            </div>
+        </nav>
+
+
+        <div class="mt-8 h-full px-2 flex flex-col space-y-6 pb-6 md:flex-row md:justify-center md:space-x-12 md:mt-0">
+
+            <!-- VIDEO -->
+
+            <div id="video_container" class="w-full h-1/2 rounded-lg px-2">
+                <!-- Chamar elemento vídeo com class jlplayer-video -->
+
+                <video controls id="plyr" class="rounded-lg plyr" poster="" preload="metadata" controls playsinline
+                    webkit-playsinline>
+                    <source id="video_source" src="">
+                </video>
+            </div>
+
+
+            <div class="w-full md:flex md:flex-col md:space-y-6">
+                <!-- CARD -->
+                <div
+                    class="dark:bg-neutral-600 md:bg-transparent dark:md:bg-transparent w-full rounded-lg flex flex-col px-2 pb-4 space-y-3 menu-down">
+                    <!-- USER -->
+                    <div class="w-full h-16 flex justify-between items-center space-x-2 px-2 dark:bg-black rounded-lg">
+                        <div>
+                            <img id="author_avatar" class="w-10 h-10 rounded-lg" src="" alt="avatar">
+                        </div>
+                        <div class="flex flex-col justify-start items-start flex-grow">
+                            <div id="author_name" class="font-bold -mt-1 dark:text-black text-white"></div>
+                            <div id="author_username" class="-mt-1 dark:text-black text-white"></div>
+                        </div>
+
+                        <a id="author_videos" class="clear_css" target="_blank" href="" title="Open Profile">
+                            <div
+                                class="h-10 flex justify-center items-center p-2 rounded-lg transition-colors border-white-1">
+                                <span style="color: #fff;">Profile</span>
+                                <svg class="ml-2" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path class="stroke-sky-500"
+                                        d="M10 6H6C4.89543 6 4 6.89543 4 8V18C4 19.1046 4.89543 20 6 20H16C17.1046 20 18 19.1046 18 18V14M14 4H20M20 4V10M20 4L10 14"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Buttons -->
+                    <div class="flex items-center space-x-3 md:flex-col md:space-x-0 md:space-y-3 w-full">
+                        <div onclick="handleDownloadButtonClick(this)" key="video" id="video_download"
+                            class="relative w-full flex flex-col justify-center items-center py-1 rounded-lg transition-colors cursor-pointer sem-marca">
+                            <div class="button-content flex flex-col justify-center items-center py-1">
+                                <span class="font-semibold text-lg">Download video</span>
+                                <span class="text-sm whitespace-nowrap -mt-1">no watermark</span>
+                            </div>
+                            <svg class="dots hidden absolute left-0 right-0 mx-auto h-3/4" id="loader"
+                                viewBox="0 0 132 58" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+                                <g class="fill-neutral-800" id="Page-1" stroke="none" stroke-width="1"
+                                    fill-rule="evenodd" sketch:type="MSPage">
+                                    <g sketch:type="MSArtboardGroup">
+                                        <circle id="dot1" sketch:type="MSShapeGroup" cx="25" cy="30" r="13"></circle>
+                                        <circle id="dot2" sketch:type="MSShapeGroup" cx="65" cy="30" r="13"></circle>
+                                        <circle id="dot3" sketch:type="MSShapeGroup" cx="105" cy="30" r="13"></circle>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <div onclick="handleDownloadButtonClick(this)" key="video_wm" id="video_download_wm"
+                            class="relative w-full flex flex-col justify-center items-center py-1 rounded-lg bg-sky-300 transition-colors cursor-pointer com-marca">
+                            <div class="button-content flex flex-col justify-center items-center py-1">
+                                <span class="font-semibold text-lg ">Download video</span>
+                                <span class="text-sm whitespace-nowrap -mt-1 justify-center items-center flex"><i
+                                        class="icon icon-alert"></i> with watermark</span>
+                            </div>
+                            <svg class="dots hidden absolute left-0 right-0 mx-auto h-3/4" id="loader"
+                                viewBox="0 0 132 58" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+                                <g class="fill-neutral-800" id="Page-1" stroke="none" stroke-width="1"
+                                    fill-rule="evenodd" sketch:type="MSPage">
+                                    <g sketch:type="MSArtboardGroup">
+                                        <circle id="dot1" sketch:type="MSShapeGroup" cx="25" cy="30" r="13"></circle>
+                                        <circle id="dot2" sketch:type="MSShapeGroup" cx="65" cy="30" r="13"></circle>
+                                        <circle id="dot3" sketch:type="MSShapeGroup" cx="105" cy="30" r="13"></circle>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- MUSIC -->
+                    <div
+                        class="dark:bg-sky-100 bg-sky-900 w-full h-16 rounded-lg flex p-2 justify-between items-center space-x-2">
+                        <div>
+                            <img id="music_cover" class="w-10 h-10 rounded-lg" src="" alt="music">
+                        </div>
+                        <div class="flec flex-col justify-start items-start flex-grow overflow-hidden">
+                            <div id="music_title"
+                                class="font-bold -mt-1 dark:text-black text-white whitespace-nowrap music_title">
+                            </div>
+                            <div id="music_author" class="-mt-1 dark:text-black text-white whitespace-nowrap">
+                            </div>
+                        </div>
+
+                        <script>
+                            var i;
+                            var divs = document.getElementsById('#music_title');
+                            for (i = 0; i < divs.length; i++) {
+                                if (divs[i].className == 'music_title') {
+                                    divs[i].innerHTML = divs[i].innerHTML.substring(0, 3) + '<a href="#">Read more</a>';
+                                }
+                            }
+
+                        </script>
+
+
+                        <div onclick="handleDownloadButtonClick(this)" key="music" id="music_download"
+                            class="relative w-10 h-10 flex justify-center items-center p-2 rounded-lg bg-white cursor-pointer">
+                            <i class="button-content icon icon-music" id="Capa_1"></i>
+                            <i class="hidden animate-spin absolute left-0 right-0 mx-auto w-6 h-6 icon-loader"
+                                id="loader"></i>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- INPUT -->
+                <form method="GET" class="flex flex-col px-2 py-4">
+                    <div class="text-center text-lg dark:text-neutral-100 mb-1">
+                        Download another video
+                    </div>
+                    <div class="w-full flex h-10 mb-1 rounded-lg bg-white ring dark:ring-rose-600 ring-neutral-600">
+                        <input type="text" name="url"
+                            placeholder="https://www.tiktok.com/@lorengray/video/7160732789808303406" required
+                            class="clear-css w-full grow h-full rounded-tl-md rounded-bl-md px-6 bg-white form-control"
+                            id="url" value="" required="" aria-label="Name" autocomplete="off" autocapitalize="none"
+                            title="Paste the video link">
+
+                        <button type="button" class="btn btn-paste bg-white rounded-tr-md rounded-br-md"
+                            style="display: flex;"><i class="icon icon-paste"></i><span>Paste</span>
+
+                        </button>
+                    </div>
+                    <button type="submit"
+                        class="w-full flex justify-center items-center py-2 mb-8 rounded-lg text-white btn-down transition-colors cursor-pointer">
+                        <i class="icon icon-go"></i><span>Download</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- ads -->
+            <div class="w-full h-full block justify-between lg:max-w-lg rounded-lg mb-3">
+                <div class="w-full rounded-lg ads-2">
+
+                    <script async
+                        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7521851955262237"
+                        crossorigin="anonymous"></script>
+                    <!-- 4x4 -->
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7521851955262237"
+                        data-ad-slot="1873262985" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    <!-- MENU MODAL -->
+    <div id="simpleModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title titulo-pub mr-2 text-lg" id="exampleModalLabel">Main Menu</h5>
+                <button type="button" class="closeBtn" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 14L34 34" stroke="#000" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                            <path d="M14 34L34 14" stroke="#000" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+
+                    </span>
+                </button>
+            </div>
+            <div class="modal-body text-center text-lg">
+                <div class=" flex justify-center items-center whitespace-nowrap font-bold text-md md:text-lg">
+                    <ul class="menu">
+                        <li class="my-3 menu-button"><a href="./">Home</a></li>
+                        <li class="my-3 menu-button"><a href="./faq.html">FAQ</a></li>
+                        <li class="my-3 menu-button"><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <h3 style=" color: #bdbdbd;">©
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script> ttk downloader
+                </h3>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- atalho -->
+    <div id="ctnClickShort">
+        <button class="ctnClick" type="button"><img src="../assets/logo-350.webp" title="ttk downloader app"
+                alt="ttk downloader">
+            <span class="title-add" style="font-weight:500;" id="nome">Install ttk as application. <small>(no
+                    takes up space on the device)</small></span>
+        </button>
+        <a class="ctnClickClose" href="javascript:;" onclick="closeCreateShort(this);">
+            <svg width="22" height="22" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 14L34 34" stroke="#666" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M14 34L34 14" stroke="#666" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </a>
+    </div>
+
+    <div id="overlay_loader" class="overlay hidden bg-neutral-100 dark:bg-neutral-800">
+        <div class="overlay__inner">
+            <div class="overlay__content"><span
+                    class="spinner dark:border-t-white dark:border-neutral-700 border-neutral-200 border-t-neutral-900"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/jquery-3.6.2.min.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../Service-Worker.js"></script>
+
+</body>
+
+</html>

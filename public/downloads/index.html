@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <title>Downloads</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!--STYLE-->
+    <link href="downloads/css/bootstrap.min.css" rel="stylesheet">
+    <link href="downloads/css/style.css" rel="stylesheet">
+
+    <script src="downloads/js/jquery.min.js"></script>
+
+</head>
+
+
+
+<body>
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 px-3 shadow-sm">
+        <div class="container-fluid">
+            <h4 class=""> Página de <small class="text-muted"> Downloads</small></h4>
+            <form class="d-flex">
+                <input class="form-control me-2" id="DownInput" type="search" placeholder="Buscar..."
+                    aria-label="Search">
+            </form>
+            <!--<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>-->
+
+        </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="row mt-4 mx-auto">
+            <div class="alert alert-warning alert-dismissible py-2 mb-4 fade show" role="alert" id="Alert">
+                <strong>Baixe vídeos do TikTok</strong> sem marca d'água e sem anúncios.
+                <a href="./" class="ms-1 btn btn-sm btn-danger">Conheça!</a>
+                <a class="btn-sm btn-close p-3" data-bs-dismiss="alert" aria-label="Close" onclick="removeALert()"></a>
+            </div>
+
+            <script>
+                function removeALert() {
+                    var element = document.getElementById("Alert");
+                    element.classList.add("hidden");
+                }
+            </script>
+        </div>
+
+
+        <div id="DownCards" class="row">
+
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <div class="card rounded-3 border-0 shadow">
+                    <img src="downloads/img/1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Formulário Spreadsheets.</h5>
+                        <p class="card-text">Formulário de contato Google Spreadsheets.</p>
+                        <a href="https://github.com/PauloBitcoin/Form-Spreadsheet/archive/refs/heads/main.zip"
+                            class="btn btn-primary me-1 mb-1">Download</a>
+                        <a href="https://youtu.be/EFpSr8Q0dBc" class="btn btn-danger mb-1">Tutorial</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <div class="card rounded-3 border-0 shadow">
+                    <img src="downloads/img/2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Formulário Telegram.</h5>
+                        <p class="card-text">Formulário de contato Telegram.</p>
+
+
+                        <a href="https://github.com/PauloBitcoin/form-Telegram/archive/refs/heads/main.zip"
+                            class="btn btn-primary me-1 mb-1">Download</a>
+                        <a href="https://www.youtube.com/@paulobitcoin" class="btn btn-danger mb-1">Tutorial</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--ALERTS-->
+    <script src="downloads/js/sweetalert2.all.min.js"></script>
+
+    <script>
+        $('#DownInput').keyup(function () {
+            var value = $(this).val().toLowerCase();
+            $('#DownCards div').each(function () {
+                var lcval = $(this).text().toLowerCase();
+                if (lcval.indexOf(value) > -1) {
+                    $(this).show();
+
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
+    </script>
+
+
+
+</body>
+
+</html>
