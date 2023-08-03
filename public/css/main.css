@@ -586,7 +586,7 @@ a {
   color: #222 !important;
 }
 
-.dark-theme a {
+.dark-theme .menu-button a {
   color: #e8eaed !important;
 }
 

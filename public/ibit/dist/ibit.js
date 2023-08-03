@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const video = document.querySelector('video');
     video.controls = false;
-    video.loop = true;
+    // video.loop = true;
     video.muted = true;
     video.preload = "metadata";
 
@@ -65,11 +65,11 @@ document.addEventListener("DOMContentLoaded", function () {
     video.setAttribute('tabindex', '-1');
 
 
-    function showElement(element) {
+    function ibitShow(element) {
         element.removeAttribute('hidden');
     }
 
-    function hideElement(element) {
+    function ibitHide(element) {
         element.setAttribute('hidden', 'true');
     }
 
@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
         playLarge.setAttribute("data-ibit", "play");
         playLarge.classList.add('ibit-play-lg');
         playLarge.style.display = 'none';
-        hideElement(playLarge);
+        ibitHide(playLarge);
         ibitContainer.appendChild(playLarge);
 
         const span = document.createElement("span");
@@ -141,32 +141,34 @@ document.addEventListener("DOMContentLoaded", function () {
         //waitSpinner
         const waitSpinner = document.createElement('div');
         waitSpinner.classList.add('loading');
-        hideElement(waitSpinner);
+        ibitHide(waitSpinner);
         ibitContainer.appendChild(waitSpinner);
-        showElement(waitSpinner);
+        ibitShow(waitSpinner);
 
         ibit.addEventListener('loadedmetadata', function () {
-            showElement(waitSpinner);
+            ibitShow(waitSpinner);
         });
 
         ibit.addEventListener("canplay", () => {
             ibit.play();
-            showControls();
+            if (!video.loop) {
+                showControls();
+            }
         });
 
         ibit.addEventListener("playing", () => {
-            hideElement(waitSpinner);
+            ibitHide(waitSpinner);
             waitSpinner.style.display = 'none';
         });
 
         ibit.addEventListener("pause", () => {
-            hideElement(waitSpinner);
+            ibitHide(waitSpinner);
             waitSpinner.style.display = 'none';
         });
 
 
         ibit.addEventListener("waiting", () => {
-            showElement(waitSpinner);
+            ibitShow(waitSpinner);
             waitSpinner.style.display = 'block';
         });
 
@@ -616,7 +618,7 @@ document.addEventListener("DOMContentLoaded", function () {
      let trackElem = document.querySelector("track");
      let track = trackElem.track;
      if (trackElem.getAttribute("src") !== "") {
-         showElement(captionsButton)
+         ibitShow(captionsButton)
  
      }
  
@@ -803,23 +805,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    // Repeat
-
-    let isRepeat = false
-    ibit.addEventListener('ended', () => {
-        if (isRepeat) {
-            ibit.play();
-            playSmall.innerHTML = svgs.pause;
-        } else {
-            playSmall.innerHTML = svgs.restart;
-            showControls();
-        }
-    });
-
-
-
-
-
 
 
     // Esconde os controles
@@ -835,6 +820,27 @@ document.addEventListener("DOMContentLoaded", function () {
             ibitContainer.classList.add("ibit-hide-controls");
         }, timeoutDuration);
     }
+
+
+
+    // Repeat
+    let loopOn = video.loop = true;
+    let isRepeat = false
+    ibit.addEventListener('ended', () => {
+        loopOn;
+        if (isRepeat) {
+            ibit.play();
+            playSmall.innerHTML = svgs.pause;
+        } else {
+            playSmall.innerHTML = svgs.restart;
+            showControls();
+        }
+    });
+
+
+
+
+
 
 
 
@@ -878,7 +884,7 @@ document.addEventListener("DOMContentLoaded", function () {
         function showRewindCounter() {
             const message = `${Math.abs(rewindTime)}s`;
             TouchStartText.textContent = message;
-            showElement(touchStartContainer);
+            ibitShow(touchStartContainer);
 
         }
 
@@ -886,12 +892,12 @@ document.addEventListener("DOMContentLoaded", function () {
         function showForwardCounter() {
             const message = `${Math.abs(forwardTime)}s`;
             TouchEndText.textContent = message;
-            showElement(touchEndContainer);
+            ibitShow(touchEndContainer);
         }
 
         function hideCounter() {
-            hideElement(touchStartContainer);
-            hideElement(touchEndContainer);
+            ibitHide(touchStartContainer);
+            ibitHide(touchEndContainer);
 
             TouchStartText.textContent = '';
             TouchEndText.textContent = '';
@@ -1613,7 +1619,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     } else {
-        hideElement(pipButton)
+        ibitHide(pipButton)
     }
 
 
