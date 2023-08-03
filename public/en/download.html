@@ -66,7 +66,7 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/main.css" rel="stylesheet">
 
-  
+
     <script defer src="../js/download.js"></script>
 
     <script>
@@ -267,7 +267,8 @@
                 <!-- ads -->
                 <div class="card shadow rounded-lg w-100">
                     <a class="ads-img-link" href="/" target="_blank">
-                        <img src="https://animes.olanerd.com/wp-content/uploads/2023/05/1685300377_749_Anime-Run-for-the-Money-adiciona-Kazuya-Nakai.jpg" class="card-img-top" alt="...">
+                        <img src="https://animes.olanerd.com/wp-content/uploads/2023/05/1685300377_749_Anime-Run-for-the-Money-adiciona-Kazuya-Nakai.jpg"
+                            class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
                         <h5 class="card-title">Ads Title</h5>
@@ -283,61 +284,59 @@
     </div>
 
 
+    <!-- MENU MODAL -->
+    <div id="simpleModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title titulo-pub mr-2 text-lg" id="exampleModalLabel">Main Menu</h5>
+                <button type="button" class="closeBtn" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 14L34 34" stroke="#000" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                            <path d="M14 34L34 14" stroke="#000" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
 
-        <!-- MENU MODAL -->
-        <div id="simpleModal" class="modal-overlay">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title titulo-pub mr-2 text-lg" id="exampleModalLabel">Main Menu</h5>
-                    <button type="button" class="closeBtn" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M14 14L34 34" stroke="#000" stroke-width="3" stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                                <path d="M14 34L34 14" stroke="#000" stroke-width="3" stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                            </svg>
-    
-                        </span>
-                    </button>
-                </div>
-                <div class="modal-body text-center text-lg">
-                    <div class=" flex justify-center items-center whitespace-nowrap font-bold text-md md:text-lg">
-                        <ul class="menu m-3 w-100">
-                            <li class="mb-3 p-2 menu-button"><a href="../">Home</a></li>
-                            <li class="mb-3 p-2 menu-button"><a href="./faq.html">FAQ</a></li>
-                            <li class="mb-3 p-2 menu-button"><a href="./contact.html">Contact</a></li>
-                            <li class="mb-3 mt-6 text-xs text-neutral-300">
-                                <button class="btn btn-warning" id="clear-storage">Clear cache</button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <h3 style=" color: #bdbdbd;">©
-                        <script>
-                            document.write(new Date().getFullYear());
-                        </script> ttkvideo
-                    </h3>
+                    </span>
+                </button>
+            </div>
+            <div class="modal-body text-center text-lg">
+                <div class=" flex justify-center items-center whitespace-nowrap font-bold text-md md:text-lg">
+                    <ul class="menu m-3 w-100">
+                        <li class="mb-3 p-2 menu-button"><a href="./">Home</a></li>
+                        <li class="mb-3 p-2 menu-button"><a href="./faq.html">FAQ</a></li>
+                        <li class="mb-3 p-2 menu-button"><a href="./contact.html">Contact</a></li>
+                        <li class="mb-3 mt-6 text-xs text-neutral-300">
+                            <button class="btn btn-warning" id="clear-storage">Clear cache</button>
+                        </li>
+                    </ul>
                 </div>
             </div>
+            <div class="modal-footer">
+                <h3 style=" color: #bdbdbd;">©
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script> ttkvideo
+                </h3>
+            </div>
         </div>
-    
-    
-        <div id="ctnClickShort">
-            <button class="ctnClick" type="button"><img src="../assets/logo-350.webp" title="ttkvideo app"
-                    alt="ttkvideo">
-                <span class="title-add" style="font-weight:500;" id="nome">Install ttk as an application. <small>(no
+    </div>
+
+
+    <div id="ctnClickShort">
+        <button class="ctnClick" type="button"><img src="../assets/logo-350.webp" title="ttkvideo app" alt="ttkvideo">
+            <span class="title-add" style="font-weight:500;" id="nome">Install ttk as an application. <small>(no
                     takes up space on device)</small></span>
-            </button>
-            <a class="ctnClickClose" href="javascript:;" onclick="closeCreateShort(this);">
-                <svg width="22" height="22" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14 14L34 34" stroke="#666" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M14 34L34 14" stroke="#666" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-            </a>
-        </div>
-    
+        </button>
+        <a class="ctnClickClose" href="javascript:;" onclick="closeCreateShort(this);">
+            <svg width="22" height="22" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 14L34 34" stroke="#666" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M14 34L34 14" stroke="#666" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </a>
+    </div>
+
 
     <div id="overlay_loader" class="overlay bg-neutral-100 dark:bg-neutral-800">
         <div class="overlay__inner">

@@ -65,171 +65,153 @@
     <script src="../sw.js" defer=""></script>
 
 
-   
+
 
 </head>
 
-<body class="w-full h-screen  light-theme">
-    <div class="container mx-auto flex flex-col space-y-9">
+<body class="w-100">
 
-        <nav class="h-24 flex justify-between p-2 navbar">
-            <a href="./" class="h-full p-1.5 flex items-center">
-                <div class="w-10 h-10" href="#">
-                    <img width="350" height="350" class="w-full h-full" src="../assets/logo-350.webp"
-                        title="TikTok downloader" alt="ttk log"><span class="prog-bar"></span></img>
-                </div>
-                <div class="hidden sm:block ml-2 font-bold text-2xl dark:text-neutral-200 text-logo">tt<span
-                        style="color: var(--ttk);">k</span></div>
-            </a>
-            <div class="flex space-x-4 md:space-x-6 px-2 items-center">
-
-                <button class="reset-button navbar-btn navbar-lang dropdown" type="button" title="Language"
-                    onclick="toggleLang()">
-                    <span><i class="icon translate"></i></span>
-                </button>
-
-                <ul class="dropdown-window" id="SearchLang">
-                    <input type="text" id="LangInput" placeholder="Search..." title="Search Language"
-                        autocomplete="off">
-
-                    <li><a class="dropdown_link" href="../">Português<span class="badge">Original</span></a></li>
-                    <li><a class="dropdown_link" href="./">English</a></li>
-                    <li><a class="dropdown_link" href="/zh/">简体中文</a></li>
-                    <li><a class="dropdown_link" href="/hi/">हिन्दी</a></li>
-                    <li><a class="dropdown_link" href="/es/">Español</a></li>
-                    <li><a class="dropdown_link" href="/ar/">عربي</a></li>
-                    <li><a class="dropdown_link" href="/bn/">বাংলা</a></li>
-                    <li><a class="dropdown_link" href="/ru/">Русский</a></li>
-                    <li><a class="dropdown_link" href="/de/">Deutsch</a></li>
-                    <li><a class="dropdown_link" href="/ja/">日本語<span class="badge badge-ttk">新着</span></a></li>
-                    <li><a class="dropdown_link" href="/ko/">한국인</a></li>
-                    <li><a class="dropdown_link" href="/vi/">Tiếng Việt<span class="badge badge-ttk">Mới</span></a></li>
-                    <li><a class="dropdown_link" href="/th/">ภาษาไทย<span class="badge badge-ttk">ใหม่</span></a></li>
-                    <li><a class="dropdown_link" href="/az/">Azərbaycan dili</a></li>
-                </ul>
-
-                <button class="reset-button navbar-btn btn-darkmode" type="button" role="button" title="Dark mode">
-                    <i class="icon navbar-darkmode"></i>
-                </button>
-                <button id="modalBtn"
-                    class="button button flex justify-center items-center whitespace-nowrap cursor-pointer navbar-btn">
-                    <i class="icon btn-menu" title="Main menu"></i>
-                </button>
-
+    <nav class="h-24 flex justify-between p-2 navbar">
+        <a href="./" class="h-100 text-decoration-none flex items-center">
+            <div class="w-10 h-10" href="#">
+                <img width="350" height="350" class="w-full h-full" src="../assets/logo-350.webp"
+                    title="TikTok Downloader" alt="ttk log"></img>
             </div>
-        </nav>
+            <div class=" me-2 font-bold text-2xl text-secondary text-logo">tt<span style="color: var(--ttk);">k</span>
+            </div>
+        </a>
+        <div class="d-flex">
+            <button class="btn mx-1 reset-button navbar-btn navbar-lang dropdown" type="button" title="Idioma"
+                onclick="toggleLang()">
+                <span><i class="icon translate"></i></span>
+            </button>
 
-        <div class="h-full faq w-full px-6 block md:justify-center md:space-x-12 md:mt-0">
-            <div class="container">
-                <h5 class="title-faq"> FAQ </h5>
-                <div class="faqs-grid">
-                    <div class="faqs-item">
-                        <a class="faqs-title" href="#1">
-                            How to Download Videos from TikTok (Step by Step)
-                        </a>
-                        <div class="faqs-content">
-                            <div class="faqs-content-inside">
-                                <ol>
-                                    <li>Open the TikTok app on your phone or PC</li>
-                                    <li>Choose the video you want to download.</li>
-                                    <li>Click the Share button in the lower right corner.</li>
+            <ul class="dropdown-window" id="SearchLang">
+
+                <li><a class="dropdown-item" href="../">Português<span class="badge">Original</span></a></li>
+                <li><a class="dropdown-item" href="/en/">English<span class="badge badge-ttk">new</span></a></li>
+            </ul>
 
 
-                                    <li>Click the copy button.</li>
-                                    <li>Then just paste the video in the ttk downloader click on the download arrow,
-                                        choose
-                                        the format and that's it. If you prefer the 3 dots of your browser, you have the
-                                        option:
-                                        Install app, try it, it's even faster. </li>
-                                </ol>
-                            </div>
-                        </div>
+            <button class="btn mx-1 reset-button navbar-btn btn-darkmode " type="button" role="button"
+                title="Modo noite">
+                <i class="icon navbar-darkmode"></i>
+            </button>
+            <button id="modalBtn" class="btn mx-1 navbar-btn">
+                <i class="icon btn-menu" title="Menu"></i>
+            </button>
+
+
+        </div>
+    </nav>
+
+    <div class="container-fluid mb-6">
+        <h5 class="title-faq"> FAQ </h5>
+        <div class="faqs-grid">
+            <div class="faqs-item">
+                <a class="faqs-title" href="#1">
+                    How to Download Videos from TikTok (Step by Step)
+                </a>
+                <div class="faqs-content">
+                    <div class="faqs-content-inside">
+                        <ol>
+                            <li>Open the TikTok app on your phone or PC</li>
+                            <li>Choose the video you want to download.</li>
+                            <li>Click the Share button in the lower right corner.</li>
+
+
+                            <li>Click the copy button.</li>
+                            <li>Then just paste the video in the ttk downloader click on the download arrow,
+                                choose
+                                the format and that's it. If you prefer the 3 dots of your browser, you have the
+                                option:
+                                Install app, try it, it's even faster. </li>
+                        </ol>
                     </div>
+                </div>
+            </div>
 
-                    <div class="faqs-item ">
-                        <a class="faqs-title" href="#2">
-                            Where do I find the videos after downloading?
-                        </a>
-                        <div class="faqs-content">
-                            <div class="faqs-content-inside">
+            <div class="faqs-item ">
+                <a class="faqs-title" href="#2">
+                    Where do I find the videos after downloading?
+                </a>
+                <div class="faqs-content">
+                    <div class="faqs-content-inside">
 
-                                <p>They are usually saved in a default folder.
-                                    Your browser normally defines this folder for you. In browser settings,
-                                    you can manually change and choose destination folder for your TikTok videos
-                                    downloaded.
-                                </p>
-                            </div>
-                        </div>
+                        <p>They are usually saved in a default folder.
+                            Your browser normally defines this folder for you. In browser settings,
+                            you can manually change and choose destination folder for your TikTok videos
+                            downloaded.
+                        </p>
                     </div>
+                </div>
+            </div>
 
-                    <div class="faqs-item ">
-                        <a class="faqs-title" href="#3">
-                            Can I download music from video in mp3?
-                        </a>
-                        <div class="faqs-content">
-                            <div class="faqs-content-inside">
-                                <p>Yes. With ttk downloader you can also download the music from the video in mp3, to
-                                    download
-                                    just click on the music icon.</p>
-                            </div>
-                        </div>
+            <div class="faqs-item ">
+                <a class="faqs-title" href="#3">
+                    Can I download music from video in mp3?
+                </a>
+                <div class="faqs-content">
+                    <div class="faqs-content-inside">
+                        <p>Yes. With ttk downloader you can also download the music from the video in mp3, to
+                            download
+                            just click on the music icon.</p>
                     </div>
+                </div>
+            </div>
 
-                    <div class="faqs-item ">
-                        <a class="faqs-title" href="#4">
-                            ttk downloader is free?
-                        </a>
-                        <div class="faqs-content">
-                            <div class="faqs-content-inside">
+            <div class="faqs-item ">
+                <a class="faqs-title" href="#4">
+                    ttk downloader is free?
+                </a>
+                <div class="faqs-content">
+                    <div class="faqs-content-inside">
 
-                                <p>Yes. ttk downloader is free, you will have no cost to use
-                                    our services. </p>
-                            </div>
-                        </div>
+                        <p>Yes. ttk downloader is free, you will have no cost to use
+                            our services. </p>
                     </div>
+                </div>
+            </div>
 
-                    <div class="faqs-item ">
-                        <a class="faqs-title" href="#5">
-                            does the ttk downloader app take up memory on my device?
-                        </a>
-                        <div class="faqs-content">
-                            <div class="faqs-content-inside">
-                                <p>The answer is no. ttk downloader does not occupy memory. You can install on your
-                                    Android
-                                    or
-                                    PC
-                                    without
-                                    worry about memory consumption,
-                                    the app storage is 100% in the cloud, your device will only store the
-                                    shortcut,
-                                    which is smaller than a photo.</p>
-                            </div>
-                        </div>
+            <div class="faqs-item ">
+                <a class="faqs-title" href="#5">
+                    does the ttk downloader app take up memory on my device?
+                </a>
+                <div class="faqs-content">
+                    <div class="faqs-content-inside">
+                        <p>The answer is no. ttk downloader does not occupy memory. You can install on your
+                            Android
+                            or
+                            PC
+                            without
+                            worry about memory consumption,
+                            the app storage is 100% in the cloud, your device will only store the
+                            shortcut,
+                            which is smaller than a photo.</p>
                     </div>
+                </div>
+            </div>
 
 
-                    <div class="faqs-item ">
-                        <a class="faqs-title" href="#6">
-                            How to install the App ttk downloader?
-                        </a>
-                        <div class="faqs-content">
-                            <div class="faqs-content-inside">
+            <div class="faqs-item ">
+                <a class="faqs-title" href="#6">
+                    How to install the App ttk downloader?
+                </a>
+                <div class="faqs-content">
+                    <div class="faqs-content-inside">
 
-                                <p>If you are accessing from an Android device or PC, just click on the banner
-                                    located at the end of the screen to install, it's easy and fast. If the banner does
-                                    not
-                                    appear in Chrome,
-                                    go to the three and click on (install application) on the PC the little arrow
-                                    appears
-                                    inside the browser bar.</p>
-                            </div>
-                        </div>
+                        <p>If you are accessing from an Android device or PC, just click on the banner
+                            located at the end of the screen to install, it's easy and fast. If the banner does
+                            not
+                            appear in Chrome,
+                            go to the three and click on (install application) on the PC the little arrow
+                            appears
+                            inside the browser bar.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 
 
     <!-- MENU MODAL -->
@@ -251,10 +233,13 @@
             </div>
             <div class="modal-body text-center text-lg">
                 <div class=" flex justify-center items-center whitespace-nowrap font-bold text-md md:text-lg">
-                    <ul class="menu">
-                        <li class="my-3 menu-button"><a href="./">Home</a></li>
-                        <li class="my-3 menu-button"><a href="./faq.html">FAQ</a></li>
-                        <li class="my-3 menu-button"><a href="/contact.html">Contact</a></li>
+                    <ul class="menu m-3 w-100">
+                        <li class="mb-3 p-2 menu-button"><a href="./">Home</a></li>
+                        <li class="mb-3 p-2 menu-button"><a href="./faq.html">FAQ</a></li>
+                        <li class="mb-3 p-2 menu-button"><a href="./contact.html">Contact</a></li>
+                        <li class="mb-3 mt-6 text-xs text-neutral-300">
+                            <button class="btn btn-warning" id="clear-storage">Clear cache</button>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -262,7 +247,7 @@
                 <h3 style=" color: #bdbdbd;">©
                     <script>
                         document.write(new Date().getFullYear());
-                    </script> ttk downloader
+                    </script> ttkvideo
                 </h3>
             </div>
         </div>

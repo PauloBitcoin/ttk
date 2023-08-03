@@ -67,119 +67,99 @@
 
 </head>
 
-<body class="w-full h-screen  light-theme">
-    <div class="container mx-auto flex flex-col space-y-9">
+<body class="w-100">
 
-
-        <nav class="h-24 flex justify-between p-2 navbar">
-            <a href="./" class="h-full p-1.5 flex items-center">
-                <div class="w-10 h-10" href="#">
-                    <img width="350" height="350" class="w-full h-full" src="../assets/logo-350.webp"
-                        title="TikTok downloader" alt="ttk log"><span class="prog-bar"></span></img>
-                </div>
-                <div class="hidden sm:block ml-2 font-bold text-2xl dark:text-neutral-200 text-logo">tt<span
-                        style="color: var(--ttk);">k</span></div>
-            </a>
-            <div class="flex space-x-4 md:space-x-6 px-2 items-center">
-
-                <button class="reset-button navbar-btn navbar-lang dropdown" type="button" title="Language"
-                    onclick="toggleLang()">
-                    <span><i class="icon translate"></i></span>
-                </button>
-
-                <ul class="dropdown-window" id="SearchLang">
-                    <input type="text" id="LangInput" placeholder="Search..." title="Search Language"
-                        autocomplete="off">
-
-                    <li><a class="dropdown_link" href="../">Português<span class="badge">Original</span></a></li>
-                    <li><a class="dropdown_link" href="./">English</a></li>
-                    <li><a class="dropdown_link" href="/zh/">简体中文</a></li>
-                    <li><a class="dropdown_link" href="/hi/">हिन्दी</a></li>
-                    <li><a class="dropdown_link" href="/es/">Español</a></li>
-                    <li><a class="dropdown_link" href="/ar/">عربي</a></li>
-                    <li><a class="dropdown_link" href="/bn/">বাংলা</a></li>
-                    <li><a class="dropdown_link" href="/ru/">Русский</a></li>
-                    <li><a class="dropdown_link" href="/de/">Deutsch</a></li>
-                    <li><a class="dropdown_link" href="/ja/">日本語<span class="badge badge-ttk">新着</span></a></li>
-                    <li><a class="dropdown_link" href="/ko/">한국인</a></li>
-                    <li><a class="dropdown_link" href="/vi/">Tiếng Việt<span class="badge badge-ttk">Mới</span></a></li>
-                    <li><a class="dropdown_link" href="/th/">ภาษาไทย<span class="badge badge-ttk">ใหม่</span></a></li>
-                    <li><a class="dropdown_link" href="/az/">Azərbaycan dili</a></li>
-                </ul>
-
-                <button class="reset-button navbar-btn btn-darkmode" type="button" role="button" title="Dark mode">
-                    <i class="icon navbar-darkmode"></i>
-                </button>
-                <button id="modalBtn"
-                    class="button button flex justify-center items-center whitespace-nowrap cursor-pointer navbar-btn">
-                    <i class="icon btn-menu" title="Main menu"></i>
-                </button>
-
+    <nav class="h-24 flex justify-between p-2 navbar">
+        <a href="./" class="h-100 text-decoration-none flex items-center">
+            <div class="w-10 h-10" href="#">
+                <img width="350" height="350" class="w-full h-full" src="../assets/logo-350.webp"
+                    title="TikTok Downloader" alt="ttk log"></img>
             </div>
-        </nav>
-
-
-
-        <div class="h-full w-full px-6 block md:justify-center md:space-x-12 md:mt-0">
-            <div class="container">
-                <h2 class="text-center mb-2 font-bold text-3xl">Privacy Policy</h2>
-                <div class="mx-3 flex flex-col mb-3">
-
-                    <h2 class="mb-1 font-bold text-lg">Personally Identifiable Information</h2>
-                    <p class="mb-2">Users can visit the ttk downloader App anonymously. We never recorded
-                        information
-                        identifying information from our users and we will only collect personally identifiable
-                        information from
-                        users if they voluntarily submit this information to us. Users can always
-                        refuse
-                        to provide personally identifiable information. However, if they agree to provide it, they are
-                        responsible for providing accurate and correct identifying information about themselves. the ttk
-                        downloader
-                        is not responsible for any false or incorrect information provided by Users. if
-                        we discover such incidents, we will prohibit users from accessing and using the ttk application
-                        downloader and
-                        our services.</p>
-
-                    <h2 class="mb-1 font-bold text-lg">Advertising</h2>
-                    <p class="mb-2">We accept ads (ads) in ttk downloader app to maintain and support
-                        our own
-                        research and development on ttk downloader app for non-commercial purposes. the ads
-                        displayed on
-                        ttk downloader app may be delivered to users by advertising partners who
-                        can define
-                        Cookies. They will only compile non-personally identifiable information about you or other
-                        people who use your computer and will not track personal information about you, such as your
-                        name,
-                        email address and physical address. You can opt out of the use of cookies or stop the
-                        access
-                        to our app and website anytime as ttk downloader users are not
-                        obliged to
-                        accept the ads.</p>
-
-                    <h2 class="mb-1 font-bold text-lg">Changes to this privacy policy</h2>
-                    <p class="mb-2">ttk downloader has the power to update this privacy policy at any time
-                        time.
-                        When we do, we will post a notification on the main page of the ttk app
-                        downloader,
-                        we will revise the updated date at the top of this page. We encourage users to check
-                        check this page frequently for changes to stay informed on how we are doing.
-                        helping to protect the personal information we collect. You acknowledge and agree that it is
-                        your
-                        responsibility to review this privacy policy periodically and become aware of the
-                        modifications.</p>
-
-                    <h2 class="mb-1 font-bold text-lg">Your acceptance of these terms</h2>
-                    <p class="mb-2">By accessing and using the ttk downloader App, you express your voluntary acceptance
-                        of this
-                        policy.
-                        Otherwise, please do not use our Services. Your continued use of the Services following the
-                        posting of the
-                        changes to this policy will be deemed your acceptance of those changes.</p>
-
-
-
-                </div>
+            <div class=" me-2 font-bold text-2xl text-secondary text-logo">tt<span style="color: var(--ttk);">k</span>
             </div>
+        </a>
+        <div class="d-flex">
+            <button class="btn mx-1 reset-button navbar-btn navbar-lang dropdown" type="button" title="Idioma"
+                onclick="toggleLang()">
+                <span><i class="icon translate"></i></span>
+            </button>
+
+            <ul class="dropdown-window" id="SearchLang">
+
+                <li><a class="dropdown-item" href="../">Português<span class="badge">Original</span></a></li>
+                <li><a class="dropdown-item" href="/en/">English<span class="badge badge-ttk">new</span></a></li>
+            </ul>
+
+
+            <button class="btn mx-1 reset-button navbar-btn btn-darkmode " type="button" role="button"
+                title="Modo noite">
+                <i class="icon navbar-darkmode"></i>
+            </button>
+            <button id="modalBtn" class="btn mx-1 navbar-btn">
+                <i class="icon btn-menu" title="Menu"></i>
+            </button>
+
+
+        </div>
+    </nav>
+
+    <div class="container-fluid mb-6">
+        <h2 class="text-center mb-2 font-bold text-3xl">Privacy Policy</h2>
+        <div class="mx-3 flex flex-col mb-3">
+
+            <h2 class="mb-1 font-bold text-lg">Personally Identifiable Information</h2>
+            <p class="mb-2">Users can visit the ttk downloader App anonymously. We never recorded
+                information
+                identifying information from our users and we will only collect personally identifiable
+                information from
+                users if they voluntarily submit this information to us. Users can always
+                refuse
+                to provide personally identifiable information. However, if they agree to provide it, they are
+                responsible for providing accurate and correct identifying information about themselves. the ttk
+                downloader
+                is not responsible for any false or incorrect information provided by Users. if
+                we discover such incidents, we will prohibit users from accessing and using the ttk application
+                downloader and
+                our services.</p>
+
+            <h2 class="mb-1 font-bold text-lg">Advertising</h2>
+            <p class="mb-2">We accept ads (ads) in ttk downloader app to maintain and support
+                our own
+                research and development on ttk downloader app for non-commercial purposes. the ads
+                displayed on
+                ttk downloader app may be delivered to users by advertising partners who
+                can define
+                Cookies. They will only compile non-personally identifiable information about you or other
+                people who use your computer and will not track personal information about you, such as your
+                name,
+                email address and physical address. You can opt out of the use of cookies or stop the
+                access
+                to our app and website anytime as ttk downloader users are not
+                obliged to
+                accept the ads.</p>
+
+            <h2 class="mb-1 font-bold text-lg">Changes to this privacy policy</h2>
+            <p class="mb-2">ttk downloader has the power to update this privacy policy at any time
+                time.
+                When we do, we will post a notification on the main page of the ttk app
+                downloader,
+                we will revise the updated date at the top of this page. We encourage users to check
+                check this page frequently for changes to stay informed on how we are doing.
+                helping to protect the personal information we collect. You acknowledge and agree that it is
+                your
+                responsibility to review this privacy policy periodically and become aware of the
+                modifications.</p>
+
+            <h2 class="mb-1 font-bold text-lg">Your acceptance of these terms</h2>
+            <p class="mb-2">By accessing and using the ttk downloader App, you express your voluntary acceptance
+                of this
+                policy.
+                Otherwise, please do not use our Services. Your continued use of the Services following the
+                posting of the
+                changes to this policy will be deemed your acceptance of those changes.</p>
+
+
+
         </div>
     </div>
 
@@ -204,10 +184,13 @@
             </div>
             <div class="modal-body text-center text-lg">
                 <div class=" flex justify-center items-center whitespace-nowrap font-bold text-md md:text-lg">
-                    <ul class="menu">
-                        <li class="my-3 menu-button"><a href="./">Home</a></li>
-                        <li class="my-3 menu-button"><a href="./faq.html">FAQ</a></li>
-                        <li class="my-3 menu-button"><a href="/contact.html">Contact</a></li>
+                    <ul class="menu m-3 w-100">
+                        <li class="mb-3 p-2 menu-button"><a href="./">Home</a></li>
+                        <li class="mb-3 p-2 menu-button"><a href="./faq.html">FAQ</a></li>
+                        <li class="mb-3 p-2 menu-button"><a href="./contact.html">Contact</a></li>
+                        <li class="mb-3 mt-6 text-xs text-neutral-300">
+                            <button class="btn btn-warning" id="clear-storage">Clear cache</button>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -215,7 +198,7 @@
                 <h3 style=" color: #bdbdbd;">©
                     <script>
                         document.write(new Date().getFullYear());
-                    </script> ttk downloader
+                    </script> ttkvideo
                 </h3>
             </div>
         </div>
