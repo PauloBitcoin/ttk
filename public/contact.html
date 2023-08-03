@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ttk downloader - Contact</title>
+
+    <meta name="robots" content="index, follow" />
+    <meta name="revisit-after" content="2 days" />
+    <meta name="color-scheme" content="dark light">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+
+
+    <meta name="description"
+        content="Baixar vídeos do TikTok sem marca d'água! ttk downloader, é o melhor app para baixar vídeos e músicas do TikTok sem marca d'água, online, grátis e sem anúncios." />
+    <meta name="author" content="ttkapp.tk" />
+    <meta property="og:title" content="Baixar vídeos TikTok sem marca d'água com o ttk downloader" />
+    <meta property="og:description"
+        content="Baixar vídeos do TikTok sem marca d'água! ttk downloader, é o melhor app para baixar vídeos e músicas do TikTok sem marca d'água, online, grátis e sem anúncios." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.ttkapp.tk/" />
+    <meta property="og:image" content="https://www.ttkapp.tk/assets/logo-350.webp" />
+    <meta property="og:site_name" content="ttkapp.tk" />
+    <meta name="keywords"
+        content="melhor app baixar video tiktok, ssstik, snaptik, tiktok downloader, ttk downloader, ttk downloader, ttk, baixar, sem marca dágua, Baixar vídeos TikTok sem marca d'água, baixar video tiktok sem marca dagua, tiktok sem marca dagua, tiktok no watermark, no watermark tiktok video, baixar video tiktok " />
+
+    <!-- meta tags twitt -->
+    <meta name="twitter:title" content="ttk downloader - Baixar vídeos e músicas do TikTok sem marca d'água.">
+    <meta name="twitter:description"
+        content="ttk downloader - Baixar vídeos e músicas do TikTok sem marca d'água app download">
+    <meta name="twitter:image:src" content="https://www.ttkapp.tk/assets/logo-350.webp">
+
+    <!-- meta tags facebook -->
+    <meta property="og:site_name" content="ttk downloader - Baixar vídeos e músicas do TikTok sem marca d'água." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ttk downloader - Baixar vídeos e músicas do TikTok sem marca d'água." />
+    <meta property="og:url" content="https://www.ttkapp.tk/" />
+    <meta property="og:image" content="https://www.ttkapp.tk/assets/logo-350.webp" />
+    <meta property="og:description" content="Baixar vídeos e músicas do TikTok sem marca d'água." />
+
+    <!-- Código do Schema.org também para o Google+ -->
+    <meta itemprop="name" content="ttk downloader">
+    <meta itemprop="description" content="ttk downloader - Baixar vídeos e músicas do TikTok sem marca d'água.">
+    <meta itemprop="image" content="https://www.ttkapp.tk/assets/logo-350.webp">
+
+    <link rel="icon" href="./favicon/favicon.ico" sizes="any">
+    <link href="./favicon/favicon.ico" type="image/x-icon" rel="icon" />
+    <link href="./favicon/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+
+    <meta name="msapplication-TileImage" content="./favicon/favicon-32x32.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ff0050">
+
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./sw.js" defer=""></script>
+
+
+</head>
+
+<body class="w-full h-screen  light-theme">
+    <div class="container mx-auto flex flex-col space-y-9">
+
+
+        <nav class="h-24 flex justify-between p-2 navbar">
+            <a href="./" class="h-full p-1.5 flex items-center">
+                <div class="w-10 h-10" href="#">
+                    <img width="350" height="350" class="w-full h-full" src="./assets/logo-350.webp"
+                        title="TikTok Downloader" alt="ttk log"></img>
+                </div>
+                <div class="hidden sm:block ml-2 font-bold text-2xl dark:text-neutral-200 text-logo">tt<span
+                        style="color: var(--ttk);">k</span></div>
+            </a>
+            <div class="flex space-x-4 md:space-x-6 px-2 items-center">
+
+                <button class="reset-button navbar-btn navbar-lang dropdown" type="button" title="Idioma"
+                    onclick="toggleLang()">
+                    <span><i class="icon translate"></i></span>
+                </button>
+
+                <ul class="dropdown-window" id="SearchLang">
+                    <input type="text" id="LangInput" placeholder="Buscar..." title="Buscar idioma" autocomplete="off">
+
+                    <li><a class="dropdown_link" href="./">Português<span class="badge">Original</span></a></li>
+                    <li><a class="dropdown_link" href="/en/">English</a></li>
+                    <li><a class="dropdown_link" href="/zh/">简体中文</a></li>
+                    <li><a class="dropdown_link" href="/hi/">हिन्दी</a></li>
+                    <li><a class="dropdown_link" href="/es/">Español</a></li>
+                    <li><a class="dropdown_link" href="/ar/">عربي</a></li>
+                    <li><a class="dropdown_link" href="/bn/">বাংলা</a></li>
+                    <li><a class="dropdown_link" href="/ru/">Русский</a></li>
+                    <li><a class="dropdown_link" href="/de/">Deutsch</a></li>
+                    <li><a class="dropdown_link" href="/ja/">日本語<span class="badge badge-ttk">新着</span></a></li>
+                    <li><a class="dropdown_link" href="/ko/">한국인</a></li>
+                    <li><a class="dropdown_link" href="/vi/">Tiếng Việt<span class="badge badge-ttk">Mới</span></a></li>
+                    <li><a class="dropdown_link" href="/th/">ภาษาไทย<span class="badge badge-ttk">ใหม่</span></a></li>
+                    <li><a class="dropdown_link" href="/az/">Azərbaycan dili</a></li>
+                </ul>
+
+
+                <button class="reset-button navbar-btn btn-darkmode" type="button" role="button" title="Modo noite">
+                    <i class="icon navbar-darkmode"></i>
+                </button>
+                <button id="modalBtn"
+                    class="button button flex justify-center items-center whitespace-nowrap cursor-pointer navbar-btn">
+                    <i class="icon btn-menu" title="Menu"></i>
+                </button>
+
+
+            </div>
+        </nav>
+
+
+        <div class="h-full w-full px-6 block md:justify-center md:space-x-12 md:mt-0">
+
+            <div class="formbold-main-wrapper mb-3">
+                <h2 class="text-center font-bold text-3xl">Contato</h2>
+                <p class="text-center text-lg mb-2">Preencha os campos para enviar a mensagem.</p>
+                <div class="formbold-form-wrapper">
+
+                    <form id="messageForm">
+                        <div class="formbold-mb-5">
+                            <label for="name" class="formbold-form-label"> Nome <span>*</span></label>
+                            <input type="text" name="Nome" id="name" placeholder="Nome" class="formbold-form-input"
+                                minlength="3" maxlength="20" required />
+                        </div>
+
+                        <div class="formbold-mb-5">
+                            <label for="email" class="formbold-form-label"> E-mail <span>*</span></label>
+                            <input type="email" name="Email" id="email" placeholder="E-mail" class="formbold-form-input"
+                                required />
+                        </div>
+
+                        <div class="formbold-mb-5">
+                            <label for="phone" class="formbold-form-label"> Como ficou sabendo? </label>
+                            <select class="form-control" id="wa_select" name="Como ficou sabendo?">
+                                <option hidden='hidden' selected='selected' value='default'>Opções</option>
+                                <option value="Redes Sociais">Redes Sociais</option>
+                                <option value="Um Amigo">Amigo</option>
+                                <option value="Outros">Outros</option>
+                            </select>
+                        </div>
+
+                        <div class="formbold-mb-5">
+                            <label for="tlg_num" class="formbold-form-label"> Telegram </label>
+                            <input type="text" name="Telegram" id="tlg_num" placeholder="Número ou Usuário"
+                                class="formbold-form-input" />
+                        </div>
+
+                        <div class="formbold-mb-5">
+                            <label for="tlg_num" class="formbold-form-label">Mensagem </label>
+                            <textarea class="form-control" rows="3" id='wa_textarea' placeholder='' row='1'
+                                name="Mensagem" maxlength="250"></textarea>
+                        </div>
+
+                        <div class="relative flex items-center mb-1">
+                            <button class="send_form btn-contact justify-center" href="javascript:void" type="submit"
+                                title="Enviar Mensagem" onclick="toggleSpin()">
+
+                                <span id="text-send" class="flex justify-center items-center">
+                                    <i class="icon icon-send"></i> Enviar Mensagem</span>
+
+
+
+                                <svg class="dots hidden absolute mx-auto h-3/4" id="loader" viewBox="0 0 132 58"
+                                    version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+                                    <g class="fill-neutral-800" id="Page-1" stroke="none" stroke-width="1"
+                                        fill-rule="evenodd" sketch:type="MSPage">
+                                        <g sketch:type="MSArtboardGroup">
+                                            <circle id="dot1" sketch:type="MSShapeGroup" cx="25" cy="30" r="13">
+                                            </circle>
+                                            <circle id="dot2" sketch:type="MSShapeGroup" cx="65" cy="30" r="13">
+                                            </circle>
+                                            <circle id="dot3" sketch:type="MSShapeGroup" cx="105" cy="30" r="13">
+                                            </circle>
+                                        </g>
+                                    </g>
+                                </svg>
+
+                            </button>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- MENU MODAL -->
+    <div id="simpleModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title titulo-pub mr-2 text-lg" id="exampleModalLabel">Menu principal</h5>
+                <button type="button" class="closeBtn" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 14L34 34" stroke="#000" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                            <path d="M14 34L34 14" stroke="#000" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+
+                    </span>
+                </button>
+            </div>
+            <div class="modal-body text-center text-lg">
+                <div class=" flex justify-center items-center whitespace-nowrap font-bold text-md md:text-lg">
+                    <ul class="menu">
+                        <li class="my-3 menu-button"><a href="./">Página Inicial</a></li>
+                        <li class="my-3 menu-button"><a href="/faq.html">FAQ</a></li>
+                        <li class="my-3 menu-button"><a href="/contact.html">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <h3 style=" color: #bdbdbd;">©
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script> ttk downloader
+                </h3>
+            </div>
+        </div>
+    </div>
+
+    <div id="ctnClickShort">
+        <button class="ctnClick" type="button"><img src="./assets/logo-350.webp" title="ttk downloader"
+                alt="ttk downloader app">
+            <span class="title-add" style="font-weight:500;" id="nome">Instalar ttk como aplicativo. <small>(não
+                    oculpa espaço no dispositivo)</small></span>
+        </button>
+        <a class="ctnClickClose" href="javascript:;" onclick="closeCreateShort(this);">
+            <svg width="22" height="22" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 14L34 34" stroke="#666" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M14 34L34 14" stroke="#666" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </a>
+    </div>
+
+
+    <script src="./js/sweetalert2.all.min.js"></script>
+    <script src="./js/jquery-3.6.2.min.js"></script>
+    <script src="./js/search.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./Service-Worker.js"></script>
+    <script src="./js/tlg.js"></script>
+
+    <!--Player
+    <script src='plyr/javascript/plyr/plyr.js'></script>
+    <script src='plyr/javascript/ajax/jquery-visible/jquery.visible.min.js'></script>
+    <script src="plyr/javascript/script.js"></script>-->
+
+
+
+</body>
+
+</html>
