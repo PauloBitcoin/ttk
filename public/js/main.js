@@ -62,16 +62,17 @@ function showBtnClear() {
 }
 
 const btnPaste = document.querySelector(".btn-paste"),
-    inputUrl = document.getElementById("url");
-btnPaste.addEventListener("click", function () {
-    btnPaste.classList.contains("active") ? (inputUrl.value = "", navigator.clipboard && (btnPaste.classList.remove("active"), document.querySelector(".btn-paste span").innerHTML = lang.paste)) : navigator.clipboard.readText().then(function (e) {
-        "" != e ? (inputUrl.value = e, showBtnClear()) : alert(lang.linkEmpty)
-    })
-    
-}), navigator.clipboard && (btnPaste.style.display = "flex"), inputUrl.addEventListener("keyup", function (e) {
-    inputUrl.value.length > 0 && showBtnClear()
-});
+inputUrl = document.getElementById("url");
+if (btnPaste) {
+    btnPaste.addEventListener("click", function () {
+        btnPaste.classList.contains("active") ? (inputUrl.value = "", navigator.clipboard && (btnPaste.classList.remove("active"), document.querySelector(".btn-paste span").innerHTML = lang.paste)) : navigator.clipboard.readText().then(function (e) {
+            "" != e ? (inputUrl.value = e, showBtnClear()) : alert(lang.linkEmpty)
+        })
 
+    }), navigator.clipboard && (btnPaste.style.display = "flex"), inputUrl.addEventListener("keyup", function (e) {
+        inputUrl.value.length > 0 && showBtnClear()
+    });
+}
 
 // FUCKING AWESOME CODE
 window.da_share = {
@@ -183,3 +184,33 @@ function copyLink() {
     }
 
 }
+
+
+const clearStorageButton = document.getElementById("clear-storage");
+
+// Create a button to clear localStorage
+clearStorageButton.addEventListener("click", clearStorage);
+
+// Wrapper function to localStorage.clear
+function clearStorage() {
+    localStorage.clear();
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
+    Toast.fire({
+        icon: 'success',
+        title: 'O cache foi limpo!',
+        //text: 'Atualize a página.'
+    })
+}
+
