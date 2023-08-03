@@ -64,7 +64,7 @@ html {
     url('../webfonts/futura-maxi-cg-bold-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-  
+
 
 }
 
@@ -74,7 +74,7 @@ html {
     url('../webfonts/Gordita-LightItalic.woff') format('woff');
   font-weight: 300;
   font-style: italic;
-  
+
 }
 
 @font-face {
@@ -83,7 +83,7 @@ html {
     url('../webfonts/Gordita-BlackItalic.woff') format('woff');
   font-weight: 900;
   font-style: italic;
-  
+
 }
 
 @font-face {
@@ -92,7 +92,7 @@ html {
     url('../webfonts/Gordita-Black.woff') format('woff');
   font-weight: 900;
   font-style: normal;
-  
+
 }
 
 @font-face {
@@ -101,7 +101,7 @@ html {
     url('../webfonts/Gordita-BoldItalic.woff') format('woff');
   font-weight: bold;
   font-style: italic;
-  
+
 }
 
 @font-face {
@@ -110,7 +110,7 @@ html {
     url('../webfonts/Gordita-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
-  
+
 }
 
 @font-face {
@@ -119,7 +119,7 @@ html {
     url('../webfonts/Gordita-Light.woff') format('woff');
   font-weight: 300;
   font-style: normal;
-  
+
 }
 
 @font-face {
@@ -128,7 +128,7 @@ html {
     url('../webfonts/Gordita-RegularItalic.woff') format('woff');
   font-weight: normal;
   font-style: italic;
-  
+
 }
 
 @font-face {
@@ -137,7 +137,7 @@ html {
     url('../webfonts/Gordita-ThinItalic.woff') format('woff');
   font-weight: 100;
   font-style: italic;
-  
+
 }
 
 @font-face {
@@ -146,7 +146,7 @@ html {
     url('../webfonts/Gordita-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
-  
+
 }
 
 @font-face {
@@ -155,7 +155,7 @@ html {
     url('webfonts/Gordita-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-  
+
 }
 
 @font-face {
@@ -164,7 +164,7 @@ html {
     url('../webfonts/Gordita-Thin.woff') format('woff');
   font-weight: 100;
   font-style: normal;
-  
+
 }
 
 @font-face {
@@ -173,7 +173,7 @@ html {
     url('../webfonts/Gordita-MediumItalic.woff') format('woff');
   font-weight: 500;
   font-style: italic;
-  
+
 }
 
 @font-face {
@@ -182,7 +182,7 @@ html {
     url('../webfonts/Gordita-Ultra.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-  
+
 }
 
 @font-face {
@@ -191,14 +191,14 @@ html {
     url('../webfonts/Gordita-UltraItalic.woff') format('woff');
   font-weight: normal;
   font-style: italic;
-  
+
 }
 
 .text-logo {
   font-family: 'Gordita', sans-serif;
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 700;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 /*
@@ -576,6 +576,10 @@ ul.dropdown-window::-webkit-scrollbar {
 .dark-theme .dropdown-window {
   background: #5e6b7a;
   color: rgb(255, 255, 255);
+}
+
+.faqs-item  a {
+  color: #e8eaed !important;
 }
 
 a {
@@ -1178,7 +1182,7 @@ video {
   stroke: var(--ttk-2);
 }
 
-#author_videos svg{
+#author_videos svg {
   fill: transparent;
 }
 
@@ -2434,7 +2438,7 @@ textarea#wa_textarea:focus {
   margin-left: .2rem;
 }
 
-.form-control{
+.form-control {
   border-radius: 0;
   border-top-left-radius: .25rem;
   border-bottom-left-radius: .25rem;
@@ -2444,9 +2448,10 @@ textarea#wa_textarea:focus {
   justify-content: center;
 }
 
-.sr-only{
+.sr-only {
   display: none !important;
 }
-.text-tkk{
-color: var(--ttk) !important;
+
+.text-tkk {
+  color: var(--ttk) !important;
 }
