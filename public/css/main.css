@@ -1442,6 +1442,7 @@ width: 100%;
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
+  position: relative;
 }
 
 .sem-marca:hover {
@@ -1457,6 +1458,15 @@ width: 100%;
   transition: 0.5s;
   background-size: 200% auto;
   color: black;
+  position: relative;
+}
+
+.sem-marca svg,
+.com-marca svg {
+      position: absolute;
+    transform: translateY(50%);
+    top: -50%;
+    height: 100%;
 }
 
 .com-marca:hover {
