@@ -8,7 +8,21 @@
     "name": "ttk downloader",
     "short_name": "ttk downloader",
     "description": "ttk downloader - TikTok video downloader",
-    "icons": [
+  "screenshots": [
+    {
+      "src": "screenshot1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "screenshot2.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],    
+"icons": [
         {
             "src": "./favicon/android-chrome-192x192.png",
             "sizes": "192x192",
