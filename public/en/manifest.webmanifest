@@ -13,14 +13,14 @@
       "src": "../01.png",
       "sizes": "1280x720",
       "type": "image/png",
-      "form_factor": "wide",
+      "form_factor": "handset",
     "label": "Homescreen of Awesome App"
     },
     {
       "src": "../1.png",
       "sizes": "1280x720",
       "type": "image/png",
-          "form_factor": "wide",
+          "form_factor": "handset",
     "label": "Homescreen of Awesome App"
     }
   ],
