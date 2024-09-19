@@ -10,13 +10,13 @@
     "description": "ttk - TikTok video downloader (english)",
  "screenshots": [
     {
-      "src": "../1.png",
+      "src": "../01.png",
       "sizes": "1280x720",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "../2.png",
+      "src": "../1.png",
       "sizes": "1280x720",
       "type": "image/png",
       "purpose": "any"
