@@ -7,16 +7,16 @@
     "start_url": "/",
     "name": "ttk downloader",
     "short_name": "ttk downloader",
-    "description": "ttk downloader - TikTok video downloader",
-  "screenshots": [
+    "description": "ttk downloader - TikTok video downloader,
+"screenshots": [
     {
-      "src": "screenshot1.png",
+      "src": "1.png",
       "sizes": "1280x720",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "screenshot2.png",
+      "src": "2.png",
       "sizes": "1280x720",
       "type": "image/png",
       "purpose": "any"
