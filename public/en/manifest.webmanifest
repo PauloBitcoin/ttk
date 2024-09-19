@@ -13,13 +13,15 @@
       "src": "../01.png",
       "sizes": "1280x720",
       "type": "image/png",
-      "purpose": "any"
+      "form_factor": "wide",
+    "label": "Homescreen of Awesome App"
     },
     {
       "src": "../1.png",
       "sizes": "1280x720",
       "type": "image/png",
-      "purpose": "any"
+          "form_factor": "wide",
+    "label": "Homescreen of Awesome App"
     }
   ],
 "icons": [
