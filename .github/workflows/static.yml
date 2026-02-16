@@ -15,7 +15,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -25,22 +28,21 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
       - name: Install dependencies
         run: npm install
 
       - name: Build Tailwind CSS
-        # Este comando gera o CSS final baseado no seu package.json mas sem o modo --watch
-        run: npx tailwindcss -i ./src/css/main.css -o ./public/css/main.css
+        # Este passo cria o arquivo CSS real que o navegador entende
+        run: npx tailwindcss -i ./src/css/main.css -o ./public/css/main.css --minify
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
+        # Aqui dizemos ao GitHub para publicar APENAS a pasta public
         uses: actions/upload-pages-artifact@v3
         with:
-          # Aqui definimos que APENAS a pasta public será o site
           path: './public'
 
       - name: Deploy to GitHub Pages
