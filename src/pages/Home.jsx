@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { PasteIcon, DownloadIcon } from '../components/icons'
 import { ShareFabs } from '../components/ShareFabs'
+import { asset } from '../lib/asset'
 
 export function Home() {
   const navigate = useNavigate()
@@ -94,7 +95,7 @@ export function Home() {
             <span style={{ color: 'var(--ttk)' }}>ttk</span>video
           </h2>
           <div className="relative mx-auto mt-4 max-w-xs">
-            <img src="/assets/verti.webp" width="800" height="1200" alt="ttk app" className="w-full" />
+            <img src={asset("/assets/verti.webp")} width="800" height="1200" alt="ttk app" className="w-full" />
           </div>
         </div>
       </div>
