@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { PasteIcon, DownloadIcon } from '../components/icons'
 import { ShareFabs } from '../components/ShareFabs'
 import { asset } from '../lib/asset'
+import { SITE, IMAGES } from '../config/site'
 
 export function Home() {
   const navigate = useNavigate()
@@ -10,7 +11,7 @@ export function Home() {
   const [canPaste, setCanPaste] = useState(false)
 
   useEffect(() => {
-    document.title = "ttk downloader - Download TikTok videos without watermark!"
+    document.title = `${SITE.name} - Download TikTok videos without watermark!`
     setCanPaste(Boolean(navigator.clipboard))
   }, [])
 
@@ -39,7 +40,7 @@ export function Home() {
       <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 pt-10 lg:grid-cols-3">
         <div className="lg:col-span-2">
           <h1 className="mb-5 text-center text-3xl font-extrabold sm:text-4xl">
-            Download video from TikTok without watermark free.
+            {SITE.tagline}
           </h1>
           <p className="mb-4 text-center text-neutral-500">Paste the link below</p>
 
@@ -92,10 +93,10 @@ export function Home() {
 
         <div className="hidden lg:block">
           <h2 className="text-center text-2xl font-bold">
-            <span style={{ color: 'var(--ttk)' }}>ttk</span>video
+            Dino<span style={{ color: 'var(--ttk)' }}>Tok</span>
           </h2>
           <div className="relative mx-auto mt-4 max-w-xs">
-            <img src={asset("/assets/verti.webp")} width="800" height="1200" alt="ttk app" className="w-full" />
+            <img src={asset(IMAGES.heroVertical)} width="800" height="1200" alt={`${SITE.name} app`} className="w-full" />
           </div>
         </div>
       </div>

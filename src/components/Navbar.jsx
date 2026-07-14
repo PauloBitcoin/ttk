@@ -4,6 +4,7 @@ import { MenuIcon, MoonIcon, SunIcon } from './icons'
 import { MenuModal } from './MenuModal'
 import { useDarkMode } from '../hooks/useDarkMode'
 import { asset } from '../lib/asset'
+import { SITE, IMAGES } from '../config/site'
 
 export function Navbar() {
   const [dark, toggleDark] = useDarkMode()
@@ -13,9 +14,9 @@ export function Navbar() {
     <>
       <nav className="flex h-24 items-center justify-between p-2">
         <Link to="/" className="flex h-full items-center gap-2 no-underline">
-          <img src={asset("/assets/logo-350.webp")} width="40" height="40" alt="ttk logo" title="TikTok Downloader" />
+          <img src={asset(IMAGES.logo)} width="40" height="40" alt={`${SITE.name} logo`} title={SITE.name} />
           <span className="text-2xl font-bold text-current">
-            tt<span style={{ color: 'var(--ttk)' }}>k</span>
+            Dino<span style={{ color: 'var(--ttk)' }}>Tok</span>
           </span>
         </Link>
 

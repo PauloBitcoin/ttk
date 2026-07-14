@@ -96,7 +96,7 @@ export function useTikTokDownload(rawUrl) {
     let filename = data.author.unique_id + data.title
     let extension = '.mp4'
     if (blobKey === 'video') {
-      filename += ' ttkvideo'
+      filename += ' DinoTok'
     } else if (blobKey === 'video_wm') {
       filename += ' WM'
     } else if (blobKey === 'music') {

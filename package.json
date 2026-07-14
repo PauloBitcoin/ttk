@@ -1,5 +1,5 @@
 {
-  "name": "tiktok-downloader",
+  "name": "dinotok-downloader",
   "private": true,
   "version": "2.0.0",
   "description": "",
@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "postbuild": "node scripts/fix-manifest-scope.mjs && cp dist/index.html dist/404.html",
+    "postbuild": "cp dist/index.html dist/404.html",
     "lint": "oxlint",
     "preview": "vite preview"
   },

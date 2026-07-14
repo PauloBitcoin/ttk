@@ -12,12 +12,12 @@ import { Contact } from './pages/Contact'
 function App() {
   useEffect(() => {
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register(import.meta.env.BASE_URL + 'sw.js').catch(() => {})
+      navigator.serviceWorker.register('/sw.js').catch(() => {})
     }
   }, [])
 
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <BrowserRouter>
       <ToastProvider>
         <Routes>
           <Route element={<Layout />}>

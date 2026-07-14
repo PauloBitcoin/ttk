@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { DownloadIcon, MusicIcon, AlertIcon } from '../components/icons'
 import { useTikTokDownload } from '../hooks/useTikTokDownload'
+import { SITE } from '../config/site'
 
 function Spinner() {
   return (
@@ -35,11 +36,11 @@ export function Download() {
   const [nextUrl, setNextUrl] = useState('')
 
   useEffect(() => {
-    document.title = 'ttk downloader - Download'
+    document.title = `${SITE.name} - Download`
   }, [])
 
   useEffect(() => {
-    if (data) document.title = data.title ? `${data.title} - ttk downloader` : document.title
+    if (data) document.title = data.title ? `${data.title} - ${SITE.name}` : document.title
   }, [data])
 
   const handleAnotherVideo = (event) => {

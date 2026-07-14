@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { CloseIcon } from './icons'
 import { useToast } from './Toast'
+import { SITE } from '../config/site'
 
 export function MenuModal({ open, onClose }) {
   const showToast = useToast()
@@ -46,7 +47,7 @@ export function MenuModal({ open, onClose }) {
         </ul>
 
         <p className="mt-4 text-center text-xs text-neutral-400">
-          © {new Date().getFullYear()} ttk downloader
+          © {new Date().getFullYear()} {SITE.name}
         </p>
       </div>
     </div>

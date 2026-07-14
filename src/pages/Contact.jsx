@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { SendIcon } from '../components/icons'
 import { useToast } from '../components/Toast'
+import { SITE } from '../config/site'
 
 // LEGACY / DEPRECATED: the Telegram bot that used to receive this form was
 // deactivated and no longer exists (see legacy-static/js/tlg.js). Submitting
@@ -12,7 +13,7 @@ export function Contact() {
   const [sending, setSending] = useState(false)
 
   useEffect(() => {
-    document.title = 'ttk downloader - Contact'
+    document.title = `${SITE.name} - Contact`
   }, [])
 
   const handleSubmit = (event) => {
