@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt" class="light">
+<html lang="en" class="light">
 
 <head>
     <meta charset="UTF-8">
@@ -16,35 +16,35 @@
 
 
     <meta name="description"
-        content="Baixar vídeos do TikTok sem marca d'água! ttk downloader, é o melhor app para baixar vídeos e músicas do TikTok sem marca d'água, online, grátis e sem anúncios." />
+        content="Download TikTok videos without watermark! ttk downloader, is the best app to download videos and music from TikTok without watermark, online, free and without ads." />
     <meta name="author" content="ttkapp.tk" />
-    <meta property="og:title" content="Baixar vídeos TikTok sem marca d'água com o ttk downloader" />
+    <meta property="og:title" content="Download TikTok videos without watermark app!" />
     <meta property="og:description"
-        content="Baixar vídeos do TikTok sem marca d'água! ttk downloader, é o melhor app para baixar vídeos e músicas do TikTok sem marca d'água, online, grátis e sem anúncios." />
+        content="Download TikTok videos without watermark! ttk downloader, is the best app to download videos and music from TikTok without watermark, online, free and without ads." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://www.ttkapp.tk/" />
     <meta property="og:image" content="https://www.ttkapp.tk/assets/logo-350.webp" />
     <meta property="og:site_name" content="ttkapp.tk" />
     <meta name="keywords"
-        content="melhor app baixar video tiktok, ssstik, snaptik, tiktok downloader, ttk downloader, ttk downloader, ttk, baixar, sem marca dágua, Baixar vídeos TikTok sem marca d'água, baixar video tiktok sem marca dagua, tiktok sem marca dagua, tiktok no watermark, no watermark tiktok video, baixar video tiktok " />
+        content="best app to download tiktok video, ssstik, snaptik, tiktok downloader, ttk downloader, ttk, download, no watermark, Download TikTok videos without watermark, download tiktok video without watermark, tiktok without watermark, tiktok no watermark, no watermark tiktok video, download tiktok video" />
 
     <!-- meta tags twitt -->
-    <meta name="twitter:title" content="ttk downloader - Baixar vídeos e músicas do TikTok sem marca d'água.">
+    <meta name="twitter:title" content="ttk downloader - Download TikTok videos and music without watermark.">
     <meta name="twitter:description"
-        content="ttk downloader - Baixar vídeos e músicas do TikTok sem marca d'água app download">
+        content="ttk downloader - Download TikTok videos and music without watermark app download">
     <meta name="twitter:image:src" content="https://www.ttkapp.tk/assets/logo-350.webp">
 
     <!-- meta tags facebook -->
-    <meta property="og:site_name" content="ttk downloader - Baixar vídeos e músicas do TikTok sem marca d'água." />
+    <meta property="og:site_name" content="ttk downloader - Download TikTok videos and music without watermark." />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="ttk downloader - Baixar vídeos e músicas do TikTok sem marca d'água." />
+    <meta property="og:title" content="ttk downloader - Download TikTok videos and music without watermark." />
     <meta property="og:url" content="https://www.ttkapp.tk/" />
     <meta property="og:image" content="https://www.ttkapp.tk/assets/logo-350.webp" />
-    <meta property="og:description" content="Baixar vídeos e músicas do TikTok sem marca d'água." />
+    <meta property="og:description" content="Download TikTok videos and music without watermark." />
 
-    <!-- Código do Schema.org também para o Google+ -->
+    <!-- Schema.org code, also for Google+ -->
     <meta itemprop="name" content="ttk downloader">
-    <meta itemprop="description" content="ttk downloader - Baixar vídeos e músicas do TikTok sem marca d'água.">
+    <meta itemprop="description" content="ttk downloader - Download TikTok videos and music without watermark.">
     <meta itemprop="image" content="https://www.ttkapp.tk/assets/logo-350.webp">
 
     <link rel="icon" href="./favicon/favicon.ico" sizes="any">
@@ -80,20 +80,10 @@
             </div>
         </a>
         <div class="d-flex">
-            <button class="btn mx-1 reset-button navbar-btn navbar-lang dropdown" type="button" title="Idioma"
-                onclick="toggleLang()">
-                <span><i class="icon translate"></i></span>
-            </button>
-
-            <ul class="dropdown-window" id="SearchLang">
-
-                <li><a class="dropdown-item" href="./">Português<span class="badge">Original</span></a></li>
-                <li><a class="dropdown-item" href="/en/">English<span class="badge badge-ttk">new</span></a></li>
-            </ul>
-
+            <!-- i18n placeholder: language switcher removed (single-language site for now, multi-lang to be reintroduced later) -->
 
             <button class="btn mx-1 reset-button navbar-btn btn-darkmode " type="button" role="button"
-                title="Modo noite">
+                title="Dark mode">
                 <i class="icon navbar-darkmode"></i>
             </button>
             <button id="modalBtn" class="btn mx-1 navbar-btn">
@@ -107,51 +97,51 @@
     <div class="container-fluid">
 
         <div class="formbold-main-wrapper mb-3">
-            <h2 class="text-center font-bold text-3xl">Contato</h2>
-            <p class="text-center text-lg mb-2">Preencha os campos para enviar a mensagem.</p>
+            <h2 class="text-center font-bold text-3xl">Contact</h2>
+            <p class="text-center text-lg mb-2">Fill in the fields below to send your message.</p>
             <div class="formbold-form-wrapper">
 
                 <form id="messageForm">
                     <div class="formbold-mb-5">
-                        <label for="name" class="formbold-form-label"> Nome <span>*</span></label>
-                        <input type="text" name="Nome" id="name" placeholder="Nome" class="formbold-form-input"
+                        <label for="name" class="formbold-form-label"> Name <span>*</span></label>
+                        <input type="text" name="Name" id="name" placeholder="Name" class="formbold-form-input"
                             minlength="3" maxlength="20" required />
                     </div>
 
                     <div class="formbold-mb-5">
-                        <label for="email" class="formbold-form-label"> E-mail <span>*</span></label>
-                        <input type="email" name="Email" id="email" placeholder="E-mail" class="formbold-form-input"
+                        <label for="email" class="formbold-form-label"> Email <span>*</span></label>
+                        <input type="email" name="Email" id="email" placeholder="Email" class="formbold-form-input"
                             required />
                     </div>
 
                     <div class="formbold-mb-5">
-                        <label for="phone" class="formbold-form-label"> Como ficou sabendo? </label>
-                        <select class="form-control" id="wa_select" name="Como ficou sabendo?">
-                            <option hidden='hidden' selected='selected' value='default'>Opções</option>
-                            <option value="Redes Sociais">Redes Sociais</option>
-                            <option value="Um Amigo">Amigo</option>
-                            <option value="Outros">Outros</option>
+                        <label for="phone" class="formbold-form-label"> How did you hear about us? </label>
+                        <select class="form-control" id="wa_select" name="How did you hear about us?">
+                            <option hidden='hidden' selected='selected' value='default'>Options</option>
+                            <option value="Social Media">Social Media</option>
+                            <option value="A Friend">A Friend</option>
+                            <option value="Other">Other</option>
                         </select>
                     </div>
 
                     <div class="formbold-mb-5">
                         <label for="tlg_num" class="formbold-form-label"> Telegram </label>
-                        <input type="text" name="Telegram" id="tlg_num" placeholder="Número ou Usuário"
+                        <input type="text" name="Telegram" id="tlg_num" placeholder="Number or Username"
                             class="formbold-form-input" />
                     </div>
 
                     <div class="formbold-mb-5">
-                        <label for="tlg_num" class="formbold-form-label">Mensagem </label>
-                        <textarea class="form-control" rows="3" id='wa_textarea' placeholder='' row='1' name="Mensagem"
+                        <label for="tlg_num" class="formbold-form-label">Message </label>
+                        <textarea class="form-control" rows="3" id='wa_textarea' placeholder='' row='1' name="Message"
                             maxlength="250"></textarea>
                     </div>
 
                     <div class="relative flex items-center mb-1">
                         <button class="send_form btn-contact justify-center" href="javascript:void" type="submit"
-                            title="Enviar Mensagem" onclick="toggleSpin()">
+                            title="Send Message" onclick="toggleSpin()">
 
                             <span id="text-send" class="flex justify-center items-center">
-                                <i class="icon icon-send"></i> Enviar Mensagem</span>
+                                <i class="icon icon-send"></i> Send Message</span>
 
 
 
@@ -189,7 +179,7 @@
     <div id="simpleModal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title titulo-pub mr-2 text-lg" id="exampleModalLabel">Menu principal</h5>
+                <h5 class="modal-title titulo-pub mr-2 text-lg" id="exampleModalLabel">Main Menu</h5>
                 <button type="button" class="closeBtn" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">
                         <svg width="22" height="22" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -205,11 +195,11 @@
             <div class="modal-body text-center text-lg">
                 <div class=" flex justify-center items-center whitespace-nowrap font-bold text-md md:text-lg">
                     <ul class="menu m-3 w-100">
-                        <li class="mb-3 p-2 menu-button"><a href="./">Página Inicial</a></li>
+                        <li class="mb-3 p-2 menu-button"><a href="./">Home</a></li>
                         <li class="mb-3 p-2 menu-button"><a href="/faq.html">FAQ</a></li>
-                        <li class="mb-3 p-2 menu-button"><a href="/contact.html">Contato</a></li>
+                        <li class="mb-3 p-2 menu-button"><a href="/contact.html">Contact</a></li>
                         <li class="mb-3 mt-6 text-xs text-neutral-300">
-                            <button class="btn btn-warning" id="clear-storage">Limpar cache</button>
+                            <button class="btn btn-warning" id="clear-storage">Clear cache</button>
                         </li>
                     </ul>
                 </div>
@@ -228,8 +218,8 @@
     <div id="ctnClickShort">
         <button class="ctnClick" type="button"><img src="./assets/logo-350.webp" title="ttk downloader"
                 alt="ttk downloader app">
-            <span class="title-add" style="font-weight:500;" id="nome">Instalar ttk como aplicativo. <small>(não
-                    oculpa espaço no dispositivo)</small></span>
+            <span class="title-add" style="font-weight:500;" id="nome">Install ttk as an application. <small>(does
+                    not take up space on your device)</small></span>
         </button>
         <a class="ctnClickClose" href="javascript:;" onclick="closeCreateShort(this);">
             <svg width="22" height="22" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -244,7 +234,7 @@
     <script src="./js/jquery-3.6.2.min.js"></script>
     <script src="./js/main.js"></script>
     <script src="./Service-Worker.js"></script>
-    <!-- LEGACY: bot do Telegram desativado, ver comentário em js/tlg.js -->
+    <!-- LEGACY: Telegram bot deactivated, see comment in js/tlg.js -->
     <script src="./js/tlg.js"></script>
 
     <!--Player

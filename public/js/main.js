@@ -161,7 +161,7 @@ function copyLink() {
 
         Toast.fire({
             icon: 'success',
-            title: 'Copiado com sucesso!',
+            title: 'Copied successfully!',
         })
 
     } else {
@@ -178,7 +178,7 @@ function copyLink() {
         })
         Toast.fire({
             icon: 'error',
-            title: 'Falha ao copiar!',
+            title: 'Failed to copy!',
         });
 
     }
@@ -209,7 +209,7 @@ function clearStorage() {
 
     Toast.fire({
         icon: 'success',
-        title: 'O cache foi limpo!',
+        title: 'Cache cleared!',
         //text: 'Atualize a página.'
     })
 }
