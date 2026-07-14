@@ -12,7 +12,7 @@ export function Navbar() {
 
   return (
     <>
-      <nav className="flex h-24 items-center justify-between p-2">
+      <nav className="sticky top-0 z-30 flex h-24 items-center justify-between border-b border-black/5 bg-white/70 p-2 backdrop-blur-lg dark:border-white/5 dark:bg-[#1a2430]/70">
         <Link to="/" className="flex h-full items-center gap-2 no-underline">
           <img src={asset(IMAGES.logo)} width="40" height="40" alt={`${SITE.name} logo`} title={SITE.name} />
           <span className="text-2xl font-bold text-current">
