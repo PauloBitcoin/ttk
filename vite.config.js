@@ -4,7 +4,10 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  // Deployed on GitHub Pages at paulobitcoin.github.io/ttk/ (no custom domain).
-  base: '/ttk/',
+  // Two deploy targets exist for this repo: Vercel (serves each build at the
+  // root of its own domain — Vercel sets process.env.VERCEL during its
+  // build) and GitHub Pages (serves at paulobitcoin.github.io/ttk/, no
+  // custom domain). Pick the base accordingly.
+  base: process.env.VERCEL ? '/' : '/ttk/',
   plugins: [react(), tailwindcss()],
 })
