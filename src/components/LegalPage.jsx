@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
+import { SITE } from '../config/site'
 
 export function LegalPage({ title, content }) {
   useEffect(() => {
-    document.title = `ttk downloader - ${title}`
+    document.title = `${SITE.name} - ${title}`
   }, [title])
 
   return (

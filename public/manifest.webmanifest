@@ -5,9 +5,9 @@
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
-    "name": "ttk downloader",
-    "short_name": "ttk downloader",
-    "description": "ttk downloader - TikTok video downloader",
+    "name": "DinoTok Downloader",
+    "short_name": "DinoTok",
+    "description": "DinoTok Downloader - TikTok video downloader",
 "screenshots": [
     {
       "src": "01.png",

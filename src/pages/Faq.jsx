@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { SITE } from '../config/site'
 
 const FAQS = [
   {
@@ -10,7 +11,7 @@ const FAQS = [
         <li>Click the Share button in the lower right corner.</li>
         <li>Click the copy button.</li>
         <li>
-          Then just paste the video in the ttk downloader, click on the download arrow, choose the
+          Then just paste the video in {SITE.name}, click on the download arrow, choose the
           format and that's it. If you prefer the browser's menu, you have the option: Install app,
           try it, it's even faster.
         </li>
@@ -31,27 +32,27 @@ const FAQS = [
     q: 'Can I download music from the video in mp3?',
     a: (
       <p>
-        Yes. With ttk downloader you can also download the music from the video in mp3 — just click
+        Yes. With {SITE.name} you can also download the music from the video in mp3 — just click
         on the music icon.
       </p>
     ),
   },
   {
-    q: 'Is ttk downloader free?',
-    a: <p>Yes. ttk downloader is free, you will have no cost to use our services.</p>,
+    q: `Is ${SITE.name} free?`,
+    a: <p>Yes. {SITE.name} is free, you will have no cost to use our services.</p>,
   },
   {
-    q: 'Does the ttk downloader app take up memory on my device?',
+    q: `Does the ${SITE.name} app take up memory on my device?`,
     a: (
       <p>
-        No. ttk downloader does not occupy memory. You can install it on Android or PC without
+        No. {SITE.name} does not occupy memory. You can install it on Android or PC without
         worrying about memory consumption — the app storage is 100% in the cloud, your device will
         only store the shortcut, which is smaller than a photo.
       </p>
     ),
   },
   {
-    q: 'How do I install the ttk downloader app?',
+    q: `How do I install the ${SITE.name} app?`,
     a: (
       <p>
         If you are accessing from an Android device or PC, just click on the banner located at the
@@ -66,7 +67,7 @@ export function Faq() {
   const [openIndex, setOpenIndex] = useState(null)
 
   useEffect(() => {
-    document.title = 'ttk downloader - FAQ'
+    document.title = `${SITE.name} - FAQ`
   }, [])
 
   return (
