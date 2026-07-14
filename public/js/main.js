@@ -145,42 +145,10 @@ function copyLink() {
     navigator.clipboard.writeText(copyText.value);
 
     if (copyText.value) {
-
         /* Alert the copied text */
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 2000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-        })
-
-        Toast.fire({
-            icon: 'success',
-            title: 'Copied successfully!',
-        })
-
+        showToast({ icon: 'success', title: 'Copied successfully!' })
     } else {
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 2000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-        })
-        Toast.fire({
-            icon: 'error',
-            title: 'Failed to copy!',
-        });
-
+        showToast({ icon: 'error', title: 'Failed to copy!' })
     }
 
 }
@@ -194,23 +162,6 @@ clearStorageButton.addEventListener("click", clearStorage);
 // Wrapper function to localStorage.clear
 function clearStorage() {
     localStorage.clear();
-
-    const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 2000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer)
-            toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
-    })
-
-    Toast.fire({
-        icon: 'success',
-        title: 'Cache cleared!',
-        //text: 'Atualize a página.'
-    })
+    showToast({ icon: 'success', title: 'Cache cleared!' })
 }
 
