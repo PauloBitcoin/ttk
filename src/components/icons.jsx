@@ -102,6 +102,58 @@ export function MoonIcon(props) {
   )
 }
 
+export function PlayIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M8 5.5v13a1 1 0 0 0 1.53.85l10.4-6.5a1 1 0 0 0 0-1.7l-10.4-6.5A1 1 0 0 0 8 5.5Z" />
+    </svg>
+  )
+}
+
+export function PauseIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <rect x="6" y="5" width="4.5" height="14" rx="1" />
+      <rect x="13.5" y="5" width="4.5" height="14" rx="1" />
+    </svg>
+  )
+}
+
+export function VolumeIcon(props) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M4 9v6h4l5 4V5L8 9H4Z" />
+      <path d="M17 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12" />
+    </svg>
+  )
+}
+
+export function VolumeMuteIcon(props) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M4 9v6h4l5 4V5L8 9H4Z" />
+      <path d="M16.5 9.5 21 14M21 9.5l-4.5 4.5" />
+    </svg>
+  )
+}
+
+export function ShieldIcon(props) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M12 3 4.5 6v6c0 4.5 3.2 7.5 7.5 9 4.3-1.5 7.5-4.5 7.5-9V6Z" />
+      <path d="m9 12 2 2 4-4" />
+    </svg>
+  )
+}
+
+export function ZapIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" />
+    </svg>
+  )
+}
+
 export function AlertIcon(props) {
   return (
     <svg {...base} {...props}>
