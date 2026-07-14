@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@layer components {
+  .input {
+    @apply w-full rounded border border-neutral-300 bg-transparent px-3 py-2 outline-none dark:border-neutral-600;
+  }
+}
+
+:root {
+  --ttk: #ff0050;
+  --ttk-2: #00f2ea;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: #ffffff;
+  color: #1a2430;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+body.dark {
+  background: #1a2430;
+  color: #e8eaed;
+}
+
+/* Toast */
+
+.ttk-toast-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: calc(100vw - 2rem);
+}
+
+.ttk-toast {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  min-width: 220px;
+  padding: 0.65rem 1rem;
+  border-radius: 0.5rem;
+  background: #ffffff;
+  color: #1a2430;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.ttk-toast--out {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.ttk-toast__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.ttk-toast--success .ttk-toast__icon {
+  background: #22c55e;
+}
+
+.ttk-toast--error .ttk-toast__icon {
+  background: #ef4444;
+}
+
+.ttk-toast__title {
+  flex: 1;
+}
+
+.ttk-toast__track {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.ttk-toast__progress {
+  height: 100%;
+  width: 100%;
+  background: var(--ttk);
+}
+
+body.dark .ttk-toast {
+  background: #314052;
+  color: #e8eaed;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+body.dark .ttk-toast__track {
+  background: rgba(255, 255, 255, 0.12);
+}

@@ -1,4 +1,6 @@
-self.addEventListener('install', () => {});
+self.addEventListener('install', (e) => {
+  //e.waitUntil();
+});
 
 self.addEventListener('fetch', (e) => {
   
