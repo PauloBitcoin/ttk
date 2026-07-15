@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { MenuIcon } from './icons'
 import { Sidebar } from './Sidebar'
+import { LanguageMenu } from './LanguageMenu'
 import { asset } from '../lib/asset'
 import { SITE, IMAGES } from '../config/site'
 import { useLocale } from '../hooks/useLocale'
@@ -23,14 +24,17 @@ export function Navbar() {
           </span>
         </Link>
 
-        <button
-          className="rounded p-2 hover:bg-black/5 dark:hover:bg-white/10"
-          type="button"
-          title={t('nav.menu')}
-          onClick={() => setMenuOpen(true)}
-        >
-          <MenuIcon className="h-5 w-5" />
-        </button>
+        <div className="flex items-center gap-1">
+          <LanguageMenu />
+          <button
+            className="rounded p-2 hover:bg-black/5 dark:hover:bg-white/10"
+            type="button"
+            title={t('nav.menu')}
+            onClick={() => setMenuOpen(true)}
+          >
+            <MenuIcon className="h-5 w-5" />
+          </button>
+        </div>
       </nav>
 
       <Sidebar open={menuOpen} onClose={() => setMenuOpen(false)} />
