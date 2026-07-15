@@ -7,7 +7,7 @@ export function LegalPage({ title, content }) {
   }, [title])
 
   return (
-    <div className="mx-auto max-w-3xl py-8">
+    <div className="mx-auto max-w-3xl px-4 py-8">
       <h1 className="mb-6 text-center text-3xl font-extrabold">{title}</h1>
       <div className="flex flex-col gap-3 text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
         {content.map((block, index) => {

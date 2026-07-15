@@ -86,7 +86,7 @@ export function Home() {
           style={{ background: 'var(--ttk-2)' }}
         />
 
-        <div className="relative mx-auto grid max-w-5xl grid-cols-1 gap-8 pb-6 pt-10 lg:grid-cols-3">
+        <div className="relative mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-6 pt-10 lg:grid-cols-3">
           <div className="lg:col-span-2">
             <h1 className="mb-8 text-center text-3xl font-extrabold sm:text-4xl">
               <span
@@ -202,7 +202,7 @@ export function Home() {
           </div>
         </div>
 
-        <div className="relative mx-auto max-w-5xl pb-6">
+        <div className="relative mx-auto max-w-5xl px-4 pb-6">
           <AdSlot />
         </div>
       </div>
