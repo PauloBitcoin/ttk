@@ -30,6 +30,9 @@ export function useTheme() {
   useEffect(() => {
     document.body.classList.toggle('dark', resolvedDark)
     localStorage.setItem(STORAGE_KEY, theme)
+    document.head
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute('content', resolvedDark ? '#09090b' : '#ffffff')
   }, [theme, resolvedDark])
 
   return { theme, setTheme, resolvedDark }
