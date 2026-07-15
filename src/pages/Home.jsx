@@ -4,6 +4,7 @@ import { CloseIcon, ClearIcon, DownloadIcon, MusicIcon, PasteIcon, ShieldIcon, Z
 import { AdSlot } from '../components/AdSlot'
 import { DownloadModal } from '../components/DownloadModal'
 import { ShareFabs } from '../components/ShareFabs'
+import { Seo } from '../components/Seo'
 import { useToast } from '../components/Toast'
 import { asset } from '../lib/asset'
 import { SITE, IMAGES } from '../config/site'
@@ -44,7 +45,6 @@ export function Home() {
   const activeUrl = searchParams.get('url')
 
   useEffect(() => {
-    document.title = `${SITE.name} - Download TikTok videos without watermark!`
     setCanPaste(Boolean(navigator.clipboard))
   }, [])
 
@@ -68,9 +68,9 @@ export function Home() {
     try {
       const text = await navigator.clipboard.readText()
       if (text) handlePastedText(text)
-      else showToast({ icon: 'error', title: 'Clipboard is empty!' })
+      else showToast({ icon: 'error', title: 'A área de transferência está vazia!' })
     } catch {
-      showToast({ icon: 'error', title: 'Clipboard is empty!' })
+      showToast({ icon: 'error', title: 'A área de transferência está vazia!' })
     }
   }
 
@@ -140,6 +140,11 @@ export function Home() {
 
   return (
     <>
+      <Seo
+        title="Baixar Vídeo do TikTok Sem Marca D'água Grátis"
+        description="Baixar vídeo do TikTok sem marca d'água em HD, grátis e sem cadastro. Cole o link e baixe vídeos, fotos e músicas do TikTok em segundos com o TakeTok."
+        path="/"
+      />
       <div className="relative isolate overflow-hidden">
         <div
           aria-hidden
@@ -162,6 +167,10 @@ export function Home() {
                 {SITE.tagline}
               </span>
             </h1>
+            <p className="mb-6 text-center text-sm text-neutral-500 dark:text-zinc-400">
+              Cole o link do vídeo do TikTok abaixo e baixe em HD, sem marca d'água, sem
+              instalar nada e sem cadastro.
+            </p>
             <form onSubmit={handleSubmit} className="w-full">
               <div className="glass mb-3 flex w-full overflow-hidden rounded-2xl p-1.5 shadow-lg">
                 <input
@@ -169,11 +178,11 @@ export function Home() {
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
                   onPaste={handleInputPaste}
-                  placeholder="Paste the video link here..."
+                  placeholder="Cole o link do vídeo do TikTok aqui..."
                   required
                   autoComplete="off"
                   autoCapitalize="none"
-                  title="Paste the link"
+                  title="Colar o link"
                   className="w-full bg-transparent px-3 py-2.5 outline-none placeholder:text-neutral-500 dark:placeholder:text-zinc-400"
                 />
                 {canPaste && (
@@ -186,7 +195,7 @@ export function Home() {
                       }`}
                   >
                     {url ? <ClearIcon className="h-4 w-4" /> : <PasteIcon className="h-4 w-4" />}
-                    {url ? 'Clear' : 'Paste'}
+                    {url ? 'Limpar' : 'Colar'}
                   </button>
                 )}
               </div>
@@ -197,17 +206,17 @@ export function Home() {
                 style={{ background: 'linear-gradient(135deg, var(--ttk), var(--ttk-2))', boxShadow: '0 12px 30px -12px rgba(255,0,80,0.55)' }}
               >
                 <DownloadIcon className="h-5 w-5" />
-                Download
+                Baixar vídeo
               </button>
 
               <p className="mt-2 text-center text-xs">
-                By using our service, you accept our{' '}
+                Ao usar nosso serviço, você aceita nossos{' '}
                 <Link to="/terms-of-service" className="font-bold" style={{ color: 'var(--ttk)' }}>
-                  Terms Service
+                  Termos de Uso
                 </Link>{' '}
-                and{' '}
+                e a{' '}
                 <Link to="/privacy-policy" className="font-bold" style={{ color: 'var(--ttk)' }}>
-                  Privacy Policy
+                  Política de Privacidade
                 </Link>
                 .
               </p>
@@ -299,6 +308,32 @@ export function Home() {
         </div>
       </div>
 
+      <section className="mx-auto max-w-3xl px-4 pb-10 pt-4">
+        <h2 className="mb-4 text-center text-xl font-bold sm:text-2xl">
+          Como baixar vídeo do TikTok sem marca d'água
+        </h2>
+        <ol className="mb-6 space-y-2 text-sm text-neutral-600 dark:text-neutral-300">
+          <li>
+            <strong>1.</strong> Abra o TikTok, toque em compartilhar no vídeo desejado e escolha
+            "Copiar link".
+          </li>
+          <li>
+            <strong>2.</strong> Cole o link do vídeo do TikTok no campo acima, aqui no{' '}
+            {SITE.name}.
+          </li>
+          <li>
+            <strong>3.</strong> Clique em "Baixar vídeo" e pronto: o download em HD, sem marca
+            d'água, começa na hora.
+          </li>
+        </ol>
+        <p className="text-sm text-neutral-600 dark:text-neutral-300">
+          O {SITE.name} é a forma mais rápida de baixar vídeo do TikTok sem marca d'água, direto
+          do navegador, sem instalar aplicativos e sem precisar criar conta. Além do vídeo em alta
+          qualidade, você também pode salvar apenas o áudio em MP3 e baixar fotos de posts do
+          TikTok - tudo grátis e sem limite de downloads.
+        </p>
+      </section>
+
       <ShareFabs />
 
       {activeUrl && (
@@ -307,7 +342,7 @@ export function Home() {
           url={activeUrl}
           onClose={closeAndAdvanceQueue}
           onDownloadSuccess={handleDownloadSuccess}
-          badge={queue.length > 0 ? `+${queue.length} in queue` : undefined}
+          badge={queue.length > 0 ? `+${queue.length} na fila` : undefined}
           onBadgeClick={cancelQueue}
         />
       )}

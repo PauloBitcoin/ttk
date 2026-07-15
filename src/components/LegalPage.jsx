@@ -1,13 +1,9 @@
-import { useEffect } from 'react'
-import { SITE } from '../config/site'
+import { Seo } from './Seo'
 
-export function LegalPage({ title, content }) {
-  useEffect(() => {
-    document.title = `${SITE.name} - ${title}`
-  }, [title])
-
+export function LegalPage({ title, content, path }) {
   return (
     <div className="mx-auto max-w-3xl px-4 py-8">
+      <Seo title={title} path={path} />
       <h1 className="mb-6 text-center text-3xl font-extrabold">{title}</h1>
       <div className="flex flex-col gap-3 text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
         {content.map((block, index) => {
