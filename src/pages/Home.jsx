@@ -278,8 +278,10 @@ export function Home() {
           </div>
 
           <div className="hidden lg:block">
-            <h2 className="text-center text-2xl" style={{ color: 'var(--ttk)', fontWeight: 800 }}>
-              {SITE.shortName}
+            <h2 className="text-center text-2xl" >
+              <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(90deg, var(--ttk), var(--ttk-2))', fontWeight: 800 }}>
+                {SITE.shortName}
+              </span>
             </h2>
             <div className="relative mx-auto mt-4 max-w-xs">
               <div
