@@ -1,63 +1,84 @@
 import { useEffect, useState } from 'react'
 import { SITE } from '../config/site'
+import { Seo } from '../components/Seo'
 
 const FAQS = [
   {
-    q: 'How to Download Videos from TikTok (Step by Step)',
+    q: 'Como baixar vídeo do TikTok sem marca d\'água (passo a passo)',
+    answerText:
+      'Abra o TikTok, escolha o vídeo, toque em Compartilhar e depois em "Copiar link". Cole o link no TakeTok, clique na seta de download e escolha o formato.',
     a: (
       <ol className="list-decimal space-y-1 pl-5">
-        <li>Open the TikTok app on your phone or PC</li>
-        <li>Choose the video you want to download.</li>
-        <li>Click the Share button in the lower right corner.</li>
-        <li>Click the copy button.</li>
+        <li>Abra o aplicativo do TikTok no celular ou no PC.</li>
+        <li>Escolha o vídeo que você quer baixar.</li>
+        <li>Toque no botão Compartilhar, no canto inferior direito.</li>
+        <li>Toque em "Copiar link".</li>
         <li>
-          Then just paste the video in {SITE.name}, click on the download arrow, choose the
-          format and that's it. If you prefer the browser's menu, you have the option: Install app,
-          try it, it's even faster.
+          Depois é só colar o link no {SITE.name}, clicar na seta de download, escolher o formato
+          e pronto. Se preferir, instale o app pelo menu do navegador - é ainda mais rápido.
         </li>
       </ol>
     ),
   },
   {
-    q: 'Where do I find the videos after downloading?',
+    q: 'Onde ficam os vídeos depois de baixados?',
+    answerText:
+      'Eles geralmente são salvos na pasta padrão de downloads do navegador, que também permite escolher outra pasta de destino.',
     a: (
       <p>
-        They are usually saved in a default folder. Your browser normally defines this folder for
-        you. In browser settings, you can manually change and choose the destination folder for
-        your downloaded TikTok videos.
+        Eles geralmente são salvos na pasta padrão de downloads do seu navegador. Nas
+        configurações do navegador, você pode alterar manualmente a pasta de destino dos vídeos
+        baixados do TikTok.
       </p>
     ),
   },
   {
-    q: 'Can I download music from the video in mp3?',
+    q: 'Dá para baixar a música do vídeo em MP3?',
+    answerText: 'Sim, com o TakeTok também é possível baixar o áudio do vídeo em MP3.',
     a: (
       <p>
-        Yes. With {SITE.name} you can also download the music from the video in mp3 - just click
-        on the music icon.
+        Sim. Com o {SITE.name} você também pode baixar o áudio do vídeo em MP3 - basta clicar no
+        ícone de música.
       </p>
     ),
   },
   {
-    q: `Is ${SITE.name} free?`,
-    a: <p>Yes. {SITE.name} is free, you will have no cost to use our services.</p>,
+    q: `O ${SITE.name} é gratuito?`,
+    answerText: 'Sim, o TakeTok é 100% gratuito.',
+    a: <p>Sim. O {SITE.name} é 100% gratuito, sem custo algum para usar nossos serviços.</p>,
   },
   {
-    q: `Does the ${SITE.name} app take up memory on my device?`,
+    q: 'O TikTok sem marca d\'água tem qualidade menor?',
+    answerText:
+      'Não. O download é feito na qualidade original em HD, apenas removendo a marca d\'água, sem perda de resolução.',
     a: (
       <p>
-        No. {SITE.name} does not occupy memory. You can install it on Android or PC without
-        worrying about memory consumption - the app storage is 100% in the cloud, your device will
-        only store the shortcut, which is smaller than a photo.
+        Não. O {SITE.name} baixa o vídeo original em HD, na melhor qualidade disponível,
+        removendo apenas a marca d'água - sem perda de resolução.
       </p>
     ),
   },
   {
-    q: `How do I install the ${SITE.name} app?`,
+    q: `O aplicativo do ${SITE.name} ocupa espaço no meu dispositivo?`,
+    answerText:
+      'Não, o app roda na nuvem e o dispositivo guarda apenas um atalho, menor que uma foto.',
     a: (
       <p>
-        If you are accessing from an Android device or PC, just click on the banner located at the
-        bottom of the screen to install - it's easy and fast. If the banner does not appear, go to
-        your browser's menu and click "Install application".
+        Não. O {SITE.name} não ocupa memória. Você pode instalar no Android ou no PC sem se
+        preocupar com espaço de armazenamento - o app roda 100% na nuvem, seu dispositivo só
+        guarda o atalho, menor que uma foto.
+      </p>
+    ),
+  },
+  {
+    q: `Como instalo o aplicativo do ${SITE.name}?`,
+    answerText:
+      'Clique no banner de instalação na parte inferior da tela, ou use a opção "Instalar aplicativo" no menu do navegador.',
+    a: (
+      <p>
+        Se você está acessando pelo Android ou PC, basta clicar no banner na parte inferior da
+        tela para instalar - é rápido e fácil. Se o banner não aparecer, vá ao menu do navegador e
+        clique em "Instalar aplicativo".
       </p>
     ),
   },
@@ -67,12 +88,32 @@ export function Faq() {
   const [openIndex, setOpenIndex] = useState(null)
 
   useEffect(() => {
-    document.title = `${SITE.name} - FAQ`
+    const script = document.createElement('script')
+    script.type = 'application/ld+json'
+    script.text = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: FAQS.map(({ q, answerText }) => ({
+        '@type': 'Question',
+        name: q,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: answerText,
+        },
+      })),
+    })
+    document.head.appendChild(script)
+    return () => document.head.removeChild(script)
   }, [])
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8">
-      <h1 className="mb-6 text-center text-3xl font-extrabold">FAQ</h1>
+      <Seo
+        title="Perguntas Frequentes sobre Baixar Vídeo do TikTok"
+        description="Tire suas dúvidas sobre como baixar vídeo do TikTok sem marca d'água, salvar áudio em MP3 e instalar o app do TakeTok."
+        path="/faq"
+      />
+      <h1 className="mb-6 text-center text-3xl font-extrabold">Perguntas Frequentes</h1>
       <div className="flex flex-col divide-y divide-neutral-200 dark:divide-neutral-700">
         {FAQS.map((item, index) => {
           const open = openIndex === index

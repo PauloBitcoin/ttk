@@ -1,6 +1,5 @@
-import { useEffect } from 'react'
 import { MailIcon, TelegramIcon } from '../components/icons'
-import { SITE } from '../config/site'
+import { Seo } from '../components/Seo'
 
 const CONTACT = {
   email: 'paulobitcoin999@gmail.com',
@@ -9,14 +8,15 @@ const CONTACT = {
 }
 
 export function Contact() {
-  useEffect(() => {
-    document.title = `${SITE.name} - Contact`
-  }, [])
-
   return (
     <div className="mx-auto max-w-lg px-4 py-8">
-      <h1 className="mb-2 text-center text-3xl font-extrabold">Contact</h1>
-      <p className="mb-6 text-center text-neutral-500">Get in touch directly through the channels below.</p>
+      <Seo
+        title="Contato"
+        description="Entre em contato com a equipe do TakeTok por e-mail ou Telegram."
+        path="/contact"
+      />
+      <h1 className="mb-2 text-center text-3xl font-extrabold">Contato</h1>
+      <p className="mb-6 text-center text-neutral-500">Fale com a gente diretamente pelos canais abaixo.</p>
 
       <div className="glass flex flex-col gap-3 rounded-3xl p-4 shadow-lg">
         <ContactRow

@@ -15,7 +15,7 @@ export function Footer() {
           Terms of Service
         </Link>
         <Link to="/contact" className="hover:text-current">
-          Contact
+          Contato
         </Link>
       </nav>
       <p>

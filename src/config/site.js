@@ -4,9 +4,10 @@ export const SITE = {
   name: 'TakeTok',
   shortName: 'TakeTok',
   domain: 'bbft.live',
-  tagline: 'Download TikTok videos without watermark free.',
+  url: 'https://bbft.live',
+  tagline: "Baixar vídeo do TikTok sem marca d'água, grátis",
   description:
-    'Download TikTok videos without watermark! TakeTok is the best app to download videos and music from TikTok without watermark, online, free and without ads.',
+    "Baixar vídeo do TikTok sem marca d'água em HD, grátis e sem cadastro. Cole o link e baixe vídeos, fotos e músicas do TikTok em segundos com o TakeTok.",
 }
 
 // Paths are relative to the public/ dir; pass through lib/asset.js's asset()
