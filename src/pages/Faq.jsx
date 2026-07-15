@@ -6,7 +6,7 @@ const FAQS = [
   {
     q: 'Como baixar vídeo do TikTok sem marca d\'água (passo a passo)',
     answerText:
-      'Abra o TikTok, escolha o vídeo, toque em Compartilhar e depois em "Copiar link". Cole o link no TakeTok, clique na seta de download e escolha o formato.',
+      'Abra o TikTok, escolha o vídeo, toque em Compartilhar e depois em "Copiar link". Cole o link no BaixaTok, clique na seta de download e escolha o formato.',
     a: (
       <ol className="list-decimal space-y-1 pl-5">
         <li>Abra o aplicativo do TikTok no celular ou no PC.</li>
@@ -34,7 +34,7 @@ const FAQS = [
   },
   {
     q: 'Dá para baixar a música do vídeo em MP3?',
-    answerText: 'Sim, com o TakeTok também é possível baixar o áudio do vídeo em MP3.',
+    answerText: 'Sim, com o BaixaTok também é possível baixar o áudio do vídeo em MP3.',
     a: (
       <p>
         Sim. Com o {SITE.name} você também pode baixar o áudio do vídeo em MP3 - basta clicar no
@@ -44,7 +44,7 @@ const FAQS = [
   },
   {
     q: `O ${SITE.name} é gratuito?`,
-    answerText: 'Sim, o TakeTok é 100% gratuito.',
+    answerText: 'Sim, o BaixaTok é 100% gratuito.',
     a: <p>Sim. O {SITE.name} é 100% gratuito, sem custo algum para usar nossos serviços.</p>,
   },
   {
@@ -110,7 +110,7 @@ export function Faq() {
     <div className="mx-auto max-w-3xl px-4 py-8">
       <Seo
         title="Perguntas Frequentes sobre Baixar Vídeo do TikTok"
-        description="Tire suas dúvidas sobre como baixar vídeo do TikTok sem marca d'água, salvar áudio em MP3 e instalar o app do TakeTok."
+        description="Tire suas dúvidas sobre como baixar vídeo do TikTok sem marca d'água, salvar áudio em MP3 e instalar o app do BaixaTok."
         path="/faq"
       />
       <h1 className="mb-6 text-center text-3xl font-extrabold">Perguntas Frequentes</h1>

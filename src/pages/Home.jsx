@@ -142,7 +142,7 @@ export function Home() {
     <>
       <Seo
         title="Baixar Vídeo do TikTok Sem Marca D'água Grátis"
-        description="Baixar vídeo do TikTok sem marca d'água em HD, grátis e sem cadastro. Cole o link e baixe vídeos, fotos e músicas do TikTok em segundos com o TakeTok."
+        description="Baixar vídeo do TikTok sem marca d'água em HD, grátis e sem cadastro. Cole o link e baixe vídeos, fotos e músicas do TikTok em segundos com o BaixaTok."
         path="/"
       />
       <div className="relative isolate overflow-hidden">

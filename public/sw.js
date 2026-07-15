@@ -1,4 +1,4 @@
-const CACHE_NAME = 'TakeTok-v1'
+const CACHE_NAME = 'BaixaTok-v1'
 const PRECACHE_URLS = ['/', '/manifest.webmanifest']
 
 self.addEventListener('install', (event) => {
