@@ -23,10 +23,21 @@ export function VideoPlayer({ src, poster }) {
     setMuted(next)
   }
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault()
+      togglePlay()
+    }
+  }
+
   return (
     <div
+      role="button"
+      tabIndex={0}
+      aria-label={playing ? 'Pause video' : 'Play video'}
       className="group relative aspect-video w-full overflow-hidden rounded-2xl bg-black shadow-lg"
       onClick={togglePlay}
+      onKeyDown={handleKeyDown}
     >
       <video
         ref={videoRef}
@@ -55,6 +66,7 @@ export function VideoPlayer({ src, poster }) {
         type="button"
         onClick={toggleMute}
         title={muted ? 'Unmute' : 'Mute'}
+        aria-label={muted ? 'Unmute' : 'Mute'}
         className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition-colors hover:bg-black/70"
       >
         {muted ? <VolumeMuteIcon className="h-5 w-5" /> : <VolumeIcon className="h-5 w-5" />}

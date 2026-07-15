@@ -15,5 +15,4 @@ export const SITE = {
 export const IMAGES = {
   logo: '/assets/logo-350.webp',
   heroVertical: '/assets/verti.webp',
-  heroHorizontal: '/assets/hori.webp',
 }

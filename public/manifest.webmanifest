@@ -5,6 +5,15 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
+  "share_target": {
+    "action": "/",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "url",
+      "url": "url"
+    }
+  },
   "name": "TokTokDJ",
   "short_name": "TokTokDJ",
   "description": "TokTokDJ - TikTok video downloader",

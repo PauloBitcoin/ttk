@@ -1,6 +1,6 @@
 // Ported from legacy-static/terms-of-service.html, content preserved from the
 // original site (minor grammar cleanup; the three trademark/copyright/license
-// sections were reformatted as lists — they were unclosed <li> soup in the source).
+// sections were reformatted as lists - they were unclosed <li> soup in the source).
 export const title = 'Terms of Service'
 export const content = [
   { type: 'p', text: "Please read these terms of service (“Terms of Service” or “ToS”) carefully before accessing our application and website. Our ToS may change from time to time to reflect developments in our app and website to give our valued users the highest satisfaction. Please check the update date at the top of the ToS regularly to ensure you're reading the version updated with the latest changes." },

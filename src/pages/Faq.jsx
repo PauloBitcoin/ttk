@@ -32,7 +32,7 @@ const FAQS = [
     q: 'Can I download music from the video in mp3?',
     a: (
       <p>
-        Yes. With {SITE.name} you can also download the music from the video in mp3 — just click
+        Yes. With {SITE.name} you can also download the music from the video in mp3 - just click
         on the music icon.
       </p>
     ),
@@ -46,7 +46,7 @@ const FAQS = [
     a: (
       <p>
         No. {SITE.name} does not occupy memory. You can install it on Android or PC without
-        worrying about memory consumption — the app storage is 100% in the cloud, your device will
+        worrying about memory consumption - the app storage is 100% in the cloud, your device will
         only store the shortcut, which is smaller than a photo.
       </p>
     ),
@@ -56,7 +56,7 @@ const FAQS = [
     a: (
       <p>
         If you are accessing from an Android device or PC, just click on the banner located at the
-        bottom of the screen to install — it's easy and fast. If the banner does not appear, go to
+        bottom of the screen to install - it's easy and fast. If the banner does not appear, go to
         your browser's menu and click "Install application".
       </p>
     ),
