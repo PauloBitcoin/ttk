@@ -17,9 +17,21 @@ const FEATURES = [
 ]
 
 const TIKTOK_URL_REGEX = /https?:\/\/[^\s]*tiktok\.com\/[^\s]*/gi
+const TIKTOK_ID_REGEX = /^\d{15,19}$/
+
+// TikTok video IDs (bare, no URL) resolve fine at this canonical path -
+// useful since some share flows only hand you the numeric ID.
+function toTikTokUrl(token) {
+  return TIKTOK_ID_REGEX.test(token) ? `https://www.tiktok.com/video/${token}` : token
+}
 
 function extractTikTokUrls(text) {
-  return [...new Set(text.match(TIKTOK_URL_REGEX) || [])]
+  const fromUrls = text.match(TIKTOK_URL_REGEX) || []
+  const fromIds = text
+    .split(/\s+/)
+    .filter((token) => TIKTOK_ID_REGEX.test(token))
+    .map(toTikTokUrl)
+  return [...new Set([...fromUrls, ...fromIds])]
 }
 
 export function Home() {
@@ -66,15 +78,16 @@ export function Home() {
     const text = event.clipboardData?.getData('text')
     if (!text) return
     const urls = extractTikTokUrls(text)
-    if (urls.length === 0) return // not a TikTok link - let the default paste fill the input
+    if (urls.length === 0) return // not a TikTok link or bare video ID - let the default paste fill the input
     event.preventDefault()
     handlePastedText(text)
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    if (!url.trim()) return
-    setSearchParams({ url: url.trim() })
+    const trimmed = url.trim()
+    if (!trimmed) return
+    setSearchParams({ url: toTikTokUrl(trimmed) })
   }
 
   const closeAndAdvanceQueue = useCallback(() => {
