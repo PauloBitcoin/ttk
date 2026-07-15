@@ -1,7 +1,9 @@
 import { useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { PauseIcon, PlayIcon, VolumeIcon, VolumeMuteIcon } from './icons'
 
 export function VideoPlayer({ src, poster }) {
+  const { t } = useTranslation()
   const videoRef = useRef(null)
   const [playing, setPlaying] = useState(true)
   const [muted, setMuted] = useState(true)
@@ -34,7 +36,7 @@ export function VideoPlayer({ src, poster }) {
     <div
       role="button"
       tabIndex={0}
-      aria-label={playing ? 'Pause video' : 'Play video'}
+      aria-label={playing ? t('videoPlayer.pause') : t('videoPlayer.play')}
       className="group relative aspect-video w-full overflow-hidden rounded-2xl bg-black shadow-lg"
       onClick={togglePlay}
       onKeyDown={handleKeyDown}
@@ -65,8 +67,8 @@ export function VideoPlayer({ src, poster }) {
       <button
         type="button"
         onClick={toggleMute}
-        title={muted ? 'Unmute' : 'Mute'}
-        aria-label={muted ? 'Unmute' : 'Mute'}
+        title={muted ? t('videoPlayer.unmute') : t('videoPlayer.mute')}
+        aria-label={muted ? t('videoPlayer.unmute') : t('videoPlayer.mute')}
         className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition-colors hover:bg-black/70"
       >
         {muted ? <VolumeMuteIcon className="h-5 w-5" /> : <VolumeIcon className="h-5 w-5" />}

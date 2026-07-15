@@ -1,13 +1,15 @@
+import { useTranslation } from 'react-i18next'
 import { ChevronLeftIcon, ChevronRightIcon } from './icons'
 
 export function ImageCarousel({ images, index, onIndexChange }) {
+  const { t } = useTranslation()
   const go = (delta) => onIndexChange((index + delta + images.length) % images.length)
 
   return (
     <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-black shadow-lg">
       <img
         src={images[index]}
-        alt={`Slide ${index + 1} of ${images.length}`}
+        alt={t('imageCarousel.slide', { current: index + 1, total: images.length })}
         className="h-full w-full object-contain"
       />
 
@@ -16,7 +18,7 @@ export function ImageCarousel({ images, index, onIndexChange }) {
           <button
             type="button"
             onClick={() => go(-1)}
-            aria-label="Previous image"
+            aria-label={t('imageCarousel.previous')}
             className="absolute left-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm hover:bg-black/70"
           >
             <ChevronLeftIcon className="h-5 w-5" />
@@ -24,7 +26,7 @@ export function ImageCarousel({ images, index, onIndexChange }) {
           <button
             type="button"
             onClick={() => go(1)}
-            aria-label="Next image"
+            aria-label={t('imageCarousel.next')}
             className="absolute right-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm hover:bg-black/70"
           >
             <ChevronRightIcon className="h-5 w-5" />

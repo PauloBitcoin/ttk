@@ -1,11 +1,13 @@
 import { useMemo, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { CopyLinkIcon, FacebookIcon, ShareIcon, TelegramIcon, WhatsAppIcon, XIcon } from './icons'
 import { useToast } from './Toast'
 
 const popup = (url) => window.open(url, '_blank', 'toolbar=0,status=0,width=600,height=600')
 
 export function ShareFabs() {
+  const { t } = useTranslation()
   const [open, setOpen] = useState(false)
   const showToast = useToast()
   const location = useLocation()
@@ -13,9 +15,9 @@ export function ShareFabs() {
   const copyLink = async () => {
     try {
       await navigator.clipboard.writeText(window.location.href)
-      showToast({ icon: 'success', title: 'Copied successfully!' })
+      showToast({ icon: 'success', title: t('shareFabs.copiedSuccessfully') })
     } catch {
-      showToast({ icon: 'error', title: 'Failed to copy!' })
+      showToast({ icon: 'error', title: t('shareFabs.failedToCopy') })
     }
   }
 
@@ -36,7 +38,7 @@ export function ShareFabs() {
         <>
           <button
             className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-neutral-700 shadow-lg dark:bg-zinc-800 dark:text-zinc-100"
-            title="Copy link"
+            title={t('shareFabs.copyLink')}
             onClick={copyLink}
           >
             <CopyLinkIcon className="h-5 w-5" />
@@ -56,7 +58,7 @@ export function ShareFabs() {
       <button
         className="flex h-12 w-12 items-center justify-center rounded-full text-white shadow-lg"
         style={{ background: 'var(--ttk)' }}
-        title="Share"
+        title={t('shareFabs.share')}
         onClick={() => setOpen((o) => !o)}
       >
         <ShareIcon className="h-5 w-5" />

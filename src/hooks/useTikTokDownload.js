@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 const API_ENDPOINT = 'https://tikwm.com/api/?url='
 const MAX_RETRIES = 8
@@ -52,10 +53,11 @@ async function fetchBlob(url, attempt = 0) {
 }
 
 export function useTikTokDownload(rawUrl) {
+  const { t } = useTranslation()
   const cached = rawUrl ? cache.get(rawUrl) : null
 
   const [status, setStatus] = useState(cached ? 'success' : rawUrl ? 'loading' : 'error') // 'loading' | 'error' | 'success'
-  const [errorMessage, setErrorMessage] = useState(rawUrl ? '' : 'Invalid Video URL.')
+  const [errorMessage, setErrorMessage] = useState(rawUrl ? '' : t('downloadModal.errorInvalidUrl'))
   const [data, setData] = useState(cached ? cached.data : null)
   const [downloadingKey, setDownloadingKey] = useState(null)
   const blobs = useRef(cached ? cached.blobs : {})
@@ -63,7 +65,7 @@ export function useTikTokDownload(rawUrl) {
   useEffect(() => {
     if (!rawUrl) {
       setStatus('error')
-      setErrorMessage('Invalid Video URL.')
+      setErrorMessage(t('downloadModal.errorInvalidUrl'))
       return
     }
 
@@ -90,7 +92,7 @@ export function useTikTokDownload(rawUrl) {
         if (cancelled) return
         if (json.code === -1) {
           setStatus('error')
-          setErrorMessage(json.msg || 'Failed to fetch video.')
+          setErrorMessage(json.msg || t('downloadModal.errorFailedToFetch'))
           return
         }
         if (json.code !== 0) {
@@ -118,12 +120,13 @@ export function useTikTokDownload(rawUrl) {
       .catch((err) => {
         if (cancelled) return
         setStatus('error')
-        setErrorMessage(err.message || 'Error occurred')
+        setErrorMessage(err.message || t('downloadModal.errorGeneric'))
       })
 
     return () => {
       cancelled = true
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [rawUrl])
 
   const download = async (blobKey) => {

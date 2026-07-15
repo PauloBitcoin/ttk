@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { AdSlot } from './AdSlot'
 import { ImageCarousel } from './ImageCarousel'
 import { AlertIcon, CloseIcon, CopyLinkIcon, DownloadIcon, MusicIcon } from './icons'
@@ -14,6 +15,7 @@ function Spinner({ className = 'h-4 w-4' }) {
 }
 
 export function DownloadModal({ url, onClose, onDownloadSuccess, badge, onBadgeClick }) {
+  const { t } = useTranslation()
   const { status, errorMessage, data, download, downloadingKey } = useTikTokDownload(url)
   const [imageIndex, setImageIndex] = useState(0)
   const showToast = useToast()
@@ -33,9 +35,9 @@ export function DownloadModal({ url, onClose, onDownloadSuccess, badge, onBadgeC
     const link = isPhotoPost ? data.images[imageIndex] : data.play
     try {
       await navigator.clipboard.writeText(link)
-      showToast({ icon: 'success', title: 'Link copied!' })
+      showToast({ icon: 'success', title: t('downloadModal.linkCopied') })
     } catch {
-      showToast({ icon: 'error', title: 'Failed to copy link' })
+      showToast({ icon: 'error', title: t('downloadModal.failedToCopyLink') })
     }
   }
 
@@ -48,7 +50,7 @@ export function DownloadModal({ url, onClose, onDownloadSuccess, badge, onBadgeC
         ref={panelRef}
         role="dialog"
         aria-modal="true"
-        aria-label={data?.title || 'Download video'}
+        aria-label={data?.title || t('home.downloadButton')}
         className="glass animate-modal-pop relative flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-3xl shadow-2xl"
         style={{ boxShadow: '0 0 0 1px rgba(255,0,80,0.15), 0 20px 60px -15px rgba(0,0,0,0.5)' }}
         onClick={(event) => event.stopPropagation()}
@@ -61,7 +63,7 @@ export function DownloadModal({ url, onClose, onDownloadSuccess, badge, onBadgeC
             <button
               type="button"
               onClick={onBadgeClick}
-              title="Cancel remaining queue"
+              title={t('downloadModal.cancelQueue')}
               className="shrink-0 rounded-full px-2.5 py-1 text-xs font-bold text-white hover:opacity-90"
               style={{ background: 'var(--ttk)' }}
             >
@@ -71,7 +73,7 @@ export function DownloadModal({ url, onClose, onDownloadSuccess, badge, onBadgeC
           <button
             type="button"
             onClick={onClose}
-            aria-label="Close"
+            aria-label={t('downloadModal.close')}
             className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-black/5 text-current hover:bg-black/10 dark:bg-white/10 dark:hover:bg-white/20"
           >
             <CloseIcon className="h-5 w-5" />
@@ -85,7 +87,7 @@ export function DownloadModal({ url, onClose, onDownloadSuccess, badge, onBadgeC
                 className="h-12 w-12 animate-spin rounded-full border-4 border-current border-t-transparent"
                 style={{ color: 'var(--ttk)' }}
               />
-              <span className="text-sm text-neutral-500 dark:text-zinc-400">Fetching video...</span>
+              <span className="text-sm text-neutral-500 dark:text-zinc-400">{t('downloadModal.fetching')}</span>
             </div>
           )}
 
@@ -99,7 +101,7 @@ export function DownloadModal({ url, onClose, onDownloadSuccess, badge, onBadgeC
                 className="rounded-full px-4 py-2 text-sm font-bold text-white"
                 style={{ background: 'var(--ttk)' }}
               >
-                Close
+                {t('downloadModal.close')}
               </button>
             </div>
           )}
@@ -125,7 +127,7 @@ export function DownloadModal({ url, onClose, onDownloadSuccess, badge, onBadgeC
                     rel="noreferrer"
                     className="shrink-0 rounded-full border border-current/20 px-3 py-1.5 text-xs font-semibold opacity-80 hover:opacity-100"
                   >
-                    Profile
+                    {t('downloadModal.profile')}
                   </a>
                 </div>
 
@@ -143,9 +145,11 @@ export function DownloadModal({ url, onClose, onDownloadSuccess, badge, onBadgeC
                       <>
                         <DownloadIcon className="h-5 w-5" />
                         <span className="flex flex-col items-start leading-tight">
-                          <span>{isPhotoPost ? 'Baixar imagem' : "Baixar sem marca d'água"}</span>
+                          <span>{isPhotoPost ? t('downloadModal.downloadImage') : t('downloadModal.downloadNoWatermark')}</span>
                           <span className="text-xs font-normal opacity-80">
-                            {isPhotoPost ? `JPG · ${imageIndex + 1}/${data.images.length}` : 'MP4 · HQ'}
+                            {isPhotoPost
+                              ? t('downloadModal.imageCounter', { current: imageIndex + 1, total: data.images.length })
+                              : t('downloadModal.mp4hq')}
                           </span>
                         </span>
                       </>
@@ -154,8 +158,8 @@ export function DownloadModal({ url, onClose, onDownloadSuccess, badge, onBadgeC
                   <button
                     type="button"
                     onClick={handleCopyLink}
-                    aria-label="Copy direct link"
-                    title="Copy direct link"
+                    aria-label={t('downloadModal.copyDirectLink')}
+                    title={t('downloadModal.copyDirectLink')}
                     className="flex w-12 shrink-0 items-center justify-center rounded-2xl bg-black/5 text-current hover:bg-black/10 dark:bg-white/10 dark:hover:bg-white/20"
                   >
                     <CopyLinkIcon className="h-5 w-5" />
@@ -173,8 +177,8 @@ export function DownloadModal({ url, onClose, onDownloadSuccess, badge, onBadgeC
                   type="button"
                   onClick={() => handleDownload('music')}
                   disabled={downloadingKey === 'music'}
-                  aria-label="Download audio (MP3)"
-                  title="Baixar áudio (MP3)"
+                  aria-label={t('downloadModal.downloadAudioTitle')}
+                  title={t('downloadModal.downloadAudioTitle')}
                   className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-white shadow-md disabled:opacity-70"
                   style={{ background: 'linear-gradient(135deg, var(--ttk-2), #2dd4bf)' }}
                 >
