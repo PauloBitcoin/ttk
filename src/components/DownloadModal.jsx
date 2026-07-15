@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { AdSlot } from './AdSlot'
 import { AlertIcon, CloseIcon, DownloadIcon, MusicIcon } from './icons'
 import { VideoPlayer } from './VideoPlayer'
 import { useTikTokDownload } from '../hooks/useTikTokDownload'
@@ -139,6 +140,8 @@ export function DownloadModal({ url, onClose, onDownloadSuccess }) {
                   {downloadingKey === 'music' ? <Spinner /> : <MusicIcon className="h-5 w-5" />}
                 </button>
               </div>
+
+              <AdSlot />
             </div>
           )}
         </div>
