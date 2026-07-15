@@ -1,12 +1,24 @@
 import { useEffect } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { Layout } from './components/Layout'
+import { LocaleRoot } from './components/LocaleRoot'
 import { ToastProvider } from './components/Toast'
 import { Home } from './pages/Home'
 import { Faq } from './pages/Faq'
 import { PrivacyPolicy } from './pages/PrivacyPolicy'
 import { TermsOfService } from './pages/TermsOfService'
 import { Contact } from './pages/Contact'
+
+function pageRoutes() {
+  return (
+    <>
+      <Route index element={<Home />} />
+      <Route path="faq" element={<Faq />} />
+      <Route path="privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="terms-of-service" element={<TermsOfService />} />
+      <Route path="contact" element={<Contact />} />
+    </>
+  )
+}
 
 function App() {
   useEffect(() => {
@@ -19,12 +31,17 @@ function App() {
     <BrowserRouter>
       <ToastProvider>
         <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/faq" element={<Faq />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/terms-of-service" element={<TermsOfService />} />
-            <Route path="/contact" element={<Contact />} />
+          {/* pt-BR is the site's original, already-indexed language - it stays
+              unprefixed at the root instead of moving to /pt to avoid losing
+              existing SEO rankings. en/es get a path prefix. */}
+          <Route path="/" element={<LocaleRoot locale="pt" />}>
+            {pageRoutes()}
+          </Route>
+          <Route path="/en" element={<LocaleRoot locale="en" />}>
+            {pageRoutes()}
+          </Route>
+          <Route path="/es" element={<LocaleRoot locale="es" />}>
+            {pageRoutes()}
           </Route>
         </Routes>
       </ToastProvider>

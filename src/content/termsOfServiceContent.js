@@ -1,66 +1,205 @@
-// Ported from legacy-static/terms-of-service.html, content preserved from the
-// original site (minor grammar cleanup; the three trademark/copyright/license
-// sections were reformatted as lists - they were unclosed <li> soup in the source).
-export const title = 'Terms of Service'
-export const content = [
-  { type: 'p', text: "Please read these terms of service (“Terms of Service” or “ToS”) carefully before accessing our application and website. Our ToS may change from time to time to reflect developments in our app and website to give our valued users the highest satisfaction. Please check the update date at the top of the ToS regularly to ensure you're reading the version updated with the latest changes." },
-  { type: 'h2', text: 'Acceptance of Terms of Service' },
-  { type: 'p', text: 'By accessing and using our application and website, you indicate your acceptance of our policies and ToS, including updated versions. If you do not agree with some content, please do not use our app and website.' },
-  { type: 'h2', text: 'Who can use our Services (User)' },
-  { type: 'p', text: 'Our ToS govern the relationship between the (DinoTok Downloader) application and users accessing DinoTok Downloader and/or using the products and services provided through DinoTok Downloader ("Products and Services"). Our ToS are a mutual agreement between you, an individual or an entity ("You" or "User") or a group of individuals or entities ("You" or "Users") and the developer of the Products and Services (DinoTok Downloader) in relation to your use of the Products and Services. By accessing or using DinoTok Downloader products and services, you confirm that you have carefully read, understood and accepted our ToS and agree to abide by them as user/users.' },
-  { type: 'h2', text: 'Obligations of users' },
-  { type: 'p', text: "You agree to use the DinoTok Downloader app and its products and services only for the purposes permitted by our ToS, as well as any law, regulation or generally accepted practice or guideline in the relevant jurisdictions. DINOTOK DOWNLOADER IS NOT RESPONSIBLE FOR ANY VIOLATIONS OF APPLICABLE LAWS, RULES OR REGULATIONS COMMITTED BY YOU OR THIRD PARTIES AT YOUR DIRECTION. Specifically, you agree and warrant that by using the DinoTok Downloader app and its products and services, your actions do not violate the laws, rules or regulations of (1) the country, state or locality where you reside, or (2) the country, state or locality where DinoTok Downloader is located or operates." },
-  { type: 'h2', text: 'Intellectual property' },
-  { type: 'h3', text: '(1) Trademark' },
-  {
-    type: 'p',
-    text: 'DinoTok Downloader respects trademark rights and complies with the laws and regulations governing registered brands. Our trademark "DinoTok Downloader™" was created by DinoTok Downloader and must be used only for and regarding our DinoTok Downloader products and services. It must be read as a continuous word without reference to any individual or entity other than DinoTok Downloader. To use, mention or refer to our Services, the DinoTok Downloader Application, or DinoTok Downloader Content and Materials, please follow our policy:',
-  },
-  {
-    type: 'ul',
-    items: [
-      'Use the exact format "DinoTok Downloader™" as a single word, without any spaces, division or separation between its constituent components, or in any other variant.',
-      'Never associate our trademark "DinoTok Downloader™", and never confuse it with any other individual(s), entity(ies), application(s), website(s), goods or services of other individuals and entities outside of DinoTok Downloader.',
-      'We reserve our rights relating to our trademark "DinoTok Downloader™" against any misuse, misrepresentation or infringement in any way.',
-      'We encourage and appreciate you reporting any suspected misuse, misrepresentation, breach or non-compliance so we can handle it appropriately.',
+// Ported from legacy-static/terms-of-service.html, content preserved from
+// the original site (minor grammar cleanup; the three trademark/copyright/
+// license sections were reformatted as lists - they were unclosed <li> soup
+// in the source; brand name kept dynamic).
+import { SITE } from '../config/site'
+
+const withName = (name) => ({
+  pt: {
+    title: 'Termos de Uso',
+    content: [
+      { type: 'p', text: 'Leia estes termos de uso ("Termos de Uso" ou "ToS") com atenção antes de acessar nosso aplicativo e site. Nossos Termos de Uso podem mudar de tempos em tempos para refletir melhorias no aplicativo e no site, buscando a maior satisfação dos nossos usuários. Verifique regularmente a data de atualização no topo dos Termos de Uso para garantir que está lendo a versão mais recente.' },
+      { type: 'h2', text: 'Aceitação dos Termos de Uso' },
+      { type: 'p', text: 'Ao acessar e usar nosso aplicativo e site, você indica sua aceitação das nossas políticas e Termos de Uso, incluindo versões atualizadas. Se você não concordar com algum conteúdo, não utilize nosso aplicativo e site.' },
+      { type: 'h2', text: 'Quem pode usar nossos serviços (Usuário)' },
+      { type: 'p', text: `Nossos Termos de Uso regem a relação entre o aplicativo (${name}) e os usuários que acessam o ${name} e/ou utilizam os produtos e serviços fornecidos por meio dele ("Produtos e Serviços"). Nossos Termos de Uso são um acordo mútuo entre você, uma pessoa física ou entidade ("Você" ou "Usuário") ou um grupo de pessoas ou entidades ("Você" ou "Usuários"), e o desenvolvedor dos Produtos e Serviços (${name}), em relação ao uso dos Produtos e Serviços. Ao acessar ou usar os produtos e serviços do ${name}, você confirma que leu, entendeu e aceitou cuidadosamente nossos Termos de Uso e concorda em cumpri-los.` },
+      { type: 'h2', text: 'Obrigações dos usuários' },
+      { type: 'p', text: `Você concorda em usar o aplicativo ${name} e seus produtos e serviços apenas para os fins permitidos pelos nossos Termos de Uso, bem como por qualquer lei, regulamento ou prática geralmente aceita nas jurisdições relevantes. O ${name.toUpperCase()} NÃO SE RESPONSABILIZA POR VIOLAÇÕES DE LEIS, REGRAS OU REGULAMENTOS APLICÁVEIS COMETIDAS POR VOCÊ OU POR TERCEIROS SOB SUA DIREÇÃO. Especificamente, você concorda e garante que, ao usar o aplicativo ${name} e seus produtos e serviços, suas ações não violam as leis, regras ou regulamentos (1) do país, estado ou localidade onde você reside, ou (2) do país, estado ou localidade onde o ${name} está localizado ou opera.` },
+      { type: 'h2', text: 'Propriedade intelectual' },
+      { type: 'h3', text: '(1) Marca registrada' },
+      {
+        type: 'p',
+        text: `O ${name} respeita os direitos de marca e cumpre as leis e regulamentos que regem marcas registradas. Nossa marca "${name}™" foi criada pelo ${name} e deve ser usada apenas em relação aos nossos produtos e serviços. Ela deve ser lida como uma palavra contínua, sem referência a qualquer pessoa ou entidade além do ${name}. Para usar, mencionar ou se referir aos nossos Serviços, ao aplicativo ${name}, ou ao Conteúdo e Materiais do ${name}, siga nossa política:`,
+      },
+      {
+        type: 'ul',
+        items: [
+          `Use o formato exato "${name}™" como uma única palavra, sem espaços, divisões ou separações entre seus componentes, ou em qualquer outra variação.`,
+          `Nunca associe nossa marca "${name}™" a, e nunca a confunda com, qualquer outra pessoa, entidade, aplicativo, site, bens ou serviços de outras pessoas e entidades fora do ${name}.`,
+          `Reservamos nossos direitos relacionados à marca "${name}™" contra qualquer uso indevido, deturpação ou violação de qualquer forma.`,
+          'Encorajamos e agradecemos caso você reporte qualquer suspeita de uso indevido, deturpação, violação ou não conformidade para que possamos lidar com isso adequadamente.',
+        ],
+      },
+      { type: 'h3', text: '(2) Direitos autorais' },
+      { type: 'p', text: `O ${name} respeita direitos autorais e cumpre as leis e regulamentos de direitos autorais.` },
+      {
+        type: 'ul',
+        items: [
+          `Os usuários são responsáveis pelo conteúdo por trás do link que colam no aplicativo ${name}.`,
+          `O ${name} oferece suporte aos usuários para baixar informações/conteúdo que eles colam no aplicativo e site, para os interesses legítimos dos usuários.`,
+          'Exibimos apenas conteúdo "original" que os usuários publicaram em sites, páginas ou redes sociais. Os usuários são responsáveis por garantir que possuem um direito legal sob as leis relevantes e por assegurar seus próprios direitos de propriedade intelectual em relação ao conteúdo publicado.',
+          `Os usuários só podem usar vídeos baixados através do aplicativo ${name} para fins pessoais, não comerciais e gratuitos.`,
+          `O ${name} não pode e não tem obrigação de verificar se algum conteúdo/informação é legal ou não, mas, se detectar uma violação, impedirá os usuários responsáveis de acessar e usar o aplicativo, produtos e serviços do ${name}.`,
+          `O ${name} não faz backup nem arquiva o conteúdo dos usuários por nenhum motivo.`,
+          'Encorajamos e agradecemos caso você reporte qualquer suspeita de uso indevido, deturpação, uso não autorizado, violação ou não conformidade para que possamos lidar com isso adequadamente.',
+        ],
+      },
+      { type: 'h3', text: '(3) Licença de uso' },
+      {
+        type: 'p',
+        text: `Concedemos aos nossos usuários permissão para baixar temporariamente uma cópia do conteúdo e materiais (conforme definido acima) no aplicativo ${name} apenas para visualização transitória, pessoal e não comercial. Esta é uma concessão de licença, não uma transferência de titularidade, e sob esta licença você não pode:`,
+      },
+      {
+        type: 'ul',
+        items: [
+          'Alterar, modificar, distribuir ou duplicar os Materiais;',
+          'Usar o Conteúdo e Materiais para qualquer finalidade comercial ou exibição pública (comercial ou não comercial);',
+          'Remover qualquer notação de direitos autorais ou outra notação de propriedade do Conteúdo e Materiais; ou',
+          'Transferir o Conteúdo e Materiais para outra pessoa, ou "espelhar" o Conteúdo e Materiais em qualquer outro servidor.',
+        ],
+      },
+      { type: 'h3', text: '(4) Isenção de responsabilidade' },
+      { type: 'p', text: `Respeitamos e ajudamos os usuários a proteger seus legítimos direitos de atribuição e a integridade de suas obras e conteúdo. O conteúdo e os materiais no aplicativo ${name} são fornecidos para atender aos interesses dos usuários que são os legítimos proprietários ou autores. O ${name} não oferece garantias, expressas ou implícitas, e, por meio deste documento, se isenta de todas as outras garantias, incluindo, sem limitação, garantias ou condições implícitas de comercialização, adequação a um propósito específico, ou não violação de propriedade intelectual ou outros direitos. Além disso, o ${name} não garante nem faz qualquer representação sobre a precisão, os resultados prováveis ou a confiabilidade do uso do Conteúdo e Materiais em seu site, ou de outra forma em conexão com esse Conteúdo e Materiais ou quaisquer sites vinculados ao Site.` },
+      { type: 'h2', text: 'Privacidade' },
+      { type: 'p', text: `Operamos o aplicativo ${name} em conformidade com nossos princípios estabelecidos para garantir que a confidencialidade das informações pessoais, incluindo informações de nossos usuários, seja protegida e mantida sem divulgação a terceiros por qualquer motivo.` },
+      { type: 'h2', text: 'Precisão do Conteúdo e Materiais' },
+      { type: 'p', text: `O conteúdo e os materiais que aparecem no aplicativo ${name} podem incluir erros técnicos, tipográficos ou fotográficos. O ${name} não garante que qualquer Conteúdo e Materiais sejam precisos, completos ou atuais. O ${name} pode fazer alterações no conteúdo e materiais contidos em seu site a qualquer momento, sem aviso prévio.` },
+      { type: 'h2', text: 'Links' },
+      { type: 'p', text: `O ${name} não é responsável por nenhum dos sites vinculados ao seu site, nem por seu conteúdo. A inclusão de qualquer link não implica endosso do ${name} a esse site. O uso de qualquer site vinculado é por conta e risco do Usuário.` },
+      { type: 'h2', text: 'Termos de Uso – Modificações' },
+      { type: 'p', text: `Estes Termos de Uso podem ser alterados pelo ${name} a qualquer momento, com aviso fornecido por qualquer um dos seguintes meios: uma publicação na página principal do site, um aviso exibido ao ou após fazer login em sua conta de usuário (conforme definido abaixo), ou um e-mail para o endereço que você forneceu ao configurar sua conta de usuário. Sempre adicionamos informações sobre a versão atualizada dos Termos de Uso no topo desta página. Você é responsável por ler os termos atualizados sempre que acessar/usar nossos Serviços e por garantir estar totalmente ciente dos termos/atualizações antes de usar nossos Serviços. A falha em fornecer ou manter informações de contato precisas ou atuais em sua conta de usuário não o isenta de sua responsabilidade de cumprir estes Termos de Uso conforme alterados periodicamente. O uso de dados de contato ou identificações pertencentes a outras pessoas não é permitido e é considerado fraude. Desativaremos sua conta sempre que identificarmos fraude.` },
     ],
   },
-  { type: 'h3', text: '(2) Copyright' },
-  { type: 'p', text: 'DinoTok Downloader respects copyright and complies with copyright laws and regulations.' },
-  {
-    type: 'ul',
-    items: [
-      'Users are responsible for the content behind the link they paste into the DinoTok Downloader App.',
-      'DinoTok Downloader provides support to users to download information/content that users paste on the DinoTok Downloader App and website, for the legitimate interests of users.',
-      'We only display "original" content that users have posted on websites, pages, or social media/networking services. Users are responsible for guaranteeing they have a legal right under relevant laws and for securing their own intellectual property rights in relation to posted content.',
-      'Users may only use videos downloaded through the DinoTok Downloader app for personal, non-commercial and free purposes.',
-      'DinoTok Downloader cannot and is under no obligation to verify whether any content/information is legal or not, but if it detects a violation, it will prohibit the responsible users from accessing and using the DinoTok Downloader application, products and services.',
-      "DinoTok Downloader does not back up or archive users' content for any reason.",
-      'We encourage and appreciate you reporting any suspected misuse, misrepresentation, unauthorized use, infringement or non-compliance so we can handle it appropriately.',
+  en: {
+    title: 'Terms of Service',
+    content: [
+      { type: 'p', text: 'Please read these terms of service ("Terms of Service" or "ToS") carefully before accessing our application and website. Our ToS may change from time to time to reflect developments in our app and website to give our valued users the highest satisfaction. Please check the update date at the top of the ToS regularly to ensure you\'re reading the version updated with the latest changes.' },
+      { type: 'h2', text: 'Acceptance of Terms of Service' },
+      { type: 'p', text: 'By accessing and using our application and website, you indicate your acceptance of our policies and ToS, including updated versions. If you do not agree with some content, please do not use our app and website.' },
+      { type: 'h2', text: 'Who can use our Services (User)' },
+      { type: 'p', text: `Our ToS govern the relationship between the (${name}) application and users accessing ${name} and/or using the products and services provided through ${name} ("Products and Services"). Our ToS are a mutual agreement between you, an individual or an entity ("You" or "User") or a group of individuals or entities ("You" or "Users") and the developer of the Products and Services (${name}) in relation to your use of the Products and Services. By accessing or using ${name} products and services, you confirm that you have carefully read, understood and accepted our ToS and agree to abide by them as user/users.` },
+      { type: 'h2', text: 'Obligations of users' },
+      { type: 'p', text: `You agree to use the ${name} app and its products and services only for the purposes permitted by our ToS, as well as any law, regulation or generally accepted practice or guideline in the relevant jurisdictions. ${name.toUpperCase()} IS NOT RESPONSIBLE FOR ANY VIOLATIONS OF APPLICABLE LAWS, RULES OR REGULATIONS COMMITTED BY YOU OR THIRD PARTIES AT YOUR DIRECTION. Specifically, you agree and warrant that by using the ${name} app and its products and services, your actions do not violate the laws, rules or regulations of (1) the country, state or locality where you reside, or (2) the country, state or locality where ${name} is located or operates.` },
+      { type: 'h2', text: 'Intellectual property' },
+      { type: 'h3', text: '(1) Trademark' },
+      {
+        type: 'p',
+        text: `${name} respects trademark rights and complies with the laws and regulations governing registered brands. Our trademark "${name}™" was created by ${name} and must be used only for and regarding our ${name} products and services. It must be read as a continuous word without reference to any individual or entity other than ${name}. To use, mention or refer to our Services, the ${name} Application, or ${name} Content and Materials, please follow our policy:`,
+      },
+      {
+        type: 'ul',
+        items: [
+          `Use the exact format "${name}™" as a single word, without any spaces, division or separation between its constituent components, or in any other variant.`,
+          `Never associate our trademark "${name}™", and never confuse it with any other individual(s), entity(ies), application(s), website(s), goods or services of other individuals and entities outside of ${name}.`,
+          `We reserve our rights relating to our trademark "${name}™" against any misuse, misrepresentation or infringement in any way.`,
+          'We encourage and appreciate you reporting any suspected misuse, misrepresentation, breach or non-compliance so we can handle it appropriately.',
+        ],
+      },
+      { type: 'h3', text: '(2) Copyright' },
+      { type: 'p', text: `${name} respects copyright and complies with copyright laws and regulations.` },
+      {
+        type: 'ul',
+        items: [
+          `Users are responsible for the content behind the link they paste into the ${name} App.`,
+          `${name} provides support to users to download information/content that users paste on the ${name} App and website, for the legitimate interests of users.`,
+          'We only display "original" content that users have posted on websites, pages, or social media/networking services. Users are responsible for guaranteeing they have a legal right under relevant laws and for securing their own intellectual property rights in relation to posted content.',
+          `Users may only use videos downloaded through the ${name} app for personal, non-commercial and free purposes.`,
+          `${name} cannot and is under no obligation to verify whether any content/information is legal or not, but if it detects a violation, it will prohibit the responsible users from accessing and using the ${name} application, products and services.`,
+          `${name} does not back up or archive users' content for any reason.`,
+          'We encourage and appreciate you reporting any suspected misuse, misrepresentation, unauthorized use, infringement or non-compliance so we can handle it appropriately.',
+        ],
+      },
+      { type: 'h3', text: '(3) User License' },
+      {
+        type: 'p',
+        text: `We grant our users permission to temporarily download a copy of the content and materials (as defined above) in the ${name} app for transitory, personal and non-commercial viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:`,
+      },
+      {
+        type: 'ul',
+        items: [
+          'Alter, modify, distribute or duplicate the Materials;',
+          'Use the Content and Materials for any commercial purpose or for public exhibition (commercial or non-commercial);',
+          'Remove any copyright or other proprietary notation from the Content and Materials; or',
+          'Transfer the Content and Materials to another person, or "mirror" the Content and Materials on any other server.',
+        ],
+      },
+      { type: 'h3', text: '(4) Disclaimer' },
+      { type: 'p', text: `We respect and assist users in protecting their legitimate attribution rights and the integrity of their works and content. The content and materials on the ${name} app are provided to serve the interests of users who are the rightful owners or authors. ${name} makes no warranties, express or implied, and hereby disclaims all other warranties, including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other rights. Furthermore, ${name} does not guarantee or make any representations regarding the accuracy, likely results, or reliability of the use of the Content and Materials on its website, or otherwise in connection with such Content and Materials or any sites linked to the Site.` },
+      { type: 'h2', text: 'Privacy' },
+      { type: 'p', text: `We run the ${name} app in compliance with our established principles to guarantee that the confidentiality of personal information, including information from our users, is protected and maintained without disclosure to third parties for any reason.` },
+      { type: 'h2', text: 'Accuracy of Content and Materials' },
+      { type: 'p', text: `Content and materials appearing in the ${name} application may include technical, typographical or photographic mistakes. ${name} does not guarantee that any Content and Materials are accurate, complete or current. ${name} may make changes to the content and materials contained on its website at any time without notice.` },
+      { type: 'h2', text: 'Links' },
+      { type: 'p', text: `${name} is not responsible for any of the websites linked to its website, nor their content. The inclusion of any link does not imply endorsement by ${name} of that site. Use of any linked site is at the User's own risk.` },
+      { type: 'h2', text: 'Terms of Use – Modifications' },
+      { type: 'p', text: `These Terms of Service may be changed by ${name} at any time, with notice provided through any of the following means: a post on the main page of the site, a notice shown when or after logging into your user account (as defined below), or an email to the address you provided when setting up your user account. We always add information about the updated version of the Terms of Service at the top of this page. You are responsible for reading the updated terms each time you access/use our Services and for ensuring you are fully aware of the terms/updates before using our Services. Your failure to provide or maintain accurate or current contact information in your user account will not release you from your responsibility to comply with these Terms of Service as amended from time to time. The use of contact details or identifications belonging to other persons is not allowed and is considered fraud. We will deactivate your account whenever we identify fraud.` },
     ],
   },
-  { type: 'h3', text: '(3) User License' },
-  {
-    type: 'p',
-    text: 'We grant our users permission to temporarily download a copy of the content and materials (as defined above) in the DinoTok Downloader app for transitory, personal and non-commercial viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:',
-  },
-  {
-    type: 'ul',
-    items: [
-      'Alter, modify, distribute or duplicate the Materials;',
-      'Use the Content and Materials for any commercial purpose or for public exhibition (commercial or non-commercial);',
-      'Remove any copyright or other proprietary notation from the Content and Materials; or',
-      'Transfer the Content and Materials to another person, or "mirror" the Content and Materials on any other server.',
+  es: {
+    title: 'Términos de Uso',
+    content: [
+      { type: 'p', text: 'Lee estos términos de uso ("Términos de Uso" o "ToS") con atención antes de acceder a nuestra aplicación y sitio web. Nuestros Términos de Uso pueden cambiar de vez en cuando para reflejar mejoras en la app y el sitio, buscando la mayor satisfacción de nuestros usuarios. Revisa regularmente la fecha de actualización en la parte superior de los Términos de Uso para asegurarte de estar leyendo la versión más reciente.' },
+      { type: 'h2', text: 'Aceptación de los Términos de Uso' },
+      { type: 'p', text: 'Al acceder y usar nuestra aplicación y sitio web, indicas tu aceptación de nuestras políticas y Términos de Uso, incluidas las versiones actualizadas. Si no estás de acuerdo con algún contenido, no uses nuestra app y sitio web.' },
+      { type: 'h2', text: 'Quién puede usar nuestros Servicios (Usuario)' },
+      { type: 'p', text: `Nuestros Términos de Uso rigen la relación entre la aplicación (${name}) y los usuarios que acceden a ${name} y/o usan los productos y servicios provistos a través de ${name} ("Productos y Servicios"). Nuestros Términos de Uso son un acuerdo mutuo entre tú, una persona física o entidad ("Tú" o "Usuario") o un grupo de personas o entidades ("Tú" o "Usuarios"), y el desarrollador de los Productos y Servicios (${name}), en relación con tu uso de los Productos y Servicios. Al acceder o usar los productos y servicios de ${name}, confirmas que has leído, entendido y aceptado cuidadosamente nuestros Términos de Uso y aceptas cumplirlos.` },
+      { type: 'h2', text: 'Obligaciones de los usuarios' },
+      { type: 'p', text: `Aceptas usar la app ${name} y sus productos y servicios solo para los fines permitidos por nuestros Términos de Uso, así como cualquier ley, regulación o práctica generalmente aceptada en las jurisdicciones relevantes. ${name.toUpperCase()} NO ES RESPONSABLE DE NINGUNA VIOLACIÓN DE LEYES, NORMAS O REGULACIONES APLICABLES COMETIDAS POR TI O POR TERCEROS BAJO TU DIRECCIÓN. Específicamente, aceptas y garantizas que, al usar la app ${name} y sus productos y servicios, tus acciones no violan las leyes, normas o regulaciones (1) del país, estado o localidad donde resides, o (2) del país, estado o localidad donde ${name} está ubicado u opera.` },
+      { type: 'h2', text: 'Propiedad intelectual' },
+      { type: 'h3', text: '(1) Marca registrada' },
+      {
+        type: 'p',
+        text: `${name} respeta los derechos de marca y cumple con las leyes y regulaciones que rigen las marcas registradas. Nuestra marca "${name}™" fue creada por ${name} y debe usarse únicamente en relación con nuestros productos y servicios. Debe leerse como una palabra continua, sin referencia a ninguna persona o entidad distinta de ${name}. Para usar, mencionar o referirte a nuestros Servicios, la aplicación ${name}, o el Contenido y Materiales de ${name}, sigue nuestra política:`,
+      },
+      {
+        type: 'ul',
+        items: [
+          `Usa el formato exacto "${name}™" como una sola palabra, sin espacios, divisiones o separaciones entre sus componentes, ni en ninguna otra variante.`,
+          `Nunca asocies nuestra marca "${name}™" con, ni la confundas con, ninguna otra persona, entidad, aplicación, sitio web, bienes o servicios de otras personas y entidades ajenas a ${name}.`,
+          `Nos reservamos nuestros derechos relacionados con la marca "${name}™" frente a cualquier uso indebido, tergiversación o infracción de cualquier forma.`,
+          'Te animamos y agradecemos que reportes cualquier sospecha de uso indebido, tergiversación, incumplimiento o infracción para que podamos manejarlo adecuadamente.',
+        ],
+      },
+      { type: 'h3', text: '(2) Derechos de autor' },
+      { type: 'p', text: `${name} respeta los derechos de autor y cumple con las leyes y regulaciones de propiedad intelectual.` },
+      {
+        type: 'ul',
+        items: [
+          `Los usuarios son responsables del contenido detrás del enlace que pegan en la app ${name}.`,
+          `${name} brinda soporte a los usuarios para descargar información/contenido que ellos pegan en la app y sitio web, para los intereses legítimos de los usuarios.`,
+          'Solo mostramos contenido "original" que los usuarios han publicado en sitios web, páginas o redes sociales. Los usuarios son responsables de garantizar que tienen un derecho legal bajo las leyes relevantes y de asegurar sus propios derechos de propiedad intelectual en relación con el contenido publicado.',
+          `Los usuarios solo pueden usar los videos descargados a través de la app ${name} con fines personales, no comerciales y gratuitos.`,
+          `${name} no puede ni tiene obligación de verificar si algún contenido/información es legal o no, pero si detecta una violación, impedirá que los usuarios responsables accedan y usen la aplicación, productos y servicios de ${name}.`,
+          `${name} no respalda ni archiva el contenido de los usuarios por ningún motivo.`,
+          'Te animamos y agradecemos que reportes cualquier sospecha de uso indebido, tergiversación, uso no autorizado, infracción o incumplimiento para que podamos manejarlo adecuadamente.',
+        ],
+      },
+      { type: 'h3', text: '(3) Licencia de usuario' },
+      {
+        type: 'p',
+        text: `Otorgamos a nuestros usuarios permiso para descargar temporalmente una copia del contenido y materiales (según se define arriba) en la app ${name} solo para visualización transitoria, personal y no comercial. Esto es el otorgamiento de una licencia, no una transferencia de titularidad, y bajo esta licencia no puedes:`,
+      },
+      {
+        type: 'ul',
+        items: [
+          'Alterar, modificar, distribuir o duplicar los Materiales;',
+          'Usar el Contenido y Materiales para cualquier fin comercial o exhibición pública (comercial o no comercial);',
+          'Eliminar cualquier aviso de derechos de autor u otra notación de propiedad del Contenido y Materiales; o',
+          'Transferir el Contenido y Materiales a otra persona, o "reflejar" el Contenido y Materiales en cualquier otro servidor.',
+        ],
+      },
+      { type: 'h3', text: '(4) Descargo de responsabilidad' },
+      { type: 'p', text: `Respetamos y ayudamos a los usuarios a proteger sus legítimos derechos de atribución y la integridad de sus obras y contenido. El contenido y los materiales en la app ${name} se proporcionan para servir a los intereses de los usuarios que son los legítimos propietarios o autores. ${name} no ofrece garantías, expresas o implícitas, y por la presente renuncia a todas las demás garantías, incluidas, sin limitación, las garantías o condiciones implícitas de comerciabilidad, idoneidad para un propósito particular, o no infracción de propiedad intelectual u otros derechos. Además, ${name} no garantiza ni hace ninguna declaración con respecto a la precisión, los resultados probables o la confiabilidad del uso del Contenido y Materiales en su sitio web, o de otro modo en relación con dicho Contenido y Materiales o cualquier sitio vinculado al Sitio.` },
+      { type: 'h2', text: 'Privacidad' },
+      { type: 'p', text: `Operamos la app ${name} en cumplimiento de nuestros principios establecidos para garantizar que la confidencialidad de la información personal, incluida la información de nuestros usuarios, esté protegida y se mantenga sin divulgación a terceros por ningún motivo.` },
+      { type: 'h2', text: 'Precisión del Contenido y Materiales' },
+      { type: 'p', text: `El contenido y los materiales que aparecen en la aplicación ${name} pueden incluir errores técnicos, tipográficos o fotográficos. ${name} no garantiza que el Contenido y Materiales sean precisos, completos o actuales. ${name} puede realizar cambios en el contenido y materiales de su sitio web en cualquier momento sin previo aviso.` },
+      { type: 'h2', text: 'Enlaces' },
+      { type: 'p', text: `${name} no es responsable de ninguno de los sitios web vinculados a su sitio, ni de su contenido. La inclusión de cualquier enlace no implica el respaldo de ${name} a ese sitio. El uso de cualquier sitio vinculado es responsabilidad exclusiva del Usuario.` },
+      { type: 'h2', text: 'Términos de Uso – Modificaciones' },
+      { type: 'p', text: `Estos Términos de Uso pueden ser modificados por ${name} en cualquier momento, con aviso proporcionado por cualquiera de los siguientes medios: una publicación en la página principal del sitio, un aviso mostrado al iniciar sesión o después de iniciar sesión en tu cuenta de usuario (según se define abajo), o un correo electrónico a la dirección que proporcionaste al configurar tu cuenta de usuario. Siempre agregamos información sobre la versión actualizada de los Términos de Uso en la parte superior de esta página. Eres responsable de leer los términos actualizados cada vez que accedas/uses nuestros Servicios y de asegurarte de estar plenamente al tanto de los términos/actualizaciones antes de usar nuestros Servicios. El no proporcionar o mantener información de contacto precisa o actual en tu cuenta de usuario no te exime de tu responsabilidad de cumplir con estos Términos de Uso según se modifiquen periódicamente. No se permite el uso de datos de contacto o identificaciones pertenecientes a otras personas, y se considera fraude. Desactivaremos tu cuenta cada vez que identifiquemos fraude.` },
     ],
   },
-  { type: 'h3', text: '(4) Disclaimer' },
-  { type: 'p', text: 'We respect and assist users in protecting their legitimate attribution rights and the integrity of their works and content. The content and materials on the DinoTok Downloader app are provided to serve the interests of users who are the rightful owners or authors. DinoTok Downloader makes no warranties, express or implied, and hereby disclaims all other warranties, including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other rights. Furthermore, DinoTok Downloader does not guarantee or make any representations regarding the accuracy, likely results, or reliability of the use of the Content and Materials on its website, or otherwise in connection with such Content and Materials or any sites linked to the Site.' },
-  { type: 'h2', text: 'Privacy' },
-  { type: 'p', text: 'We run the DinoTok Downloader app in compliance with our established principles to guarantee that the confidentiality of personal information, including information from our users, is protected and maintained without disclosure to third parties for any reason.' },
-  { type: 'h2', text: 'Accuracy of Content and Materials' },
-  { type: 'p', text: 'Content and materials appearing in the DinoTok Downloader application may include technical, typographical or photographic mistakes. DinoTok Downloader does not guarantee that any Content and Materials are accurate, complete or current. DinoTok Downloader may make changes to the content and materials contained on its website at any time without notice.' },
-  { type: 'h2', text: 'Links' },
-  { type: 'p', text: "DinoTok Downloader is not responsible for any of the websites linked to its website, nor their content. The inclusion of any link does not imply endorsement by DinoTok Downloader of that site. Use of any linked site is at the User's own risk." },
-  { type: 'h2', text: 'Terms of Use – Modifications' },
-  { type: 'p', text: 'These Terms of Service may be changed by DinoTok Downloader at any time, with notice provided through any of the following means: a post on the main page of the site, a notice shown when or after logging into your user account (as defined below), or an email to the address you provided when setting up your user account. We always add information about the updated version of the Terms of Service at the top of this page. You are responsible for reading the updated terms each time you access/use our Services and for ensuring you are fully aware of the terms/updates before using our Services. Your failure to provide or maintain accurate or current contact information in your user account will not release you from your responsibility to comply with these Terms of Service as amended from time to time. The use of contact details or identifications belonging to other persons is not allowed and is considered fraud. We will deactivate your account whenever we identify fraud.' },
-]
+})
+
+export const TERMS_OF_SERVICE_BY_LOCALE = withName(SITE.name)

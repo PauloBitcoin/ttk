@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-i18next'
 import { CloseIcon } from './icons'
 import { useInstallPrompt } from '../hooks/useInstallPrompt'
 import { asset } from '../lib/asset'
 import { SITE, IMAGES } from '../config/site'
 
 export function InstallPrompt() {
+  const { t } = useTranslation()
   const { visible, install, dismiss } = useInstallPrompt()
 
   if (!visible) return null
@@ -13,11 +15,12 @@ export function InstallPrompt() {
       <button className="flex min-w-0 flex-1 items-center gap-3 text-left" onClick={install}>
         <img src={asset(IMAGES.logo)} width="40" height="40" alt={SITE.name} className="shrink-0" />
         <span className="text-sm font-medium">
-          Install {SITE.shortName} as an application. <small className="font-normal opacity-70">(does not take up space on your device)</small>
+          {t('installPrompt.text', { name: SITE.shortName })}{' '}
+          <small className="font-normal opacity-70">{t('installPrompt.subtext')}</small>
         </span>
       </button>
       <button
-        aria-label="Dismiss"
+        aria-label={t('installPrompt.dismiss')}
         onClick={dismiss}
         className="shrink-0 rounded-full p-1 hover:bg-black/5 dark:hover:bg-white/10"
       >

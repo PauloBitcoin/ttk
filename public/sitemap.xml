@@ -1,27 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://bbft.live/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bbft.live/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bbft.live/en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://bbft.live/es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bbft.live/" />
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://bbft.live/en</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bbft.live/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bbft.live/en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://bbft.live/es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bbft.live/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://bbft.live/es</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bbft.live/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bbft.live/en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://bbft.live/es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bbft.live/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
     <loc>https://bbft.live/faq</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bbft.live/faq" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bbft.live/en/faq" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://bbft.live/es/faq" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bbft.live/faq" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://bbft.live/en/faq</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bbft.live/faq" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bbft.live/en/faq" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://bbft.live/es/faq" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bbft.live/faq" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bbft.live/es/faq</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bbft.live/faq" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bbft.live/en/faq" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://bbft.live/es/faq" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bbft.live/faq" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://bbft.live/contact</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bbft.live/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bbft.live/en/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://bbft.live/es/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bbft.live/contact" />
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://bbft.live/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bbft.live/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bbft.live/en/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://bbft.live/es/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bbft.live/contact" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://bbft.live/es/contact</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bbft.live/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bbft.live/en/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://bbft.live/es/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bbft.live/contact" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
     <loc>https://bbft.live/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bbft.live/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bbft.live/en/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://bbft.live/es/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bbft.live/privacy-policy" />
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
+    <loc>https://bbft.live/en/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bbft.live/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bbft.live/en/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://bbft.live/es/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bbft.live/privacy-policy" />
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://bbft.live/es/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bbft.live/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bbft.live/en/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://bbft.live/es/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bbft.live/privacy-policy" />
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <url>
     <loc>https://bbft.live/terms-of-service</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bbft.live/terms-of-service" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bbft.live/en/terms-of-service" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://bbft.live/es/terms-of-service" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bbft.live/terms-of-service" />
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://bbft.live/en/terms-of-service</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bbft.live/terms-of-service" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bbft.live/en/terms-of-service" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://bbft.live/es/terms-of-service" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bbft.live/terms-of-service" />
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://bbft.live/es/terms-of-service</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bbft.live/terms-of-service" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bbft.live/en/terms-of-service" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://bbft.live/es/terms-of-service" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bbft.live/terms-of-service" />
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>

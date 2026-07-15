@@ -1,19 +1,25 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { CloseIcon, LanguagesIcon, MonitorIcon, MoonIcon, SunIcon } from './icons'
+import { useTranslation } from 'react-i18next'
+import { CloseIcon, MonitorIcon, MoonIcon, SunIcon } from './icons'
 import { useDialogA11y } from '../hooks/useDialogA11y'
 import { useTheme } from '../hooks/useTheme'
+import { useLocale } from '../hooks/useLocale'
 import { useToast } from './Toast'
 import { SITE } from '../config/site'
+import { localizedPath } from '../lib/locale'
+import { LanguageSwitcher } from './LanguageSwitcher'
 
 const THEME_OPTIONS = [
-  { value: 'light', label: 'Light', icon: SunIcon },
-  { value: 'dark', label: 'Dark', icon: MoonIcon },
-  { value: 'system', label: 'System', icon: MonitorIcon },
+  { value: 'light', icon: SunIcon },
+  { value: 'dark', icon: MoonIcon },
+  { value: 'system', icon: MonitorIcon },
 ]
 
 export function Sidebar({ open, onClose }) {
+  const { t } = useTranslation()
   const { theme, setTheme } = useTheme()
+  const { locale } = useLocale()
   const showToast = useToast()
   const panelRef = useRef(null)
 
@@ -21,7 +27,7 @@ export function Sidebar({ open, onClose }) {
 
   const clearCache = () => {
     localStorage.clear()
-    showToast({ icon: 'success', title: 'Cache cleared!' })
+    showToast({ icon: 'success', title: t('sidebar.cacheCleared') })
   }
 
   return (
@@ -36,7 +42,7 @@ export function Sidebar({ open, onClose }) {
         ref={panelRef}
         role="dialog"
         aria-modal="true"
-        aria-label="Main menu"
+        aria-label={t('nav.menu')}
         className={`glass absolute inset-y-0 right-0 flex w-72 max-w-[85vw] flex-col gap-6 overflow-y-auto p-5 shadow-2xl transition-transform duration-300 ${open ? 'translate-x-0' : 'translate-x-full'
           }`}
       >
@@ -47,7 +53,7 @@ export function Sidebar({ open, onClose }) {
           <button
             type="button"
             onClick={onClose}
-            aria-label="Close"
+            aria-label={t('nav.close')}
             className="flex h-9 w-9 items-center justify-center rounded-full bg-black/5 hover:bg-black/10 dark:bg-white/10 dark:hover:bg-white/20"
           >
             <CloseIcon className="h-5 w-5" />
@@ -55,27 +61,35 @@ export function Sidebar({ open, onClose }) {
         </div>
 
         <nav className="flex flex-col gap-1 font-semibold">
-          <Link to="/" onClick={onClose} className="rounded-xl px-3 py-2 hover:bg-black/5 dark:hover:bg-zinc-800">
-            Home
-          </Link>
-          <Link to="/faq" onClick={onClose} className="rounded-xl px-3 py-2 hover:bg-black/5 dark:hover:bg-zinc-800">
-            FAQ
-          </Link>
           <Link
-            to="/contact"
+            to={localizedPath(locale, '/')}
             onClick={onClose}
             className="rounded-xl px-3 py-2 hover:bg-black/5 dark:hover:bg-zinc-800"
           >
-            Contact
+            {t('nav.home')}
+          </Link>
+          <Link
+            to={localizedPath(locale, '/faq')}
+            onClick={onClose}
+            className="rounded-xl px-3 py-2 hover:bg-black/5 dark:hover:bg-zinc-800"
+          >
+            {t('nav.faq')}
+          </Link>
+          <Link
+            to={localizedPath(locale, '/contact')}
+            onClick={onClose}
+            className="rounded-xl px-3 py-2 hover:bg-black/5 dark:hover:bg-zinc-800"
+          >
+            {t('nav.contact')}
           </Link>
         </nav>
 
         <div>
           <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:text-zinc-400">
-            Theme
+            {t('theme.label')}
           </div>
           <div className="glass-sm flex rounded-xl p-1">
-            {THEME_OPTIONS.map(({ value, label, icon: Icon }) => (
+            {THEME_OPTIONS.map(({ value, icon: Icon }) => (
               <button
                 key={value}
                 type="button"
@@ -85,34 +99,20 @@ export function Sidebar({ open, onClose }) {
                 style={theme === value ? { background: 'var(--ttk)' } : undefined}
               >
                 <Icon className="h-4 w-4" />
-                {label}
+                {t(`theme.${value}`)}
               </button>
             ))}
           </div>
         </div>
 
-        <div>
-          <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:text-zinc-400">
-            Language
-          </div>
-          <div className="glass-sm flex items-center gap-2 rounded-xl p-1">
-            <span
-              className="flex flex-1 items-center justify-center gap-2 rounded-lg py-2 text-xs font-semibold text-white"
-              style={{ background: 'var(--ttk)' }}
-            >
-              <LanguagesIcon className="h-4 w-4" />
-              English
-            </span>
-          </div>
-          <p className="mt-1.5 text-xs text-neutral-400">More languages coming soon.</p>
-        </div>
+        <LanguageSwitcher onNavigate={onClose} />
 
         <button
           type="button"
           onClick={clearCache}
           className="mt-auto rounded-xl bg-amber-500 px-3 py-2 text-sm font-bold text-white hover:bg-amber-600"
         >
-          Clear cache
+          {t('sidebar.clearCache')}
         </button>
 
         <p className="text-center text-xs text-zinc-600 dark:text-zinc-400">
