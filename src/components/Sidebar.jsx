@@ -8,7 +8,6 @@ import { useLocale } from '../hooks/useLocale'
 import { useToast } from './Toast'
 import { SITE } from '../config/site'
 import { localizedPath } from '../lib/locale'
-import { LanguageSwitcher } from './LanguageSwitcher'
 
 const THEME_OPTIONS = [
   { value: 'light', icon: SunIcon },
@@ -104,8 +103,6 @@ export function Sidebar({ open, onClose }) {
             ))}
           </div>
         </div>
-
-        <LanguageSwitcher onNavigate={onClose} />
 
         <button
           type="button"

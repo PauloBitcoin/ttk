@@ -24,6 +24,7 @@ export {
   Link2 as CopyLinkIcon,
   ChevronLeft as ChevronLeftIcon,
   ChevronRight as ChevronRightIcon,
+  Check as CheckIcon,
 } from 'lucide-react'
 
 export function TelegramIcon(props) {
