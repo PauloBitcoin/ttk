@@ -1,13 +1,13 @@
 // Central place for brand name/copy and image asset paths. Swapping the
 // logo/hero images or renaming the app again should only mean editing here.
 export const SITE = {
-  name: 'TakeTok',
-  shortName: 'TakeTok',
+  name: 'BaixaTok',
+  shortName: 'BaixaTok',
   domain: 'bbft.live',
   url: 'https://bbft.live',
   tagline: "Baixar vídeo do TikTok sem marca d'água, grátis",
   description:
-    "Baixar vídeo do TikTok sem marca d'água em HD, grátis e sem cadastro. Cole o link e baixe vídeos, fotos e músicas do TikTok em segundos com o TakeTok.",
+    "Baixar vídeo do TikTok sem marca d'água em HD, grátis e sem cadastro. Cole o link e baixe vídeos, fotos e músicas do TikTok em segundos com o BaixaTok.",
 }
 
 // Paths are relative to the public/ dir; pass through lib/asset.js's asset()

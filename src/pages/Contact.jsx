@@ -12,7 +12,7 @@ export function Contact() {
     <div className="mx-auto max-w-lg px-4 py-8">
       <Seo
         title="Contato"
-        description="Entre em contato com a equipe do TakeTok por e-mail ou Telegram."
+        description="Entre em contato com a equipe do BaixaTok por e-mail ou Telegram."
         path="/contact"
       />
       <h1 className="mb-2 text-center text-3xl font-extrabold">Contato</h1>
