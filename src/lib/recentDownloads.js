@@ -1,4 +1,4 @@
-const STORAGE_KEY = 'toktokdj:recent-downloads'
+const STORAGE_KEY = 'TakeTok:recent-downloads'
 const MAX_ITEMS = 10
 
 export function getRecentDownloads() {

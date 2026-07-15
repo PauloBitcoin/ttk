@@ -26,7 +26,7 @@ function resolveSourceUrl(data, blobKey) {
 
 function resolveFilename(data, blobKey) {
   const base = sanitizeFilename(`${data.author.unique_id} ${data.title}`)
-  if (blobKey === 'video') return { filename: `${base} TokTokDJ`, extension: '.mp4' }
+  if (blobKey === 'video') return { filename: `${base} TakeTok`, extension: '.mp4' }
   if (blobKey === 'music') {
     return { filename: sanitizeFilename(`${data.music_info.author} - ${data.music_info.title}`), extension: '.mp3' }
   }
@@ -112,7 +112,7 @@ export function useTikTokDownload(rawUrl) {
             .then((blob) => {
               if (!cancelled) blobs.current[blobKey] = blob
             })
-            .catch(() => {})
+            .catch(() => { })
         }
       })
       .catch((err) => {
