@@ -187,7 +187,7 @@ export function Home() {
           </div>
 
           <div className="hidden lg:block">
-            <h2 className="text-center text-2xl font-bold" style={{ color: 'var(--ttk)' }}>
+            <h2 className="text-center text-2xl" style={{ color: 'var(--ttk)', fontWeight: 800 }}>
               {SITE.shortName}
             </h2>
             <div className="relative mx-auto mt-4 max-w-xs">
