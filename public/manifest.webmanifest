@@ -5,9 +5,9 @@
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
-    "name": "DinoTok Downloader",
-    "short_name": "DinoTok",
-    "description": "DinoTok Downloader - TikTok video downloader",
+    "name": "TokTokDJ Downloader",
+    "short_name": "TokTokDJ",
+    "description": "TokTokDJ Downloader - TikTok video downloader",
 "screenshots": [
     {
       "src": "01.png",

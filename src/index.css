@@ -1,12 +1,23 @@
 @import "tailwindcss";
 
+/* The dark-mode toggle sets a `.dark` class on <body> (see useDarkMode.js);
+   without this, Tailwind v4's `dark:` variant defaults to the OS-level
+   prefers-color-scheme media query and ignores the in-app toggle entirely. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer components {
   .input {
     @apply w-full rounded border border-neutral-300 bg-transparent px-3 py-2 outline-none dark:border-neutral-600;
   }
 
+  /* Elevated surfaces (modal panels, the home input card). */
   .glass {
-    @apply border border-black/10 bg-white/70 backdrop-blur-xl dark:border-white/10 dark:bg-white/5;
+    @apply border border-black/10 bg-white/70 backdrop-blur-xl dark:border-zinc-700/50 dark:bg-zinc-900/70;
+  }
+
+  /* Smaller surfaces nested inside a .glass container (cards, chips). */
+  .glass-sm {
+    @apply border border-black/10 bg-white/60 backdrop-blur-xl dark:border-zinc-700/40 dark:bg-zinc-800/70;
   }
 }
 
@@ -79,8 +90,8 @@ body {
 }
 
 body.dark {
-  background: #1a2430;
-  color: #e8eaed;
+  background: #09090b; /* zinc-950 */
+  color: #f4f4f5; /* zinc-100 */
 }
 
 /* Toast */
@@ -160,8 +171,8 @@ body.dark {
 }
 
 body.dark .ttk-toast {
-  background: #314052;
-  color: #e8eaed;
+  background: #18181b; /* zinc-900 */
+  color: #f4f4f5; /* zinc-100 */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 

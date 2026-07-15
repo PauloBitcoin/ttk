@@ -9,7 +9,7 @@ export function InstallPrompt() {
   if (!visible) return null
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 bg-white p-3 shadow-[0_-2px_10px_rgba(0,0,0,0.1)] dark:bg-[#314052] dark:text-white">
+    <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 bg-white p-3 shadow-[0_-2px_10px_rgba(0,0,0,0.1)] dark:bg-zinc-900 dark:text-zinc-100">
       <button className="flex items-center gap-3 text-left" onClick={install}>
         <img src={asset(IMAGES.logo)} width="40" height="40" alt={SITE.name} />
         <span className="text-sm font-medium">

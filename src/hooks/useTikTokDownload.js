@@ -4,6 +4,11 @@ const API_ENDPOINT = 'https://tikwm.com/api/?url='
 const MAX_RETRIES = 10
 const RETRY_DELAY_MS = 400
 
+// Keeps fetched video data + blobs around for the life of the tab, keyed by
+// the pasted URL, so closing and reopening the modal for the same video
+// doesn't refire the (rate-limited) tikwm request.
+const cache = new Map()
+
 async function fetchBlob(url, attempt = 0) {
   try {
     const response = await fetch(url)
@@ -19,16 +24,26 @@ async function fetchBlob(url, attempt = 0) {
 // Mirrors the shape of legacy-static/js/download.js, replacing the old
 // global BLOBS/DATA/RETRIES with component state and a blobs ref.
 export function useTikTokDownload(rawUrl) {
-  const [status, setStatus] = useState('loading') // 'loading' | 'error' | 'success'
-  const [errorMessage, setErrorMessage] = useState('')
-  const [data, setData] = useState(null)
+  const cached = rawUrl ? cache.get(rawUrl) : null
+
+  const [status, setStatus] = useState(cached ? 'success' : rawUrl ? 'loading' : 'error') // 'loading' | 'error' | 'success'
+  const [errorMessage, setErrorMessage] = useState(rawUrl ? '' : 'Invalid Video URL.')
+  const [data, setData] = useState(cached ? cached.data : null)
   const [downloadingKey, setDownloadingKey] = useState(null)
-  const blobs = useRef({})
+  const blobs = useRef(cached ? cached.blobs : {})
 
   useEffect(() => {
     if (!rawUrl) {
       setStatus('error')
       setErrorMessage('Invalid Video URL.')
+      return
+    }
+
+    const existing = cache.get(rawUrl)
+    if (existing) {
+      blobs.current = existing.blobs
+      setData(existing.data)
+      setStatus('success')
       return
     }
 
@@ -55,6 +70,7 @@ export function useTikTokDownload(rawUrl) {
         }
         setData(json.data)
         setStatus('success')
+        cache.set(rawUrl, { data: json.data, blobs: blobs.current })
 
         for (const key of ['play', 'wmplay', 'music']) {
           const mediaUrl = json.data[key]
@@ -78,7 +94,7 @@ export function useTikTokDownload(rawUrl) {
   }, [rawUrl])
 
   const download = async (blobKey) => {
-    if (!data) return
+    if (!data) return false
     setDownloadingKey(blobKey)
 
     let blob = blobs.current[blobKey]
@@ -96,7 +112,7 @@ export function useTikTokDownload(rawUrl) {
     let filename = data.author.unique_id + data.title
     let extension = '.mp4'
     if (blobKey === 'video') {
-      filename += ' DinoTok'
+      filename += ' TokTokDJ'
     } else if (blobKey === 'video_wm') {
       filename += ' WM'
     } else if (blobKey === 'music') {

@@ -1,5 +1,5 @@
 {
-  "name": "dinotok-downloader",
+  "name": "toktokdj-downloader",
   "private": true,
   "version": "2.0.0",
   "description": "",
@@ -12,6 +12,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "lucide-react": "^1.24.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-router-dom": "^7.18.1"

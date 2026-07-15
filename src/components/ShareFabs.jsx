@@ -29,7 +29,7 @@ export function ShareFabs() {
       {open && (
         <>
           <button
-            className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-neutral-700 shadow-lg dark:bg-[#314052] dark:text-white"
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-neutral-700 shadow-lg dark:bg-zinc-800 dark:text-zinc-100"
             title="Copy link"
             onClick={copyLink}
           >
@@ -38,7 +38,7 @@ export function ShareFabs() {
           {links.map(({ icon: Icon, label, href }) => (
             <button
               key={label}
-              className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-neutral-700 shadow-lg dark:bg-[#314052] dark:text-white"
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-neutral-700 shadow-lg dark:bg-zinc-800 dark:text-zinc-100"
               title={label}
               onClick={() => popup(href)}
             >
