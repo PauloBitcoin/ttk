@@ -1,14 +1,16 @@
 import { Outlet } from 'react-router-dom'
 import { Navbar } from './Navbar'
+import { Footer } from './Footer'
 import { InstallPrompt } from './InstallPrompt'
 
 export function Layout() {
   return (
-    <div className="min-h-screen w-full">
+    <div className="flex min-h-screen w-full flex-col">
       <Navbar />
-      <main className="container-fluid px-4">
+      <main className="container-fluid flex-1 px-4">
         <Outlet />
       </main>
+      <Footer />
       <InstallPrompt />
     </div>
   )

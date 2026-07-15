@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { DownloadIcon, MusicIcon, PasteIcon, ShieldIcon, ZapIcon } from '../components/icons'
+import { ClearIcon, DownloadIcon, MusicIcon, PasteIcon, ShieldIcon, ZapIcon } from '../components/icons'
+import { AdSlot } from '../components/AdSlot'
 import { DownloadModal } from '../components/DownloadModal'
 import { ShareFabs } from '../components/ShareFabs'
 import { useToast } from '../components/Toast'
@@ -112,9 +113,13 @@ export function Home() {
                   <button
                     type="button"
                     onClick={handlePaste}
-                    className="flex shrink-0 items-center gap-1 whitespace-nowrap rounded-xl bg-black/5 px-3 text-sm font-medium dark:bg-white/10"
+                    className={`flex shrink-0 items-center gap-1 whitespace-nowrap rounded-xl px-3 text-sm font-medium transition-colors ${
+                      url
+                        ? 'bg-black/5 dark:bg-white/10'
+                        : 'bg-blue-500/10 text-blue-600 hover:bg-blue-500/20 dark:bg-blue-400/10 dark:text-blue-300 dark:hover:bg-blue-400/20'
+                    }`}
                   >
-                    <PasteIcon className="h-4 w-4" />
+                    {url ? <ClearIcon className="h-4 w-4" /> : <PasteIcon className="h-4 w-4" />}
                     {url ? 'Clear' : 'Paste'}
                   </button>
                 )}
@@ -195,6 +200,10 @@ export function Home() {
               <img src={asset(IMAGES.heroVertical)} width="800" height="1200" alt={`${SITE.name} app`} className="w-full" />
             </div>
           </div>
+        </div>
+
+        <div className="relative mx-auto max-w-5xl pb-6">
+          <AdSlot />
         </div>
       </div>
 

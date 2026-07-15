@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* The dark-mode toggle sets a `.dark` class on <body> (see useDarkMode.js);
+/* The theme hook sets a `.dark` class on <body> (see useTheme.js);
    without this, Tailwind v4's `dark:` variant defaults to the OS-level
    prefers-color-scheme media query and ignores the in-app toggle entirely. */
 @custom-variant dark (&:where(.dark, .dark *));
