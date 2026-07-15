@@ -3,7 +3,7 @@ import { SITE } from '../config/site'
 
 export function Footer() {
   return (
-    <footer className="mt-16 border-t border-black/5 py-6 text-center text-sm text-neutral-500 dark:border-zinc-800/60 dark:text-zinc-400">
+    <footer className="mt-16 border-t border-black/5 px-4 py-6 text-center text-sm text-neutral-500 dark:border-zinc-800/60 dark:text-zinc-400">
       <nav className="mb-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 font-semibold">
         <Link to="/faq" className="hover:text-current">
           FAQ

@@ -24,7 +24,7 @@ export function Contact() {
   }
 
   return (
-    <div className="mx-auto max-w-lg py-8">
+    <div className="mx-auto max-w-lg px-4 py-8">
       <h1 className="mb-2 text-center text-3xl font-extrabold">Contact</h1>
       <p className="mb-6 text-center text-neutral-500">Fill in the fields below to send your message.</p>
 

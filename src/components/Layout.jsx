@@ -7,7 +7,7 @@ export function Layout() {
   return (
     <div className="flex min-h-screen w-full flex-col">
       <Navbar />
-      <main className="container-fluid flex-1 px-4">
+      <main className="container-fluid flex-1">
         <Outlet />
       </main>
       <Footer />

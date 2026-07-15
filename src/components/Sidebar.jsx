@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { CloseIcon, MonitorIcon, MoonIcon, SunIcon } from './icons'
+import { CloseIcon, LanguagesIcon, MonitorIcon, MoonIcon, SunIcon } from './icons'
 import { useTheme } from '../hooks/useTheme'
 import { useToast } from './Toast'
 import { SITE } from '../config/site'
@@ -44,8 +44,8 @@ export function Sidebar({ open, onClose }) {
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
 
       <aside
-        className={`glass absolute inset-y-0 left-0 flex w-72 max-w-[85vw] flex-col gap-6 overflow-y-auto rounded-r-3xl p-5 shadow-2xl transition-transform duration-300 ${
-          open ? 'translate-x-0' : '-translate-x-full'
+        className={`glass absolute inset-y-0 right-0 flex w-72 max-w-[85vw] flex-col gap-6 overflow-y-auto p-5 shadow-2xl transition-transform duration-300 ${
+          open ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <div className="flex items-center justify-between">
@@ -98,6 +98,22 @@ export function Sidebar({ open, onClose }) {
               </button>
             ))}
           </div>
+        </div>
+
+        <div>
+          <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:text-zinc-400">
+            Language
+          </div>
+          <div className="glass-sm flex items-center gap-2 rounded-xl p-1">
+            <span
+              className="flex flex-1 items-center justify-center gap-2 rounded-lg py-2 text-xs font-semibold text-white"
+              style={{ background: 'var(--ttk)' }}
+            >
+              <LanguagesIcon className="h-4 w-4" />
+              English
+            </span>
+          </div>
+          <p className="mt-1.5 text-xs text-neutral-400">More languages coming soon.</p>
         </div>
 
         <button

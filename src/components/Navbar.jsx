@@ -1,13 +1,11 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { MenuIcon, MoonIcon, SunIcon } from './icons'
+import { MenuIcon } from './icons'
 import { Sidebar } from './Sidebar'
-import { useTheme } from '../hooks/useTheme'
 import { asset } from '../lib/asset'
 import { SITE, IMAGES } from '../config/site'
 
 export function Navbar() {
-  const { resolvedDark, setTheme } = useTheme()
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
@@ -20,24 +18,14 @@ export function Navbar() {
           </span>
         </Link>
 
-        <div className="flex items-center gap-1">
-          <button
-            className="rounded p-2 hover:bg-black/5 dark:hover:bg-white/10"
-            type="button"
-            title="Dark mode"
-            onClick={() => setTheme(resolvedDark ? 'light' : 'dark')}
-          >
-            {resolvedDark ? <SunIcon className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />}
-          </button>
-          <button
-            className="rounded p-2 hover:bg-black/5 dark:hover:bg-white/10"
-            type="button"
-            title="Menu"
-            onClick={() => setMenuOpen(true)}
-          >
-            <MenuIcon className="h-5 w-5" />
-          </button>
-        </div>
+        <button
+          className="rounded p-2 hover:bg-black/5 dark:hover:bg-white/10"
+          type="button"
+          title="Menu"
+          onClick={() => setMenuOpen(true)}
+        >
+          <MenuIcon className="h-5 w-5" />
+        </button>
       </nav>
 
       <Sidebar open={menuOpen} onClose={() => setMenuOpen(false)} />

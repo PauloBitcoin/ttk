@@ -71,7 +71,7 @@ export function Faq() {
   }, [])
 
   return (
-    <div className="mx-auto max-w-3xl py-8">
+    <div className="mx-auto max-w-3xl px-4 py-8">
       <h1 className="mb-6 text-center text-3xl font-extrabold">FAQ</h1>
       <div className="flex flex-col divide-y divide-neutral-200 dark:divide-neutral-700">
         {FAQS.map((item, index) => {
