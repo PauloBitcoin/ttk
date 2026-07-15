@@ -3,8 +3,10 @@ import { Link, useSearchParams } from 'react-router-dom'
 import { DownloadIcon, MusicIcon, PasteIcon, ShieldIcon, ZapIcon } from '../components/icons'
 import { DownloadModal } from '../components/DownloadModal'
 import { ShareFabs } from '../components/ShareFabs'
+import { useToast } from '../components/Toast'
 import { asset } from '../lib/asset'
 import { SITE, IMAGES } from '../config/site'
+import { addRecentDownload, getRecentDownloads } from '../lib/recentDownloads'
 
 const FEATURES = [
   { icon: ShieldIcon, label: 'Sem marca d’água' },
@@ -17,6 +19,8 @@ export function Home() {
   const [searchParams, setSearchParams] = useSearchParams()
   const [url, setUrl] = useState('')
   const [canPaste, setCanPaste] = useState(false)
+  const [recent, setRecent] = useState(() => getRecentDownloads())
+  const showToast = useToast()
   const activeUrl = searchParams.get('url')
 
   useEffect(() => {
@@ -46,6 +50,27 @@ export function Home() {
 
   const closeModal = () => setSearchParams({}, { replace: true })
 
+  const openRecent = (recentUrl) => setSearchParams({ url: recentUrl })
+
+  const handleDownloadSuccess = (key, data) => {
+    setRecent(
+      addRecentDownload({
+        url: activeUrl,
+        title: data.title,
+        cover: data.origin_cover,
+        author: { nickname: data.author.nickname, avatar: data.author.avatar },
+      }),
+    )
+
+    if (key === 'video') {
+      showToast({ icon: 'success', title: 'Baixado com sucesso!' })
+      closeModal()
+      setUrl('')
+    } else {
+      showToast({ icon: 'success', title: 'Áudio baixado!' })
+    }
+  }
+
   return (
     <>
       <div className="relative isolate overflow-hidden">
@@ -70,7 +95,6 @@ export function Home() {
                 {SITE.tagline}
               </span>
             </h1>
-            {/* <p className="mb-4 text-center text-neutral-500">Paste the link below</p>*/}
             <form onSubmit={handleSubmit} className="w-full">
               <div className="glass mb-3 flex w-full overflow-hidden rounded-2xl p-1.5 shadow-lg">
                 <input
@@ -118,11 +142,38 @@ export function Home() {
               </p>
             </form>
 
+            {recent.length > 0 && (
+              <div className="mt-6">
+                <h3 className="mb-2 text-sm font-semibold text-neutral-500 dark:text-zinc-400">
+                  Baixados recentemente
+                </h3>
+                <div className="flex gap-3 overflow-x-auto pb-1">
+                  {recent.map((item) => (
+                    <button
+                      key={item.url}
+                      type="button"
+                      onClick={() => openRecent(item.url)}
+                      className="glass-sm flex w-56 shrink-0 items-center gap-2 rounded-xl p-2 text-left transition-transform hover:scale-[1.02]"
+                    >
+                      <img src={item.cover} alt="" className="h-12 w-12 shrink-0 rounded-lg object-cover" />
+                      <div className="min-w-0 flex-1">
+                        <div className="truncate text-xs font-semibold">{item.title || 'TikTok video'}</div>
+                        <div className="flex items-center gap-1.5 truncate text-xs text-neutral-500 dark:text-zinc-400">
+                          <img src={item.author?.avatar} alt="" className="h-4 w-4 shrink-0 rounded-full" />
+                          <span className="truncate">{item.author?.nickname}</span>
+                        </div>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <div className="mt-6 grid grid-cols-2 gap-2 sm:grid-cols-4">
               {FEATURES.map(({ icon: Icon, label }) => (
                 <div
                   key={label}
-                  className="glass flex flex-col items-center gap-1.5 rounded-xl px-2 py-3 text-center text-xs font-semibold"
+                  className="glass-sm flex flex-col items-center gap-1.5 rounded-xl px-2 py-3 text-center text-xs font-semibold"
                 >
                   <Icon className="h-5 w-5" style={{ color: 'var(--ttk)' }} />
                   {label}
@@ -132,8 +183,8 @@ export function Home() {
           </div>
 
           <div className="hidden lg:block">
-            <h2 className="text-center text-2xl font-bold">
-              Dino<span style={{ color: 'var(--ttk)' }}>Tok</span>
+            <h2 className="text-center text-2xl font-bold" style={{ color: 'var(--ttk)' }}>
+              {SITE.shortName}
             </h2>
             <div className="relative mx-auto mt-4 max-w-xs">
               <div
@@ -149,7 +200,9 @@ export function Home() {
 
       <ShareFabs />
 
-      {activeUrl && <DownloadModal url={activeUrl} onClose={closeModal} />}
+      {activeUrl && (
+        <DownloadModal url={activeUrl} onClose={closeModal} onDownloadSuccess={handleDownloadSuccess} />
+      )}
     </>
   )
 }

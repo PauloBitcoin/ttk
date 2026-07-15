@@ -19,10 +19,10 @@ export function MenuModal({ open, onClose }) {
       onClick={onClose}
     >
       <div
-        className="w-11/12 max-w-sm rounded-xl bg-white p-4 dark:bg-[#314052] dark:text-white"
+        className="w-11/12 max-w-sm rounded-xl bg-white p-4 dark:bg-zinc-900 dark:text-zinc-100"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-3 dark:border-neutral-600">
+        <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-3 dark:border-zinc-700">
           <h5 className="text-lg font-bold">Main Menu</h5>
           <button onClick={onClose} aria-label="Close">
             <CloseIcon className="h-5 w-5" />
@@ -30,13 +30,13 @@ export function MenuModal({ open, onClose }) {
         </div>
 
         <ul className="flex flex-col gap-2 text-center font-bold">
-          <li className="rounded p-2 hover:bg-neutral-100 dark:hover:bg-neutral-700">
+          <li className="rounded p-2 hover:bg-neutral-100 dark:hover:bg-zinc-800">
             <Link to="/" onClick={onClose}>Home</Link>
           </li>
-          <li className="rounded p-2 hover:bg-neutral-100 dark:hover:bg-neutral-700">
+          <li className="rounded p-2 hover:bg-neutral-100 dark:hover:bg-zinc-800">
             <Link to="/faq" onClick={onClose}>FAQ</Link>
           </li>
-          <li className="rounded p-2 hover:bg-neutral-100 dark:hover:bg-neutral-700">
+          <li className="rounded p-2 hover:bg-neutral-100 dark:hover:bg-zinc-800">
             <Link to="/contact" onClick={onClose}>Contact</Link>
           </li>
           <li className="mt-4 text-xs">
