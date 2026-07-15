@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { CopyLinkIcon, FacebookIcon, ShareIcon, TelegramIcon, WhatsAppIcon, XIcon } from './icons'
 import { useToast } from './Toast'
 
@@ -7,6 +8,7 @@ const popup = (url) => window.open(url, '_blank', 'toolbar=0,status=0,width=600,
 export function ShareFabs() {
   const [open, setOpen] = useState(false)
   const showToast = useToast()
+  const location = useLocation()
 
   const copyLink = async () => {
     try {
@@ -17,12 +19,16 @@ export function ShareFabs() {
     }
   }
 
-  const links = [
-    { icon: TelegramIcon, label: 'Telegram', href: `https://telegram.me/share/url?url=${encodeURIComponent(window.location.href)}` },
-    { icon: WhatsAppIcon, label: 'WhatsApp', href: `https://api.whatsapp.com/send?text=${encodeURIComponent(window.location.href)}` },
-    { icon: XIcon, label: 'X (Twitter)', href: `https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}` },
-    { icon: FacebookIcon, label: 'Facebook', href: `https://www.facebook.com/share.php?u=${encodeURIComponent(window.location.href)}` },
-  ]
+  const links = useMemo(() => {
+    const href = encodeURIComponent(window.location.href)
+    return [
+      { icon: TelegramIcon, label: 'Telegram', href: `https://telegram.me/share/url?url=${href}` },
+      { icon: WhatsAppIcon, label: 'WhatsApp', href: `https://api.whatsapp.com/send?text=${href}` },
+      { icon: XIcon, label: 'X (Twitter)', href: `https://twitter.com/intent/tweet?url=${href}` },
+      { icon: FacebookIcon, label: 'Facebook', href: `https://www.facebook.com/share.php?u=${href}` },
+    ]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname, location.search])
 
   return (
     <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">

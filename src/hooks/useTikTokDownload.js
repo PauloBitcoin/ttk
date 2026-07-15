@@ -1,13 +1,41 @@
 import { useEffect, useRef, useState } from 'react'
 
 const API_ENDPOINT = 'https://tikwm.com/api/?url='
-const MAX_RETRIES = 10
-const RETRY_DELAY_MS = 400
+const MAX_RETRIES = 8
+const BASE_RETRY_DELAY_MS = 400
 
 // Keeps fetched video data + blobs around for the life of the tab, keyed by
 // the pasted URL, so closing and reopening the modal for the same video
 // doesn't refire the (rate-limited) tikwm request.
 const cache = new Map()
+
+function sanitizeFilename(name) {
+  return name
+    .replace(/[\\/:*?"<>|]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 150)
+}
+
+function resolveSourceUrl(data, blobKey) {
+  if (blobKey === 'video') return data.play
+  if (blobKey === 'music') return data.music
+  if (blobKey.startsWith('image-')) return data.images?.[Number(blobKey.slice(6))]
+  return null
+}
+
+function resolveFilename(data, blobKey) {
+  const base = sanitizeFilename(`${data.author.unique_id} ${data.title}`)
+  if (blobKey === 'video') return { filename: `${base} TokTokDJ`, extension: '.mp4' }
+  if (blobKey === 'music') {
+    return { filename: sanitizeFilename(`${data.music_info.author} - ${data.music_info.title}`), extension: '.mp3' }
+  }
+  if (blobKey.startsWith('image-')) {
+    const index = Number(blobKey.slice(6))
+    return { filename: `${base} ${index + 1}`, extension: '.jpg' }
+  }
+  return { filename: base, extension: '' }
+}
 
 async function fetchBlob(url, attempt = 0) {
   try {
@@ -16,13 +44,13 @@ async function fetchBlob(url, attempt = 0) {
     return await response.blob()
   } catch (err) {
     if (attempt >= MAX_RETRIES) throw err
-    await new Promise((resolve) => setTimeout(resolve, RETRY_DELAY_MS))
+    const backoff = BASE_RETRY_DELAY_MS * 2 ** attempt
+    const jitter = Math.random() * BASE_RETRY_DELAY_MS
+    await new Promise((resolve) => setTimeout(resolve, backoff + jitter))
     return fetchBlob(url, attempt + 1)
   }
 }
 
-// Mirrors the shape of legacy-static/js/download.js, replacing the old
-// global BLOBS/DATA/RETRIES with component state and a blobs ref.
 export function useTikTokDownload(rawUrl) {
   const cached = rawUrl ? cache.get(rawUrl) : null
 
@@ -72,9 +100,14 @@ export function useTikTokDownload(rawUrl) {
         setStatus('success')
         cache.set(rawUrl, { data: json.data, blobs: blobs.current })
 
-        for (const key of ['play', 'wmplay', 'music']) {
+        // Photo/slideshow posts have no video - images are fetched on demand
+        // instead (a slideshow can hold dozens of images, not worth prefetching all).
+        const isPhotoPost = Array.isArray(json.data.images) && json.data.images.length > 0
+        const prefetchKeys = isPhotoPost ? ['music'] : ['play', 'music']
+        for (const key of prefetchKeys) {
           const mediaUrl = json.data[key]
-          const blobKey = key === 'play' ? 'video' : key === 'wmplay' ? 'video_wm' : 'music'
+          if (!mediaUrl) continue
+          const blobKey = key === 'play' ? 'video' : 'music'
           fetchBlob(mediaUrl)
             .then((blob) => {
               if (!cancelled) blobs.current[blobKey] = blob
@@ -99,7 +132,11 @@ export function useTikTokDownload(rawUrl) {
 
     let blob = blobs.current[blobKey]
     if (!blob) {
-      const sourceUrl = blobKey === 'video' ? data.play : blobKey === 'video_wm' ? data.wmplay : data.music
+      const sourceUrl = resolveSourceUrl(data, blobKey)
+      if (!sourceUrl) {
+        setDownloadingKey(null)
+        return false
+      }
       try {
         blob = await fetchBlob(sourceUrl)
         blobs.current[blobKey] = blob
@@ -109,23 +146,15 @@ export function useTikTokDownload(rawUrl) {
       }
     }
 
-    let filename = data.author.unique_id + data.title
-    let extension = '.mp4'
-    if (blobKey === 'video') {
-      filename += ' TokTokDJ'
-    } else if (blobKey === 'video_wm') {
-      filename += ' WM'
-    } else if (blobKey === 'music') {
-      filename = data.music_info.author + ' - ' + data.music_info.title
-      extension = '.mp3'
-    }
-
+    const { filename, extension } = resolveFilename(data, blobKey)
     const objectUrl = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = objectUrl
     a.download = filename + extension
     a.click()
-    URL.revokeObjectURL(objectUrl)
+    // Some browsers (Firefox/Safari) handle the download handoff
+    // asynchronously - revoking immediately can truncate the saved file.
+    setTimeout(() => URL.revokeObjectURL(objectUrl), 1000)
 
     setDownloadingKey(null)
     return true

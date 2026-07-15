@@ -1,6 +1,7 @@
-import { useEffect } from 'react'
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { CloseIcon, LanguagesIcon, MonitorIcon, MoonIcon, SunIcon } from './icons'
+import { useDialogA11y } from '../hooks/useDialogA11y'
 import { useTheme } from '../hooks/useTheme'
 import { useToast } from './Toast'
 import { SITE } from '../config/site'
@@ -14,20 +15,9 @@ const THEME_OPTIONS = [
 export function Sidebar({ open, onClose }) {
   const { theme, setTheme } = useTheme()
   const showToast = useToast()
+  const panelRef = useRef(null)
 
-  useEffect(() => {
-    if (!open) return
-    const onKeyDown = (event) => {
-      if (event.key === 'Escape') onClose()
-    }
-    document.addEventListener('keydown', onKeyDown)
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.removeEventListener('keydown', onKeyDown)
-      document.body.style.overflow = previousOverflow
-    }
-  }, [open, onClose])
+  useDialogA11y({ open, onClose, containerRef: panelRef })
 
   const clearCache = () => {
     localStorage.clear()
@@ -36,17 +26,19 @@ export function Sidebar({ open, onClose }) {
 
   return (
     <div
-      className={`fixed inset-0 z-50 transition-opacity duration-200 ${
-        open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
-      }`}
+      className={`fixed inset-0 z-50 transition-opacity duration-200 ${open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+        }`}
       aria-hidden={!open}
     >
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
 
       <aside
-        className={`glass absolute inset-y-0 right-0 flex w-72 max-w-[85vw] flex-col gap-6 overflow-y-auto p-5 shadow-2xl transition-transform duration-300 ${
-          open ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        ref={panelRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Main menu"
+        className={`glass absolute inset-y-0 right-0 flex w-72 max-w-[85vw] flex-col gap-6 overflow-y-auto p-5 shadow-2xl transition-transform duration-300 ${open ? 'translate-x-0' : 'translate-x-full'
+          }`}
       >
         <div className="flex items-center justify-between">
           <span className="text-lg font-bold" style={{ color: 'var(--ttk)' }}>
@@ -88,9 +80,8 @@ export function Sidebar({ open, onClose }) {
                 key={value}
                 type="button"
                 onClick={() => setTheme(value)}
-                className={`flex flex-1 flex-col items-center gap-1 rounded-lg py-2 text-xs font-semibold transition-colors ${
-                  theme === value ? 'text-white' : 'text-neutral-500 dark:text-zinc-400'
-                }`}
+                className={`flex flex-1 flex-col items-center gap-1 rounded-lg py-2 text-xs font-semibold transition-colors ${theme === value ? 'text-white' : 'text-neutral-500 dark:text-zinc-400'
+                  }`}
                 style={theme === value ? { background: 'var(--ttk)' } : undefined}
               >
                 <Icon className="h-4 w-4" />
@@ -124,7 +115,7 @@ export function Sidebar({ open, onClose }) {
           Clear cache
         </button>
 
-        <p className="text-center text-xs text-neutral-400">
+        <p className="text-center text-xs text-zinc-600 dark:text-zinc-400">
           © {new Date().getFullYear()} {SITE.name}
         </p>
       </aside>

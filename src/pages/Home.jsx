@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { ClearIcon, DownloadIcon, MusicIcon, PasteIcon, ShieldIcon, ZapIcon } from '../components/icons'
+import { CloseIcon, ClearIcon, DownloadIcon, MusicIcon, PasteIcon, ShieldIcon, ZapIcon } from '../components/icons'
 import { AdSlot } from '../components/AdSlot'
 import { DownloadModal } from '../components/DownloadModal'
 import { ShareFabs } from '../components/ShareFabs'
 import { useToast } from '../components/Toast'
 import { asset } from '../lib/asset'
 import { SITE, IMAGES } from '../config/site'
-import { addRecentDownload, getRecentDownloads } from '../lib/recentDownloads'
+import { addRecentDownload, clearRecentDownloads, getRecentDownloads, removeRecentDownload } from '../lib/recentDownloads'
 
 const FEATURES = [
   { icon: ShieldIcon, label: 'Sem marca d’água' },
@@ -16,11 +16,18 @@ const FEATURES = [
   { icon: DownloadIcon, label: '100% grátis' },
 ]
 
+const TIKTOK_URL_REGEX = /https?:\/\/[^\s]*tiktok\.com\/[^\s]*/gi
+
+function extractTikTokUrls(text) {
+  return [...new Set(text.match(TIKTOK_URL_REGEX) || [])]
+}
+
 export function Home() {
   const [searchParams, setSearchParams] = useSearchParams()
   const [url, setUrl] = useState('')
   const [canPaste, setCanPaste] = useState(false)
   const [recent, setRecent] = useState(() => getRecentDownloads())
+  const [queue, setQueue] = useState([])
   const showToast = useToast()
   const activeUrl = searchParams.get('url')
 
@@ -29,6 +36,18 @@ export function Home() {
     setCanPaste(Boolean(navigator.clipboard))
   }, [])
 
+  const handlePastedText = (text) => {
+    const urls = extractTikTokUrls(text)
+    if (urls.length === 0) {
+      setUrl(text)
+      return
+    }
+    const [first, ...rest] = urls
+    setUrl('')
+    setQueue(rest)
+    setSearchParams({ url: first })
+  }
+
   const handlePaste = async () => {
     if (url) {
       setUrl('')
@@ -36,11 +55,20 @@ export function Home() {
     }
     try {
       const text = await navigator.clipboard.readText()
-      if (text) setUrl(text)
+      if (text) handlePastedText(text)
       else showToast({ icon: 'error', title: 'Clipboard is empty!' })
     } catch {
       showToast({ icon: 'error', title: 'Clipboard is empty!' })
     }
+  }
+
+  const handleInputPaste = (event) => {
+    const text = event.clipboardData?.getData('text')
+    if (!text) return
+    const urls = extractTikTokUrls(text)
+    if (urls.length === 0) return // not a TikTok link - let the default paste fill the input
+    event.preventDefault()
+    handlePastedText(text)
   }
 
   const handleSubmit = (event) => {
@@ -49,11 +77,33 @@ export function Home() {
     setSearchParams({ url: url.trim() })
   }
 
-  const closeModal = () => setSearchParams({}, { replace: true })
+  const closeAndAdvanceQueue = useCallback(() => {
+    setQueue((currentQueue) => {
+      if (currentQueue.length > 0) {
+        const [next, ...rest] = currentQueue
+        setSearchParams({ url: next })
+        return rest
+      }
+      setSearchParams({}, { replace: true })
+      return currentQueue
+    })
+  }, [setSearchParams])
+
+  const cancelQueue = useCallback(() => {
+    setQueue([])
+    showToast({ icon: 'success', title: 'Queue cleared' })
+  }, [showToast])
 
   const openRecent = (recentUrl) => setSearchParams({ url: recentUrl })
 
-  const handleDownloadSuccess = (key, data) => {
+  const handleRemoveRecent = (event, itemUrl) => {
+    event.stopPropagation()
+    setRecent(removeRecentDownload(itemUrl))
+  }
+
+  const handleClearRecent = () => setRecent(clearRecentDownloads())
+
+  const handleDownloadSuccess = useCallback((key, data) => {
     setRecent(
       addRecentDownload({
         url: activeUrl,
@@ -63,14 +113,13 @@ export function Home() {
       }),
     )
 
-    if (key === 'video') {
+    if (key === 'video' || key.startsWith('image-')) {
       showToast({ icon: 'success', title: 'Baixado com sucesso!' })
-      closeModal()
-      setUrl('')
+      closeAndAdvanceQueue()
     } else {
       showToast({ icon: 'success', title: 'Áudio baixado!' })
     }
-  }
+  }, [activeUrl, showToast, closeAndAdvanceQueue])
 
   return (
     <>
@@ -102,7 +151,8 @@ export function Home() {
                   type="text"
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
-                  placeholder="Paste link..."
+                  onPaste={handleInputPaste}
+                  placeholder="Paste the video link here..."
                   required
                   autoComplete="off"
                   autoCapitalize="none"
@@ -148,16 +198,32 @@ export function Home() {
 
             {recent.length > 0 && (
               <div className="mt-6">
-                <h3 className="mb-2 text-sm font-semibold text-neutral-500 dark:text-zinc-400">
-                  Baixados recentemente
-                </h3>
+                <div className="mb-2 flex items-center justify-between">
+                  <h3 className="text-sm font-semibold text-neutral-500 dark:text-zinc-400">
+                    Baixados recentemente
+                  </h3>
+                  <button
+                    type="button"
+                    onClick={handleClearRecent}
+                    className="text-xs font-semibold text-neutral-400 hover:text-current dark:text-zinc-500"
+                  >
+                    Limpar
+                  </button>
+                </div>
                 <div className="flex gap-3 overflow-x-auto pb-1">
                   {recent.map((item) => (
-                    <button
+                    <div
                       key={item.url}
-                      type="button"
+                      role="button"
+                      tabIndex={0}
                       onClick={() => openRecent(item.url)}
-                      className="glass-sm flex w-56 shrink-0 items-center gap-2 rounded-xl p-2 text-left transition-transform hover:scale-[1.02]"
+                      onKeyDown={(event) => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                          event.preventDefault()
+                          openRecent(item.url)
+                        }
+                      }}
+                      className="glass-sm relative flex w-56 shrink-0 cursor-pointer items-center gap-2 rounded-xl p-2 text-left transition-transform hover:scale-[1.02]"
                     >
                       <img src={item.cover} alt="" className="h-12 w-12 shrink-0 rounded-lg object-cover" />
                       <div className="min-w-0 flex-1">
@@ -167,7 +233,15 @@ export function Home() {
                           <span className="truncate">{item.author?.nickname}</span>
                         </div>
                       </div>
-                    </button>
+                      <button
+                        type="button"
+                        onClick={(event) => handleRemoveRecent(event, item.url)}
+                        aria-label="Remove from recent downloads"
+                        className="absolute right-1 top-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-sm hover:bg-black/60"
+                      >
+                        <CloseIcon className="h-3.5 w-3.5" />
+                      </button>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -209,7 +283,14 @@ export function Home() {
       <ShareFabs />
 
       {activeUrl && (
-        <DownloadModal url={activeUrl} onClose={closeModal} onDownloadSuccess={handleDownloadSuccess} />
+        <DownloadModal
+          key={activeUrl}
+          url={activeUrl}
+          onClose={closeAndAdvanceQueue}
+          onDownloadSuccess={handleDownloadSuccess}
+          badge={queue.length > 0 ? `+${queue.length} in queue` : undefined}
+          onBadgeClick={cancelQueue}
+        />
       )}
     </>
   )

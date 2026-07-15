@@ -1,8 +1,11 @@
-import { useEffect } from 'react'
+import { useRef, useState } from 'react'
 import { AdSlot } from './AdSlot'
-import { AlertIcon, CloseIcon, DownloadIcon, MusicIcon } from './icons'
+import { ImageCarousel } from './ImageCarousel'
+import { AlertIcon, CloseIcon, CopyLinkIcon, DownloadIcon, MusicIcon } from './icons'
 import { VideoPlayer } from './VideoPlayer'
+import { useDialogA11y } from '../hooks/useDialogA11y'
 import { useTikTokDownload } from '../hooks/useTikTokDownload'
+import { useToast } from './Toast'
 
 function Spinner({ className = 'h-4 w-4' }) {
   return (
@@ -10,25 +13,30 @@ function Spinner({ className = 'h-4 w-4' }) {
   )
 }
 
-export function DownloadModal({ url, onClose, onDownloadSuccess }) {
+export function DownloadModal({ url, onClose, onDownloadSuccess, badge, onBadgeClick }) {
   const { status, errorMessage, data, download, downloadingKey } = useTikTokDownload(url)
+  const [imageIndex, setImageIndex] = useState(0)
+  const showToast = useToast()
+  const panelRef = useRef(null)
 
-  useEffect(() => {
-    const onKeyDown = (event) => {
-      if (event.key === 'Escape') onClose()
-    }
-    document.addEventListener('keydown', onKeyDown)
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.removeEventListener('keydown', onKeyDown)
-      document.body.style.overflow = previousOverflow
-    }
-  }, [onClose])
+  useDialogA11y({ open: true, onClose, containerRef: panelRef })
+
+  const isPhotoPost = Array.isArray(data?.images) && data.images.length > 0
+  const primaryKey = isPhotoPost ? `image-${imageIndex}` : 'video'
 
   const handleDownload = async (key) => {
     const ok = await download(key)
     if (ok) onDownloadSuccess?.(key, data)
+  }
+
+  const handleCopyLink = async () => {
+    const link = isPhotoPost ? data.images[imageIndex] : data.play
+    try {
+      await navigator.clipboard.writeText(link)
+      showToast({ icon: 'success', title: 'Link copied!' })
+    } catch {
+      showToast({ icon: 'error', title: 'Failed to copy link' })
+    }
   }
 
   return (
@@ -37,14 +45,29 @@ export function DownloadModal({ url, onClose, onDownloadSuccess }) {
       onClick={onClose}
     >
       <div
+        ref={panelRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label={data?.title || 'Download video'}
         className="glass animate-modal-pop relative flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-3xl shadow-2xl"
         style={{ boxShadow: '0 0 0 1px rgba(255,0,80,0.15), 0 20px 60px -15px rgba(0,0,0,0.5)' }}
         onClick={(event) => event.stopPropagation()}
       >
         <div className="flex items-center gap-3 border-b border-black/5 px-4 py-3 dark:border-zinc-700/50 sm:px-6">
           <h2 className="min-w-0 flex-1 truncate text-sm font-semibold text-neutral-600 dark:text-zinc-300">
-            {data?.title ?? ' '}
+            {data?.title ?? ' '}
           </h2>
+          {badge && (
+            <button
+              type="button"
+              onClick={onBadgeClick}
+              title="Cancel remaining queue"
+              className="shrink-0 rounded-full px-2.5 py-1 text-xs font-bold text-white hover:opacity-90"
+              style={{ background: 'var(--ttk)' }}
+            >
+              {badge}
+            </button>
+          )}
           <button
             type="button"
             onClick={onClose}
@@ -83,7 +106,11 @@ export function DownloadModal({ url, onClose, onDownloadSuccess }) {
 
           {status === 'success' && data && (
             <div className="flex flex-col gap-4">
-              <VideoPlayer src={data.play} poster={data.origin_cover} />
+              {isPhotoPost ? (
+                <ImageCarousel images={data.images} index={imageIndex} onIndexChange={setImageIndex} />
+              ) : (
+                <VideoPlayer src={data.play} poster={data.origin_cover} />
+              )}
 
               <div className="flex flex-col gap-3 sm:flex-row">
                 <div className="glass-sm flex flex-1 items-center gap-3 rounded-2xl p-3">
@@ -102,25 +129,38 @@ export function DownloadModal({ url, onClose, onDownloadSuccess }) {
                   </a>
                 </div>
 
-                <button
-                  type="button"
-                  onClick={() => handleDownload('video')}
-                  disabled={downloadingKey === 'video'}
-                  className="flex shrink-0 items-center justify-center gap-2 rounded-2xl px-5 py-3 font-bold text-white shadow-lg transition-transform hover:scale-[1.02] disabled:opacity-70 disabled:hover:scale-100 sm:w-64"
-                  style={{ background: 'linear-gradient(135deg, var(--ttk), #ff5c8a)', boxShadow: '0 10px 30px -10px rgba(255,0,80,0.6)' }}
-                >
-                  {downloadingKey === 'video' ? (
-                    <Spinner className="h-5 w-5" />
-                  ) : (
-                    <>
-                      <DownloadIcon className="h-5 w-5" />
-                      <span className="flex flex-col items-start leading-tight">
-                        <span>Baixar sem marca d'água</span>
-                        <span className="text-xs font-normal opacity-80">MP4 · HQ</span>
-                      </span>
-                    </>
-                  )}
-                </button>
+                <div className="flex gap-2 sm:w-64">
+                  <button
+                    type="button"
+                    onClick={() => handleDownload(primaryKey)}
+                    disabled={downloadingKey === primaryKey}
+                    className="flex flex-1 shrink-0 items-center justify-center gap-2 rounded-2xl px-5 py-3 font-bold text-white shadow-lg transition-transform hover:scale-[1.02] disabled:opacity-70 disabled:hover:scale-100"
+                    style={{ background: 'linear-gradient(135deg, var(--ttk), #ff5c8a)', boxShadow: '0 10px 30px -10px rgba(255,0,80,0.6)' }}
+                  >
+                    {downloadingKey === primaryKey ? (
+                      <Spinner className="h-5 w-5" />
+                    ) : (
+                      <>
+                        <DownloadIcon className="h-5 w-5" />
+                        <span className="flex flex-col items-start leading-tight">
+                          <span>{isPhotoPost ? 'Baixar imagem' : "Baixar sem marca d'água"}</span>
+                          <span className="text-xs font-normal opacity-80">
+                            {isPhotoPost ? `JPG · ${imageIndex + 1}/${data.images.length}` : 'MP4 · HQ'}
+                          </span>
+                        </span>
+                      </>
+                    )}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleCopyLink}
+                    aria-label="Copy direct link"
+                    title="Copy direct link"
+                    className="flex w-12 shrink-0 items-center justify-center rounded-2xl bg-black/5 text-current hover:bg-black/10 dark:bg-white/10 dark:hover:bg-white/20"
+                  >
+                    <CopyLinkIcon className="h-5 w-5" />
+                  </button>
+                </div>
               </div>
 
               <div className="glass-sm flex items-center gap-3 rounded-2xl p-3">
@@ -133,8 +173,9 @@ export function DownloadModal({ url, onClose, onDownloadSuccess }) {
                   type="button"
                   onClick={() => handleDownload('music')}
                   disabled={downloadingKey === 'music'}
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-white shadow-md disabled:opacity-70"
+                  aria-label="Download audio (MP3)"
                   title="Baixar áudio (MP3)"
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-white shadow-md disabled:opacity-70"
                   style={{ background: 'linear-gradient(135deg, var(--ttk-2), #2dd4bf)' }}
                 >
                   {downloadingKey === 'music' ? <Spinner /> : <MusicIcon className="h-5 w-5" />}

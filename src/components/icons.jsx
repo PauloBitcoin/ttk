@@ -20,9 +20,10 @@ export {
   BrushCleaning as ClearIcon,
   Download as DownloadIcon,
   Music2 as MusicIcon,
-  Send as SendIcon,
   Share2 as ShareIcon,
   Link2 as CopyLinkIcon,
+  ChevronLeft as ChevronLeftIcon,
+  ChevronRight as ChevronRightIcon,
 } from 'lucide-react'
 
 export function TelegramIcon(props) {
