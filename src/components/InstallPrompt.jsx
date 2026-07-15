@@ -9,14 +9,18 @@ export function InstallPrompt() {
   if (!visible) return null
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 bg-white p-3 shadow-[0_-2px_10px_rgba(0,0,0,0.1)] dark:bg-zinc-900 dark:text-zinc-100">
-      <button className="flex items-center gap-3 text-left" onClick={install}>
-        <img src={asset(IMAGES.logo)} width="40" height="40" alt={SITE.name} />
+    <div className="glass fixed inset-x-3 bottom-3 z-40 flex items-center justify-between gap-3 rounded-xl p-3 shadow-xl sm:inset-x-4 sm:bottom-4 lg:inset-x-auto lg:left-4 lg:w-full lg:max-w-md">
+      <button className="flex min-w-0 flex-1 items-center gap-3 text-left" onClick={install}>
+        <img src={asset(IMAGES.logo)} width="40" height="40" alt={SITE.name} className="shrink-0" />
         <span className="text-sm font-medium">
           Install {SITE.shortName} as an application. <small className="font-normal opacity-70">(does not take up space on your device)</small>
         </span>
       </button>
-      <button aria-label="Dismiss" onClick={dismiss}>
+      <button
+        aria-label="Dismiss"
+        onClick={dismiss}
+        className="shrink-0 rounded-full p-1 hover:bg-black/5 dark:hover:bg-white/10"
+      >
         <CloseIcon className="h-5 w-5 opacity-60" />
       </button>
     </div>

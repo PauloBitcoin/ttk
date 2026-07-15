@@ -1,12 +1,12 @@
 // Central place for brand name/copy and image asset paths. Swapping the
 // logo/hero images or renaming the app again should only mean editing here.
 export const SITE = {
-  name: 'TokTokDJ Downloader',
+  name: 'TokTokDJ',
   shortName: 'TokTokDJ',
   domain: 'bbft.live',
   tagline: 'Download TikTok videos without watermark free.',
   description:
-    'Download TikTok videos without watermark! TokTokDJ Downloader is the best app to download videos and music from TikTok without watermark, online, free and without ads.',
+    'Download TikTok videos without watermark! TokTokDJ is the best app to download videos and music from TikTok without watermark, online, free and without ads.',
 }
 
 // Paths are relative to the public/ dir; pass through lib/asset.js's asset()
