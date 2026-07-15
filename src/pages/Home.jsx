@@ -43,7 +43,7 @@ export function Home() {
       return
     }
     const [first, ...rest] = urls
-    setUrl('')
+    setUrl(first)
     setQueue(rest)
     setSearchParams({ url: first })
   }
@@ -81,6 +81,7 @@ export function Home() {
     setQueue((currentQueue) => {
       if (currentQueue.length > 0) {
         const [next, ...rest] = currentQueue
+        setUrl(next)
         setSearchParams({ url: next })
         return rest
       }
@@ -94,7 +95,10 @@ export function Home() {
     showToast({ icon: 'success', title: 'Queue cleared' })
   }, [showToast])
 
-  const openRecent = (recentUrl) => setSearchParams({ url: recentUrl })
+  const openRecent = (recentUrl) => {
+    setUrl(recentUrl)
+    setSearchParams({ url: recentUrl })
+  }
 
   const handleRemoveRecent = (event, itemUrl) => {
     event.stopPropagation()
