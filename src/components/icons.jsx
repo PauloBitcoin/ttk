@@ -7,6 +7,7 @@ export {
   Sun as SunIcon,
   Moon as MoonIcon,
   Monitor as MonitorIcon,
+  Languages as LanguagesIcon,
   TriangleAlert as AlertIcon,
   ShieldCheck as ShieldIcon,
   Zap as ZapIcon,
