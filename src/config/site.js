@@ -3,8 +3,8 @@
 export const SITE = {
   name: 'BaixaTok',
   shortName: 'BaixaTok',
-  domain: 'bbft.live',
-  url: 'https://bbft.live',
+  domain: 'baixatok.vip',
+  url: 'https://baixatok.vip',
   tagline: "Baixar vídeo do TikTok sem marca d'água, grátis",
   description:
     "Baixar vídeo do TikTok sem marca d'água em HD, grátis e sem cadastro. Cole o link e baixe vídeos, fotos e músicas do TikTok em segundos com o BaixaTok.",

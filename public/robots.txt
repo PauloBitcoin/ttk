@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bbft.live/sitemap.xml
+Sitemap: https://baixatok.vip/sitemap.xml
