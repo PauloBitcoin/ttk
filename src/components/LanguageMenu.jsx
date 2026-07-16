@@ -54,7 +54,7 @@ export function LanguageMenu() {
         <ul
           role="listbox"
           aria-label={t('language.label')}
-          className="glass absolute right-0 top-full z-40 mt-2 w-40 overflow-hidden rounded-xl py-1 shadow-xl"
+          className="absolute right-0 top-full z-40 mt-2 w-40 overflow-hidden rounded-xl shadow-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700"
         >
           {LANGUAGES.map(({ code, name }) => {
             const active = locale === code
