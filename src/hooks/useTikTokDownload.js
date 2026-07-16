@@ -10,12 +10,32 @@ const BASE_RETRY_DELAY_MS = 400
 // doesn't refire the (rate-limited) tikwm request.
 const cache = new Map()
 
+// Some mobile download managers reject/silently drop files whose name
+// exceeds their filesystem's byte limit (Android/iOS are commonly ~255
+// bytes). TikTok titles are full of emoji/hashtags, which are 3-4 bytes
+// each in UTF-8, so truncating by character count isn't enough - we cap
+// by encoded byte length instead, well under that ceiling.
+const MAX_FILENAME_BYTES = 100
+
 function sanitizeFilename(name) {
   return name
     .replace(/[\\/:*?"<>|]+/g, ' ')
     .replace(/\s+/g, ' ')
     .trim()
-    .slice(0, 150)
+}
+
+function truncateToByteLength(name, maxBytes) {
+  const encoder = new TextEncoder()
+  if (encoder.encode(name).length <= maxBytes) return name
+  let end = name.length
+  while (end > 0 && encoder.encode(name.slice(0, end)).length > maxBytes) end--
+  return name.slice(0, end).trim()
+}
+
+function buildFilename(name, extension) {
+  const sanitized = sanitizeFilename(name)
+  const truncated = truncateToByteLength(sanitized, MAX_FILENAME_BYTES - extension.length)
+  return truncated + extension
 }
 
 function resolveSourceUrl(data, blobKey) {
@@ -26,16 +46,16 @@ function resolveSourceUrl(data, blobKey) {
 }
 
 function resolveFilename(data, blobKey) {
-  const base = sanitizeFilename(`${data.author.unique_id} ${data.title}`)
-  if (blobKey === 'video') return { filename: `${base} BaixaTok`, extension: '.mp4' }
+  const base = `${data.author.unique_id} ${data.title}`
+  if (blobKey === 'video') return buildFilename(`${base} BaixaTok`, '.mp4')
   if (blobKey === 'music') {
-    return { filename: sanitizeFilename(`${data.music_info.author} - ${data.music_info.title}`), extension: '.mp3' }
+    return buildFilename(`${data.music_info.author} - ${data.music_info.title}`, '.mp3')
   }
   if (blobKey.startsWith('image-')) {
     const index = Number(blobKey.slice(6))
-    return { filename: `${base} ${index + 1}`, extension: '.jpg' }
+    return buildFilename(`${base} ${index + 1}`, '.jpg')
   }
-  return { filename: base, extension: '' }
+  return buildFilename(base, '')
 }
 
 async function fetchBlob(url, attempt = 0) {
@@ -149,11 +169,10 @@ export function useTikTokDownload(rawUrl) {
       }
     }
 
-    const { filename, extension } = resolveFilename(data, blobKey)
     const objectUrl = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = objectUrl
-    a.download = filename + extension
+    a.download = resolveFilename(data, blobKey)
     a.click()
     // Some browsers (Firefox/Safari) handle the download handoff
     // asynchronously - revoking immediately can truncate the saved file.
