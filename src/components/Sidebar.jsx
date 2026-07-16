@@ -107,12 +107,12 @@ export function Sidebar({ open, onClose }) {
         <button
           type="button"
           onClick={clearCache}
-          className="mt-auto rounded-xl bg-amber-500 px-3 py-2 text-sm font-bold text-white hover:bg-amber-600"
+          className="cursor-pointer mt-auto rounded-xl text-blue-500 dark:text-blue-400 hover:underline px-3 py-2 text-sm font-bold"
         >
           {t('sidebar.clearCache')}
         </button>
 
-        <p className="text-center text-xs text-zinc-600 dark:text-zinc-400">
+        <p className="text-center text-sm text-zinc-600 dark:text-zinc-400">
           © {new Date().getFullYear()} {SITE.name}
         </p>
       </aside>
