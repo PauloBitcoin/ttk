@@ -22,7 +22,7 @@ export function InstallPrompt() {
       <button
         aria-label={t('installPrompt.dismiss')}
         onClick={dismiss}
-        className="shrink-0 rounded-full p-1 hover:bg-black/5 dark:hover:bg-white/10"
+        className="shrink-0 rounded-full p-1 hover:bg-zinc-200 dark:hover:bg-zinc-800"
       >
         <CloseIcon className="h-5 w-5 opacity-60" />
       </button>

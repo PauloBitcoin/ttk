@@ -44,7 +44,7 @@ export function LanguageMenu() {
         aria-expanded={open}
         aria-label={t('language.label')}
         title={t('language.label')}
-        className="flex items-center gap-1 rounded-lg p-2 hover:bg-black/5 dark:hover:bg-white/10"
+        className="flex items-center gap-1 rounded-lg p-2 hover:bg-zinc-200 dark:hover:bg-zinc-800"
       >
         <LanguagesIcon className="h-5 w-5" />
         <span className="text-xs font-bold uppercase">{locale}</span>
@@ -63,7 +63,7 @@ export function LanguageMenu() {
                 <Link
                   to={localizedPath(code, path)}
                   onClick={() => setOpen(false)}
-                  className="flex items-center justify-between px-3 py-2 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/10"
+                  className="flex items-center justify-between px-3 py-2 text-sm font-medium hover:bg-zinc-200 dark:hover:bg-zinc-800"
                   style={active ? { color: 'var(--ttk)', fontWeight: 700 } : undefined}
                 >
                   {name}
