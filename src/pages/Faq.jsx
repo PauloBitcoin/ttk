@@ -44,13 +44,13 @@ export function Faq() {
           return (
             <div key={item.q} className="py-3">
               <button
-                className="flex w-full items-center justify-between text-left font-semibold"
+                className="text-[1.1rem] flex w-full items-center justify-between text-left font-semibold"
                 onClick={() => setOpenIndex(open ? null : index)}
               >
                 {item.q}
                 <span className="ml-4 shrink-0">{open ? '−' : '+'}</span>
               </button>
-              {open && <div className="mt-2 text-sm text-neutral-600 dark:text-neutral-300">{item.a}</div>}
+              {open && <div className="mt-2 text-[0.9rem] text-neutral-600 dark:text-neutral-300">{item.a}</div>}
             </div>
           )
         })}

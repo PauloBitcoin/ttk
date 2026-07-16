@@ -5,7 +5,7 @@ export function LegalPage({ title, content, path }) {
     <div className="mx-auto max-w-3xl px-4 py-8">
       <Seo title={title} path={path} />
       <h1 className="mb-6 text-center text-3xl font-extrabold">{title}</h1>
-      <div className="flex flex-col gap-3 text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
+      <div className="flex flex-col gap-3 text-[0.9rem] leading-relaxed text-neutral-700 dark:text-neutral-300">
         {content.map((block, index) => {
           if (block.type === 'h2') {
             return (

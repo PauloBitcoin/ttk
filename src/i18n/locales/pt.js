@@ -108,7 +108,7 @@ export default {
   },
   installPrompt: {
     text: 'Instalar {{name}} como aplicativo.',
-    subtext: '(não ocupa espaço no seu dispositivo)',
+    subtext: '(Não ocupa espaço no seu dispositivo)',
     dismiss: 'Dispensar',
   },
   shareFabs: {
