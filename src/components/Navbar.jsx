@@ -17,8 +17,8 @@ export function Navbar() {
   return (
     <>
       <nav className="sticky top-0 z-30 flex h-auto items-center justify-between border-b border-black/5 bg-white/70 p-4 backdrop-blur-lg dark:border-zinc-800/60 dark:bg-zinc-950/70">
-        <Link to={localizedPath(locale, '/')} className="flex h-full items-center gap-2 no-underline">
-          <img src={asset(IMAGES.logo)} width="40" height="40" alt={`${SITE.name} logo`} title={SITE.name} />
+        <Link to={localizedPath(locale, '/')} className="flex h-full items-center gap-1.5 no-underline">
+          <img src={asset(IMAGES.logo)} className="p-0.5" width="40" height="40" alt={`${SITE.name} logo`} title={SITE.name} />
           <span className="text-2xl bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(90deg, var(--ttk), var(--ttk-2))', fontWeight: 800 }}>
             {SITE.shortName}
           </span>
