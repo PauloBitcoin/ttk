@@ -61,10 +61,20 @@ export default {
     },
     howTo: {
       title: "Como baixar vídeo do TikTok sem marca d'água",
+      paragraph: "O {{name}} é a forma mais rápida de baixar vídeo do TikTok sem marca d'água, seja pelo app ou direto do navegador, sem precisar criar conta. Além do vídeo em alta qualidade, você também pode salvar apenas o áudio em MP3 e baixar fotos de posts do TikTok - tudo grátis e sem limite de downloads.",
+    },
+    howToApp: {
+      title: 'Baixar vídeos pelo app',
+      badge: 'Recomendado',
+      step1: 'Instale o {{name}} como app (rápido, leve e não ocupa espaço).',
+      step2: 'No TikTok, toque em compartilhar no vídeo desejado e escolha o {{name}}.',
+      step3: "Pronto: o vídeo já abre aqui, pronto para baixar em HD, sem marca d'água.",
+    },
+    howToBrowser: {
+      title: 'Baixar vídeos pelo navegador',
       step1: 'Abra o TikTok, toque em compartilhar no vídeo desejado e escolha "Copiar link".',
       step2: 'Cole o link do vídeo do TikTok no campo acima, aqui no {{name}}.',
       step3: "Clique em \"Baixar vídeo\" e pronto: o download em HD, sem marca d'água, começa na hora.",
-      paragraph: "O {{name}} é a forma mais rápida de baixar vídeo do TikTok sem marca d'água, direto do navegador, sem instalar aplicativos e sem precisar criar conta. Além do vídeo em alta qualidade, você também pode salvar apenas o áudio em MP3 e baixar fotos de posts do TikTok - tudo grátis e sem limite de downloads.",
     },
     seoTitle: "Baixar Vídeo do TikTok Sem Marca D'água Grátis",
     seoDescription: "Baixar vídeo do TikTok sem marca d'água em HD, grátis e sem cadastro. Cole o link e baixe vídeos, fotos e músicas do TikTok em segundos com o {{name}}.",
@@ -107,8 +117,8 @@ export default {
     errorGeneric: 'Ocorreu um erro.',
   },
   installPrompt: {
-    text: 'Instalar {{name}} como aplicativo.',
-    subtext: '(Não ocupa espaço no seu dispositivo)',
+    text: 'Instalar como aplicativo',
+    subtext: '(Baixa direto do TikTok)',
     dismiss: 'Dispensar',
   },
   shareFabs: {

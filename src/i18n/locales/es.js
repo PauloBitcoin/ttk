@@ -61,10 +61,20 @@ export default {
     },
     howTo: {
       title: 'Cómo descargar videos de TikTok sin marca de agua',
+      paragraph: '{{name}} es la forma más rápida de descargar videos de TikTok sin marca de agua, ya sea con la app o directo desde el navegador, sin necesidad de crear una cuenta. Además del video en alta calidad, también puedes guardar solo el audio en MP3 y descargar fotos de publicaciones de TikTok - todo gratis y sin límite de descargas.',
+    },
+    howToApp: {
+      title: 'Descargar videos con la app',
+      badge: 'Recomendado',
+      step1: 'Instala {{name}} como app (rápida, liviana y no ocupa espacio).',
+      step2: 'En TikTok, toca en compartir en el video deseado y elige {{name}}.',
+      step3: 'Listo: el video ya se abre aquí, listo para descargar en HD, sin marca de agua.',
+    },
+    howToBrowser: {
+      title: 'Descargar videos con el navegador',
       step1: 'Abre TikTok, toca en compartir en el video deseado y elige "Copiar enlace".',
       step2: 'Pega el enlace del video de TikTok en el campo de arriba, aquí en {{name}}.',
       step3: 'Haz clic en "Descargar video" y listo: la descarga en HD, sin marca de agua, empieza al instante.',
-      paragraph: '{{name}} es la forma más rápida de descargar videos de TikTok sin marca de agua, directo desde el navegador, sin instalar aplicaciones y sin necesidad de crear una cuenta. Además del video en alta calidad, también puedes guardar solo el audio en MP3 y descargar fotos de publicaciones de TikTok - todo gratis y sin límite de descargas.',
     },
     seoTitle: 'Descargar Video de TikTok Sin Marca de Agua Gratis',
     seoDescription: 'Descarga videos de TikTok sin marca de agua en HD, gratis y sin registro. Pega el enlace y descarga videos, fotos y música de TikTok en segundos con {{name}}.',
@@ -107,8 +117,8 @@ export default {
     errorGeneric: 'Ocurrió un error.',
   },
   installPrompt: {
-    text: 'Instalar {{name}} como aplicación.',
-    subtext: '(No ocupa espacio en tu dispositivo)',
+    text: 'Instalar como aplicación',
+    subtext: '(Descarga directo desde TikTok)',
     dismiss: 'Descartar',
   },
   shareFabs: {

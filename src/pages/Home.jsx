@@ -316,17 +316,45 @@ export function Home() {
         <h2 className="mb-4 text-center text-xl font-bold sm:text-2xl">
           {t('home.howTo.title')}
         </h2>
-        <ol className="mb-6 space-y-2 text-sm text-neutral-600 dark:text-neutral-300">
-          <li>
-            <strong>1.</strong> {t('home.howTo.step1')}
-          </li>
-          <li>
-            <strong>2.</strong> {t('home.howTo.step2', { name: SITE.name })}
-          </li>
-          <li>
-            <strong>3.</strong> {t('home.howTo.step3')}
-          </li>
-        </ol>
+
+        <div className="mb-6 rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+          <h3 className="mb-2 flex items-center gap-2 font-semibold">
+            {t('home.howToApp.title')}
+            <span
+              className="rounded-full px-2 py-0.5 text-xs font-medium text-white"
+              style={{ background: 'linear-gradient(90deg, var(--ttk), var(--ttk-2))' }}
+            >
+              {t('home.howToApp.badge')}
+            </span>
+          </h3>
+          <ol className="space-y-2 text-sm text-neutral-600 dark:text-neutral-300">
+            <li>
+              <strong>1.</strong> {t('home.howToApp.step1', { name: SITE.name })}
+            </li>
+            <li>
+              <strong>2.</strong> {t('home.howToApp.step2', { name: SITE.name })}
+            </li>
+            <li>
+              <strong>3.</strong> {t('home.howToApp.step3')}
+            </li>
+          </ol>
+        </div>
+
+        <div className="mb-6">
+          <h3 className="mb-2 font-semibold">{t('home.howToBrowser.title')}</h3>
+          <ol className="space-y-2 text-sm text-neutral-600 dark:text-neutral-300">
+            <li>
+              <strong>1.</strong> {t('home.howToBrowser.step1')}
+            </li>
+            <li>
+              <strong>2.</strong> {t('home.howToBrowser.step2', { name: SITE.name })}
+            </li>
+            <li>
+              <strong>3.</strong> {t('home.howToBrowser.step3')}
+            </li>
+          </ol>
+        </div>
+
         <p className="text-sm text-neutral-600 dark:text-neutral-300">
           {t('home.howTo.paragraph', { name: SITE.name })}
         </p>

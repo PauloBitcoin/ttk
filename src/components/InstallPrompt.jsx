@@ -15,7 +15,7 @@ export function InstallPrompt() {
       <button className="flex min-w-0 flex-1 items-center gap-3 text-left" onClick={install}>
         <img src={asset(IMAGES.logo)} width="40" height="40" alt={SITE.name} className="shrink-0" />
         <span className="text-sm font-medium">
-          {t('installPrompt.text', { name: SITE.shortName })}{' '}
+          {t('installPrompt.text')}{' '}
           <small className="font-normal opacity-70">{t('installPrompt.subtext')}</small>
         </span>
       </button>

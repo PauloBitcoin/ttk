@@ -61,10 +61,20 @@ export default {
     },
     howTo: {
       title: 'How to download TikTok videos without watermark',
+      paragraph: "{{name}} is the fastest way to download TikTok videos without watermark, whether through the app or right from your browser, with no account to create. Besides HD video, you can also save just the audio as MP3 and download photos from TikTok posts - all free, with no download limit.",
+    },
+    howToApp: {
+      title: 'Download videos via the app',
+      badge: 'Recommended',
+      step1: 'Install {{name}} as an app (fast, light, takes up no space).',
+      step2: 'On TikTok, tap Share on the video you want and choose {{name}}.',
+      step3: "Done: the video opens here already, ready to download in HD, watermark-free.",
+    },
+    howToBrowser: {
+      title: 'Download videos via the browser',
       step1: 'Open TikTok, tap Share on the video you want and choose "Copy link".',
       step2: 'Paste the TikTok link in the field above, here on {{name}}.',
       step3: 'Click "Download video" and that\'s it: your HD, watermark-free download starts right away.',
-      paragraph: "{{name}} is the fastest way to download TikTok videos without watermark, right from your browser, with no app to install and no account to create. Besides HD video, you can also save just the audio as MP3 and download photos from TikTok posts - all free, with no download limit.",
     },
     seoTitle: 'Download TikTok Video Without Watermark for Free',
     seoDescription: 'Download TikTok videos without watermark in HD, free and with no sign-up. Paste the link and download TikTok videos, photos and music in seconds with {{name}}.',
@@ -107,8 +117,8 @@ export default {
     errorGeneric: 'An error occurred.',
   },
   installPrompt: {
-    text: 'Install {{name}} as an application.',
-    subtext: '(Does not take up space on your device)',
+    text: 'Install as an app',
+    subtext: '(Download straight from TikTok)',
     dismiss: 'Dismiss',
   },
   shareFabs: {
