@@ -51,7 +51,7 @@ export function DownloadModal({ url, onClose, onDownloadSuccess, badge, onBadgeC
         role="dialog"
         aria-modal="true"
         aria-label={data?.title || t('home.downloadButton')}
-        className="glass animate-modal-pop relative flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-3xl shadow-2xl"
+        className="glass animate-modal-pop relative flex max-h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-3xl shadow-2xl"
         style={{ boxShadow: '0 0 0 1px rgba(255,0,80,0.15), 0 20px 60px -15px rgba(0,0,0,0.5)' }}
         onClick={(event) => event.stopPropagation()}
       >
@@ -115,7 +115,7 @@ export function DownloadModal({ url, onClose, onDownloadSuccess, badge, onBadgeC
               )}
 
               <div className="flex flex-col gap-3 sm:flex-row">
-                <div className="glass-sm flex flex-1 items-center gap-3 rounded-2xl p-3">
+                <div className="glass-sm flex items-center gap-3 rounded-2xl p-3">
                   <img src={data.author.avatar} alt="avatar" className="h-11 w-11 shrink-0 rounded-full" />
                   <div className="min-w-0 flex-1">
                     <div className="truncate font-bold">{data.author.nickname}</div>
@@ -131,7 +131,7 @@ export function DownloadModal({ url, onClose, onDownloadSuccess, badge, onBadgeC
                   </a>
                 </div>
 
-                <div className="flex gap-2 sm:w-64">
+                <div className="flex flex-1 gap-2 sm:w-64">
                   <button
                     type="button"
                     onClick={() => handleDownload(primaryKey)}
