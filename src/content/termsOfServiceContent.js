@@ -2,7 +2,7 @@
 // the original site (minor grammar cleanup; the three trademark/copyright/
 // license sections were reformatted as lists - they were unclosed <li> soup
 // in the source; brand name kept dynamic).
-import { SITE } from '../config/site'
+import { SITE } from '../config/site.js'
 
 const withName = (name) => ({
   pt: {
@@ -198,6 +198,71 @@ const withName = (name) => ({
       { type: 'p', text: `${name} no es responsable de ninguno de los sitios web vinculados a su sitio, ni de su contenido. La inclusión de cualquier enlace no implica el respaldo de ${name} a ese sitio. El uso de cualquier sitio vinculado es responsabilidad exclusiva del Usuario.` },
       { type: 'h2', text: 'Términos de Uso – Modificaciones' },
       { type: 'p', text: `Estos Términos de Uso pueden ser modificados por ${name} en cualquier momento, con aviso proporcionado por cualquiera de los siguientes medios: una publicación en la página principal del sitio, un aviso mostrado al iniciar sesión o después de iniciar sesión en tu cuenta de usuario (según se define abajo), o un correo electrónico a la dirección que proporcionaste al configurar tu cuenta de usuario. Siempre agregamos información sobre la versión actualizada de los Términos de Uso en la parte superior de esta página. Eres responsable de leer los términos actualizados cada vez que accedas/uses nuestros Servicios y de asegurarte de estar plenamente al tanto de los términos/actualizaciones antes de usar nuestros Servicios. El no proporcionar o mantener información de contacto precisa o actual en tu cuenta de usuario no te exime de tu responsabilidad de cumplir con estos Términos de Uso según se modifiquen periódicamente. No se permite el uso de datos de contacto o identificaciones pertenecientes a otras personas, y se considera fraude. Desactivaremos tu cuenta cada vez que identifiquemos fraude.` },
+    ],
+  },
+  id: {
+    title: 'Syarat Penggunaan',
+    content: [
+      { type: 'p', text: 'Bacalah syarat penggunaan ini ("Syarat Penggunaan" atau "ToS") dengan saksama sebelum mengakses aplikasi dan situs web kami. Syarat Penggunaan kami dapat berubah dari waktu ke waktu untuk mencerminkan perkembangan aplikasi dan situs kami, demi memberikan kepuasan terbaik bagi pengguna kami. Silakan periksa tanggal pembaruan di bagian atas Syarat Penggunaan secara berkala untuk memastikan Anda membaca versi terbaru.' },
+      { type: 'h2', text: 'Penerimaan Syarat Penggunaan' },
+      { type: 'p', text: 'Dengan mengakses dan menggunakan aplikasi serta situs web kami, Anda menyatakan penerimaan atas kebijakan dan Syarat Penggunaan kami, termasuk versi yang diperbarui. Jika Anda tidak setuju dengan sebagian isi, mohon untuk tidak menggunakan aplikasi dan situs web kami.' },
+      { type: 'h2', text: 'Siapa yang dapat menggunakan layanan kami (Pengguna)' },
+      { type: 'p', text: `Syarat Penggunaan kami mengatur hubungan antara aplikasi (${name}) dan pengguna yang mengakses ${name} dan/atau menggunakan produk serta layanan yang disediakan melalui ${name} ("Produk dan Layanan"). Syarat Penggunaan kami merupakan kesepakatan bersama antara Anda, sebagai perorangan atau entitas ("Anda" atau "Pengguna"), atau sekelompok orang atau entitas ("Anda" atau "Para Pengguna"), dengan pengembang Produk dan Layanan (${name}), terkait penggunaan Anda atas Produk dan Layanan tersebut. Dengan mengakses atau menggunakan produk dan layanan ${name}, Anda menyatakan telah membaca, memahami, dan menyetujui dengan saksama Syarat Penggunaan kami serta setuju untuk mematuhinya.` },
+      { type: 'h2', text: 'Kewajiban pengguna' },
+      { type: 'p', text: `Anda setuju untuk menggunakan aplikasi ${name} beserta produk dan layanannya hanya untuk tujuan yang diizinkan oleh Syarat Penggunaan kami, serta hukum, peraturan, atau praktik yang berlaku umum di yurisdiksi terkait. ${name.toUpperCase()} TIDAK BERTANGGUNG JAWAB ATAS PELANGGARAN HUKUM, ATURAN, ATAU PERATURAN YANG BERLAKU YANG DILAKUKAN OLEH ANDA ATAU PIHAK KETIGA ATAS ARAHAN ANDA. Secara khusus, Anda setuju dan menjamin bahwa dengan menggunakan aplikasi ${name} beserta produk dan layanannya, tindakan Anda tidak melanggar hukum, aturan, atau peraturan (1) negara, negara bagian, atau wilayah tempat Anda tinggal, atau (2) negara, negara bagian, atau wilayah tempat ${name} berada atau beroperasi.` },
+      { type: 'h2', text: 'Kekayaan intelektual' },
+      { type: 'h3', text: '(1) Merek dagang' },
+      {
+        type: 'p',
+        text: `${name} menghormati hak merek dagang dan mematuhi hukum serta peraturan yang mengatur merek terdaftar. Merek dagang kami "${name}™" diciptakan oleh ${name} dan hanya boleh digunakan sehubungan dengan produk dan layanan kami. Merek ini harus dibaca sebagai satu kata utuh, tanpa mengacu pada perorangan atau entitas lain selain ${name}. Untuk menggunakan, menyebut, atau merujuk pada Layanan kami, aplikasi ${name}, atau Konten dan Materi ${name}, ikuti kebijakan kami berikut:`,
+      },
+      {
+        type: 'ul',
+        items: [
+          `Gunakan format persis "${name}™" sebagai satu kata, tanpa spasi, pemisahan, atau pemenggalan antar komponennya, atau dalam variasi apa pun.`,
+          `Jangan pernah mengaitkan merek dagang kami "${name}™" dengan, atau mengacaukannya dengan, perorangan, entitas, aplikasi, situs web, barang, atau layanan lain di luar ${name}.`,
+          `Kami berhak sepenuhnya atas merek dagang "${name}™" terhadap segala bentuk penyalahgunaan, kesalahan representasi, atau pelanggaran dengan cara apa pun.`,
+          'Kami mendorong dan mengapresiasi jika Anda melaporkan dugaan penyalahgunaan, kesalahan representasi, pelanggaran, atau ketidakpatuhan agar dapat kami tangani dengan semestinya.',
+        ],
+      },
+      { type: 'h3', text: '(2) Hak cipta' },
+      { type: 'p', text: `${name} menghormati hak cipta dan mematuhi hukum serta peraturan hak cipta.` },
+      {
+        type: 'ul',
+        items: [
+          `Pengguna bertanggung jawab atas konten di balik link yang mereka tempel ke aplikasi ${name}.`,
+          `${name} memberikan dukungan kepada pengguna untuk mengunduh informasi/konten yang mereka tempel di aplikasi dan situs web, demi kepentingan sah para pengguna.`,
+          'Kami hanya menampilkan konten "asli" yang telah dipublikasikan pengguna di situs web, halaman, atau media sosial. Pengguna bertanggung jawab memastikan mereka memiliki hak hukum berdasarkan hukum yang berlaku dan menjamin hak kekayaan intelektual mereka sendiri atas konten yang dipublikasikan.',
+          `Pengguna hanya boleh menggunakan video yang diunduh melalui aplikasi ${name} untuk tujuan pribadi, non-komersial, dan gratis.`,
+          `${name} tidak dapat dan tidak berkewajiban memverifikasi apakah suatu konten/informasi legal atau tidak, tetapi jika mendeteksi pelanggaran, kami akan memblokir pengguna yang bersangkutan dari akses ke aplikasi, produk, dan layanan ${name}.`,
+          `${name} tidak melakukan pencadangan atau pengarsipan konten pengguna dengan alasan apa pun.`,
+          'Kami mendorong dan mengapresiasi jika Anda melaporkan dugaan penyalahgunaan, kesalahan representasi, penggunaan tanpa izin, pelanggaran, atau ketidakpatuhan agar dapat kami tangani dengan semestinya.',
+        ],
+      },
+      { type: 'h3', text: '(3) Lisensi penggunaan' },
+      {
+        type: 'p',
+        text: `Kami memberikan izin kepada pengguna untuk mengunduh sementara salinan konten dan materi (sebagaimana didefinisikan di atas) pada aplikasi ${name} hanya untuk tampilan sementara, pribadi, dan non-komersial. Ini merupakan pemberian lisensi, bukan pengalihan kepemilikan, dan berdasarkan lisensi ini Anda tidak boleh:`,
+      },
+      {
+        type: 'ul',
+        items: [
+          'Mengubah, memodifikasi, mendistribusikan, atau menduplikasi Materi;',
+          'Menggunakan Konten dan Materi untuk tujuan komersial atau pertunjukan publik apa pun (komersial maupun non-komersial);',
+          'Menghapus notasi hak cipta atau notasi kepemilikan lain dari Konten dan Materi; atau',
+          'Mengalihkan Konten dan Materi kepada orang lain, atau "mencerminkan" (mirror) Konten dan Materi di server lain mana pun.',
+        ],
+      },
+      { type: 'h3', text: '(4) Penafian tanggung jawab' },
+      { type: 'p', text: `Kami menghormati dan membantu pengguna melindungi hak atribusi sah mereka serta keutuhan karya dan konten mereka. Konten dan materi pada aplikasi ${name} disediakan untuk melayani kepentingan pengguna yang merupakan pemilik atau pencipta yang sah. ${name} tidak memberikan jaminan apa pun, baik tersurat maupun tersirat, dan dengan ini menolak semua jaminan lainnya, termasuk namun tidak terbatas pada jaminan atau kondisi tersirat mengenai kelayakan untuk diperjualbelikan, kesesuaian untuk tujuan tertentu, atau tidak adanya pelanggaran kekayaan intelektual atau hak lainnya. Selain itu, ${name} tidak menjamin atau membuat pernyataan apa pun mengenai keakuratan, kemungkinan hasil, atau keandalan penggunaan Konten dan Materi di situsnya, atau sehubungan dengan Konten dan Materi tersebut atau situs mana pun yang tertaut ke Situs.` },
+      { type: 'h2', text: 'Privasi' },
+      { type: 'p', text: `Kami mengoperasikan aplikasi ${name} sesuai dengan prinsip yang telah kami tetapkan untuk menjamin kerahasiaan informasi pribadi, termasuk informasi dari pengguna kami, tetap terlindungi dan tidak diungkapkan kepada pihak ketiga dengan alasan apa pun.` },
+      { type: 'h2', text: 'Keakuratan Konten dan Materi' },
+      { type: 'p', text: `Konten dan materi yang muncul pada aplikasi ${name} mungkin mengandung kesalahan teknis, tipografis, atau fotografis. ${name} tidak menjamin bahwa Konten dan Materi apa pun akurat, lengkap, atau terkini. ${name} dapat melakukan perubahan pada konten dan materi di situsnya kapan saja tanpa pemberitahuan sebelumnya.` },
+      { type: 'h2', text: 'Tautan' },
+      { type: 'p', text: `${name} tidak bertanggung jawab atas situs web mana pun yang tertaut ke situsnya, maupun kontennya. Adanya suatu tautan tidak berarti ${name} mendukung situs tersebut. Penggunaan situs yang tertaut sepenuhnya menjadi risiko Pengguna sendiri.` },
+      { type: 'h2', text: 'Syarat Penggunaan – Perubahan' },
+      { type: 'p', text: `Syarat Penggunaan ini dapat diubah oleh ${name} kapan saja, dengan pemberitahuan melalui salah satu cara berikut: publikasi di halaman utama situs, pemberitahuan yang ditampilkan saat atau setelah masuk ke akun pengguna Anda (sebagaimana didefinisikan di bawah), atau email ke alamat yang Anda berikan saat membuat akun pengguna. Kami selalu menambahkan informasi mengenai versi terbaru Syarat Penggunaan di bagian atas halaman ini. Anda bertanggung jawab untuk membaca syarat yang diperbarui setiap kali Anda mengakses/menggunakan Layanan kami dan memastikan Anda sepenuhnya memahami syarat/pembaruan tersebut sebelum menggunakan Layanan kami. Kegagalan Anda memberikan atau menjaga informasi kontak yang akurat atau terkini pada akun pengguna Anda tidak membebaskan Anda dari tanggung jawab untuk mematuhi Syarat Penggunaan ini sebagaimana diubah dari waktu ke waktu. Penggunaan data kontak atau identitas milik orang lain tidak diperbolehkan dan dianggap sebagai penipuan. Kami akan menonaktifkan akun Anda setiap kali kami mengidentifikasi adanya penipuan.` },
     ],
   },
 })

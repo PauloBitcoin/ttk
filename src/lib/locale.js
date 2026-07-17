@@ -1,7 +1,7 @@
-export const LOCALES = ['pt', 'en', 'es']
+export const LOCALES = ['pt', 'en', 'es', 'id']
 export const DEFAULT_LOCALE = 'pt'
 
-export const HTML_LANG = { pt: 'pt-BR', en: 'en', es: 'es' }
+export const HTML_LANG = { pt: 'pt-BR', en: 'en', es: 'es', id: 'id' }
 
 // pt lives unprefixed at the domain root (it's the site's original,
 // already-indexed language) - only en/es get a path prefix.

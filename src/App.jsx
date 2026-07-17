@@ -43,6 +43,9 @@ function App() {
           <Route path="/es" element={<LocaleRoot locale="es" />}>
             {pageRoutes()}
           </Route>
+          <Route path="/id" element={<LocaleRoot locale="id" />}>
+            {pageRoutes()}
+          </Route>
         </Routes>
       </ToastProvider>
     </BrowserRouter>

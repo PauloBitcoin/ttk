@@ -245,6 +245,86 @@ const withName = (name) => ({
       ),
     },
   ],
+  id: [
+    {
+      q: 'Cara download video TikTok tanpa watermark (langkah demi langkah)',
+      answerText:
+        `Buka TikTok, pilih videonya, ketuk Bagikan lalu "Salin link". Tempel link tersebut di ${name}, klik panah download, dan pilih formatnya.`,
+      a: (
+        <ol className="list-decimal space-y-1 pl-5">
+          <li>Buka aplikasi TikTok di HP atau PC.</li>
+          <li>Pilih video yang ingin diunduh.</li>
+          <li>Ketuk tombol Bagikan di pojok kanan bawah.</li>
+          <li>Ketuk "Salin link".</li>
+          <li>
+            Setelah itu tinggal tempel link-nya di {name}, klik panah download, pilih formatnya,
+            dan selesai. Kalau mau, instal aplikasinya lewat menu browser - lebih cepat lagi.
+          </li>
+        </ol>
+      ),
+    },
+    {
+      q: 'Video yang sudah diunduh tersimpan di mana?',
+      answerText:
+        'Biasanya tersimpan di folder unduhan bawaan browser, yang juga bisa diganti ke folder tujuan lain.',
+      a: (
+        <p>
+          Biasanya tersimpan di folder unduhan bawaan browser Anda. Di pengaturan browser, Anda
+          bisa mengubah folder tujuan unduhan video TikTok secara manual.
+        </p>
+      ),
+    },
+    {
+      q: 'Bisa download musik dari video dalam format MP3?',
+      answerText: `Bisa, dengan ${name} Anda juga bisa mengunduh audio video dalam format MP3.`,
+      a: (
+        <p>
+          Bisa. Dengan {name} Anda juga bisa mengunduh audio video dalam format MP3 - tinggal
+          klik ikon musik.
+        </p>
+      ),
+    },
+    {
+      q: `Apakah ${name} gratis?`,
+      answerText: `Ya, ${name} 100% gratis.`,
+      a: <p>Ya. {name} 100% gratis, tanpa biaya sama sekali untuk menggunakan layanan kami.</p>,
+    },
+    {
+      q: 'Apakah video TikTok tanpa watermark kualitasnya lebih rendah?',
+      answerText:
+        'Tidak. Unduhan dilakukan dalam kualitas asli HD, hanya menghapus watermark, tanpa kehilangan resolusi.',
+      a: (
+        <p>
+          Tidak. {name} mengunduh video asli dalam HD, dengan kualitas terbaik yang tersedia,
+          hanya menghapus watermark - tanpa kehilangan resolusi.
+        </p>
+      ),
+    },
+    {
+      q: `Apakah aplikasi ${name} memakan ruang penyimpanan di perangkat saya?`,
+      answerText:
+        'Tidak, aplikasinya berjalan di cloud dan perangkat Anda hanya menyimpan pintasan yang lebih kecil dari sebuah foto.',
+      a: (
+        <p>
+          Tidak. {name} tidak memakan memori. Anda bisa menginstalnya di Android atau PC tanpa
+          perlu khawatir soal ruang penyimpanan - aplikasinya berjalan 100% di cloud, perangkat
+          Anda hanya menyimpan pintasannya, lebih kecil dari sebuah foto.
+        </p>
+      ),
+    },
+    {
+      q: `Bagaimana cara menginstal aplikasi ${name}?`,
+      answerText:
+        'Klik banner instalasi di bagian bawah layar, atau gunakan opsi "Instal aplikasi" di menu browser.',
+      a: (
+        <p>
+          Jika Anda mengakses lewat Android atau PC, cukup klik banner di bagian bawah layar
+          untuk menginstal - cepat dan mudah. Jika bannernya tidak muncul, buka menu browser dan
+          klik "Instal aplikasi".
+        </p>
+      ),
+    },
+  ],
 })
 
 export const FAQS_BY_LOCALE = withName(SITE.name)

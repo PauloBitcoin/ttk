@@ -5,8 +5,9 @@ import { CheckIcon, LanguagesIcon } from './icons'
 import { useLocale } from '../hooks/useLocale'
 import { localizedPath } from '../lib/locale'
 
-// Already alphabetical by name (English, Español, Português).
+// Already alphabetical by name (Bahasa Indonesia, English, Español, Português).
 const LANGUAGES = [
+  { code: 'id', name: 'Bahasa Indonesia' },
   { code: 'en', name: 'English' },
   { code: 'es', name: 'Español' },
   { code: 'pt', name: 'Português' },

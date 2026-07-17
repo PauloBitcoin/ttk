@@ -42,7 +42,7 @@ export function Sidebar({ open, onClose }) {
         role="dialog"
         aria-modal="true"
         aria-label={t('nav.menu')}
-        className={`glass absolute inset-y-0 right-0 flex w-72 max-w-[85vw] flex-col gap-6 overflow-y-auto p-5 shadow-2xl transition-transform duration-300 ${open ? 'translate-x-0' : 'translate-x-full'
+        className={`glass absolute inset-y-0 right-0 flex w-72 max-w-[85vw] flex-col gap-6 overflow-y-auto p-5 pb-6 shadow-2xl transition-transform duration-300 ${open ? 'translate-x-0' : 'translate-x-full'
           }`}
       >
         <div className="flex items-center justify-between">
@@ -107,12 +107,12 @@ export function Sidebar({ open, onClose }) {
         <button
           type="button"
           onClick={clearCache}
-          className="cursor-pointer mt-auto rounded-xl text-blue-500 dark:text-blue-400 hover:underline px-3 py-2 text-sm font-bold"
+          className="cursor-pointer mt-auto rounded-xl text-amber-700 dark:text-amber-400 bg-amber-500/20 px-3 py-2 text-xs font-bold"
         >
           {t('sidebar.clearCache')}
         </button>
 
-        <p className="text-center text-sm text-zinc-600 dark:text-zinc-400">
+        <p className="hidden text-center text-sm text-zinc-600 dark:text-zinc-400">
           © {new Date().getFullYear()} {SITE.name}
         </p>
       </aside>

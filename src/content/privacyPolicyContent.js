@@ -1,6 +1,6 @@
 // Ported from legacy-static/privacy-policy.html, content preserved from the
 // original site (minor grammar cleanup, brand name kept dynamic).
-import { SITE } from '../config/site'
+import { SITE } from '../config/site.js'
 
 const withName = (name) => ({
   pt: {
@@ -40,6 +40,19 @@ const withName = (name) => ({
       { type: 'p', text: `${name} tiene el derecho de actualizar esta política de privacidad en cualquier momento. Cuando lo hagamos, publicaremos un aviso en la página principal de la aplicación y actualizaremos la fecha de "última actualización" en la parte superior de esta página. Animamos a los usuarios a revisar esta página con frecuencia para estar al tanto de cómo protegemos la información personal que recopilamos. Reconoces y aceptas que es tu responsabilidad revisar esta política periódicamente y estar al tanto de cualquier modificación.` },
       { type: 'h2', text: 'Tu aceptación de estos términos' },
       { type: 'p', text: `Al acceder y usar la aplicación ${name}, expresas tu aceptación voluntaria de esta política. De lo contrario, no utilices nuestros servicios. El uso continuado de los servicios después de la publicación de cambios en esta política se considerará como tu aceptación de dichos cambios.` },
+    ],
+  },
+  id: {
+    title: 'Kebijakan Privasi',
+    content: [
+      { type: 'h2', text: 'Informasi identitas pribadi' },
+      { type: 'p', text: `Pengguna dapat mengunjungi aplikasi ${name} secara anonim. Kami tidak pernah mencatat informasi identitas dari pengguna kami, dan hanya mengumpulkan informasi pribadi jika dikirimkan secara sukarela. Pengguna selalu dapat menolak memberikan informasi identitas pribadi. Namun, jika setuju untuk memberikannya, mereka bertanggung jawab untuk memastikan informasi tersebut akurat dan benar. ${name} tidak bertanggung jawab atas informasi palsu atau salah yang diberikan oleh pengguna; jika kami mendeteksi insiden semacam ini, kami akan memblokir akses pengguna tersebut ke aplikasi dan layanan kami.` },
+      { type: 'h2', text: 'Iklan' },
+      { type: 'p', text: `Kami menampilkan iklan di aplikasi ${name} untuk mendukung riset dan pengembangan kami sendiri, tanpa tujuan komersial. Iklan yang ditampilkan di ${name} dapat disediakan oleh mitra periklanan yang mungkin menggunakan cookie. Mereka hanya mengumpulkan informasi yang tidak dapat mengidentifikasi Anda atau orang lain yang menggunakan perangkat Anda, dan tidak melacak data pribadi seperti nama, email, atau alamat fisik. Anda dapat menolak penggunaan cookie, atau berhenti mengakses aplikasi dan situs kami kapan saja, karena pengguna ${name} tidak diwajibkan menerima iklan.` },
+      { type: 'h2', text: 'Perubahan pada kebijakan privasi ini' },
+      { type: 'p', text: `${name} berhak memperbarui kebijakan privasi ini kapan saja. Saat itu terjadi, kami akan mempublikasikan pemberitahuan di halaman utama aplikasi dan memperbarui tanggal "pembaruan terakhir" di bagian atas halaman ini. Kami menyarankan pengguna untuk sering memeriksa halaman ini agar tetap mengetahui bagaimana kami melindungi informasi pribadi yang kami kumpulkan. Anda mengakui dan setuju bahwa merupakan tanggung jawab Anda untuk meninjau kebijakan ini secara berkala dan menyadari adanya perubahan apa pun.` },
+      { type: 'h2', text: 'Persetujuan Anda atas syarat ini' },
+      { type: 'p', text: `Dengan mengakses dan menggunakan aplikasi ${name}, Anda menyatakan persetujuan sukarela Anda terhadap kebijakan ini. Jika tidak, jangan gunakan layanan kami. Penggunaan layanan yang berkelanjutan setelah publikasi perubahan pada kebijakan ini akan dianggap sebagai penerimaan Anda atas perubahan tersebut.` },
     ],
   },
 })
