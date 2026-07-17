@@ -14,6 +14,6 @@ export const SITE = {
 // helper wherever they're used so they stay correct if a base path is ever
 // reintroduced (e.g. a preview deploy under a subpath).
 export const IMAGES = {
-  logo: '/assets/logo-350.webp',
+  logo: '/assets/logo.webp',
   heroVertical: '/assets/verti.webp',
 }

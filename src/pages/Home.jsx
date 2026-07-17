@@ -215,11 +215,11 @@ export function Home() {
 
               <p className="mt-2 text-center text-xs">
                 {t('home.termsPrefix')}{' '}
-                <Link to={localizedPath(locale, '/terms-of-service')} className="font-bold" style={{ color: 'var(--ttk)' }}>
+                <Link to={localizedPath(locale, '/terms-of-service')} className="font-bold" style={{ color: 'var(--ttk-text)' }}>
                   {t('home.termsLink')}
                 </Link>{' '}
                 {t('home.and')}{' '}
-                <Link to={localizedPath(locale, '/privacy-policy')} className="font-bold" style={{ color: 'var(--ttk)' }}>
+                <Link to={localizedPath(locale, '/privacy-policy')} className="font-bold" style={{ color: 'var(--ttk-text)' }}>
                   {t('home.privacyLink')}
                 </Link>
                 .

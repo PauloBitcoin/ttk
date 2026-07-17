@@ -24,6 +24,9 @@
 :root {
   --ttk: #ff0050;
   --ttk-2: #00f2ea;
+  /* Darker shade for text on light backgrounds - #ff0050 alone is only 3.9:1
+     against white, below the 4.5:1 required for body-size text. */
+  --ttk-text: #d1004a;
 }
 
 @keyframes modal-pop {
@@ -92,6 +95,7 @@ body {
 body.dark {
   background: #09090b; /* zinc-950 */
   color: #f4f4f5; /* zinc-100 */
+  --ttk-text: var(--ttk); /* #ff0050 already has enough contrast against dark backgrounds */
 }
 
 /* Toast */

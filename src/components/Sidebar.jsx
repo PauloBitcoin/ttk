@@ -33,7 +33,7 @@ export function Sidebar({ open, onClose }) {
     <div
       className={`fixed inset-0 z-50 transition-opacity duration-200 ${open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
         }`}
-      aria-hidden={!open}
+      inert={!open}
     >
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
 
@@ -46,7 +46,7 @@ export function Sidebar({ open, onClose }) {
           }`}
       >
         <div className="flex items-center justify-between">
-          <span className="text-lg font-bold" style={{ color: 'var(--ttk)' }}>
+          <span className="text-lg bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(90deg, var(--ttk), var(--ttk-2))', fontWeight: 800 }}>
             {SITE.shortName}
           </span>
           <button
