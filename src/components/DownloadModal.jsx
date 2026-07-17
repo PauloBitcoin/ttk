@@ -51,7 +51,7 @@ export function DownloadModal({ url, onClose, onDownloadSuccess, badge, onBadgeC
         role="dialog"
         aria-modal="true"
         aria-label={data?.title || t('home.downloadButton')}
-        className="glass animate-modal-pop relative flex max-h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-3xl shadow-2xl"
+        className="glass animate-modal-pop relative flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-3xl shadow-2xl"
         style={{ boxShadow: '0 0 0 1px rgba(255,0,80,0.15), 0 20px 60px -15px rgba(0,0,0,0.5)' }}
         onClick={(event) => event.stopPropagation()}
       >
