@@ -27,7 +27,7 @@ export function Navbar() {
         <div className="flex items-center gap-1">
           <LanguageMenu />
           <button
-            className="rounded p-2 hover:bg-zinc-200 dark:hover:bg-zinc-800"
+            className="rounded p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800"
             type="button"
             title={t('nav.menu')}
             onClick={() => setMenuOpen(true)}

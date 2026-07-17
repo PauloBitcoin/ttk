@@ -5,18 +5,25 @@ const withName = (name) => ({
     {
       q: "Como baixar vídeo do TikTok sem marca d'água (passo a passo)",
       answerText:
-        `Abra o TikTok, escolha o vídeo, toque em Compartilhar e depois em "Copiar link". Cole o link no ${name}, clique na seta de download e escolha o formato.`,
+        `Duas formas: pelo app, instale o ${name} e depois compartilhe o vídeo do TikTok direto para ele; ou pelo navegador, abra o TikTok, toque em Compartilhar e depois em "Copiar link", cole o link no ${name}, clique na seta de download e escolha o formato.`,
       a: (
-        <ol className="list-decimal space-y-1 pl-5">
-          <li>Abra o aplicativo do TikTok no celular ou no PC.</li>
-          <li>Escolha o vídeo que você quer baixar.</li>
-          <li>Toque no botão Compartilhar, no canto inferior direito.</li>
-          <li>Toque em "Copiar link".</li>
-          <li>
-            Depois é só colar o link no {name}, clicar na seta de download, escolher o formato e
-            pronto. Se preferir, instale o app pelo menu do navegador - é ainda mais rápido.
-          </li>
-        </ol>
+        <>
+          <p className="mb-2">
+            <strong>Pelo app (recomendado):</strong> instale o {name}, depois no TikTok toque em
+            Compartilhar no vídeo desejado e escolha {name} na lista - o vídeo já abre aqui,
+            pronto para baixar.
+          </p>
+          <p className="mb-1">
+            <strong>Pelo navegador:</strong>
+          </p>
+          <ol className="list-decimal space-y-1 pl-5">
+            <li>Abra o aplicativo do TikTok no celular ou no PC.</li>
+            <li>Escolha o vídeo que você quer baixar.</li>
+            <li>Toque no botão Compartilhar, no canto inferior direito.</li>
+            <li>Toque em "Copiar link".</li>
+            <li>Cole o link no {name}, clique na seta de download e escolha o formato.</li>
+          </ol>
+        </>
       ),
     },
     {
@@ -72,12 +79,13 @@ const withName = (name) => ({
     {
       q: `Como instalo o aplicativo do ${name}?`,
       answerText:
-        'Clique no banner de instalação na parte inferior da tela, ou use a opção "Instalar aplicativo" no menu do navegador.',
+        `Clique no banner de instalação na parte inferior da tela, ou use a opção "Instalar aplicativo" no menu do navegador. Depois de instalado, o ${name} passa a aparecer direto no menu Compartilhar do TikTok.`,
       a: (
         <p>
           Se você está acessando pelo Android ou PC, basta clicar no banner na parte inferior da
           tela para instalar - é rápido e fácil. Se o banner não aparecer, vá ao menu do navegador
-          e clique em "Instalar aplicativo".
+          e clique em "Instalar aplicativo". Depois de instalado, o {name} passa a aparecer direto
+          no menu Compartilhar do TikTok, deixando o download ainda mais rápido.
         </p>
       ),
     },
@@ -86,19 +94,25 @@ const withName = (name) => ({
     {
       q: 'How to download TikTok videos without watermark (step by step)',
       answerText:
-        `Open TikTok, pick the video, tap Share and then "Copy link". Paste the link in ${name}, click the download arrow and choose the format.`,
+        `Two ways: through the app, install ${name} and share the TikTok video straight to it; or through the browser, open TikTok, tap Share and then "Copy link", paste the link in ${name}, click the download arrow and choose the format.`,
       a: (
-        <ol className="list-decimal space-y-1 pl-5">
-          <li>Open the TikTok app on your phone or PC.</li>
-          <li>Choose the video you want to download.</li>
-          <li>Tap the Share button in the bottom-right corner.</li>
-          <li>Tap "Copy link".</li>
-          <li>
-            Then just paste the link in {name}, click the download arrow, choose the format and
-            you're done. If you prefer, install the app from your browser menu - it's even
-            faster.
-          </li>
-        </ol>
+        <>
+          <p className="mb-2">
+            <strong>Via the app (recommended):</strong> install {name}, then on TikTok tap Share
+            on the video you want and choose {name} from the list - the video opens here already,
+            ready to download.
+          </p>
+          <p className="mb-1">
+            <strong>Via the browser:</strong>
+          </p>
+          <ol className="list-decimal space-y-1 pl-5">
+            <li>Open the TikTok app on your phone or PC.</li>
+            <li>Choose the video you want to download.</li>
+            <li>Tap the Share button in the bottom-right corner.</li>
+            <li>Tap "Copy link".</li>
+            <li>Paste the link in {name}, click the download arrow and choose the format.</li>
+          </ol>
+        </>
       ),
     },
     {
@@ -153,12 +167,13 @@ const withName = (name) => ({
     {
       q: `How do I install the ${name} app?`,
       answerText:
-        'Click the install banner at the bottom of the screen, or use "Install app" from your browser menu.',
+        `Click the install banner at the bottom of the screen, or use "Install app" from your browser menu. Once installed, ${name} shows up directly in TikTok's Share menu.`,
       a: (
         <p>
           If you're on Android or PC, just click the banner at the bottom of the screen to
           install - it's fast and easy. If the banner doesn't show up, go to your browser menu
-          and click "Install app".
+          and click "Install app". Once installed, {name} shows up directly in TikTok's Share
+          menu, making downloads even faster.
         </p>
       ),
     },
@@ -167,19 +182,25 @@ const withName = (name) => ({
     {
       q: 'Cómo descargar videos de TikTok sin marca de agua (paso a paso)',
       answerText:
-        `Abre TikTok, elige el video, toca en Compartir y luego en "Copiar enlace". Pega el enlace en ${name}, haz clic en la flecha de descarga y elige el formato.`,
+        `Dos formas: con la app, instala ${name} y comparte el video de TikTok directo hacia ella; o con el navegador, abre TikTok, toca en Compartir y luego en "Copiar enlace", pega el enlace en ${name}, haz clic en la flecha de descarga y elige el formato.`,
       a: (
-        <ol className="list-decimal space-y-1 pl-5">
-          <li>Abre la app de TikTok en tu celular o PC.</li>
-          <li>Elige el video que quieres descargar.</li>
-          <li>Toca el botón Compartir, en la esquina inferior derecha.</li>
-          <li>Toca en "Copiar enlace".</li>
-          <li>
-            Luego solo pega el enlace en {name}, haz clic en la flecha de descarga, elige el
-            formato y listo. Si prefieres, instala la app desde el menú del navegador - es aún
-            más rápido.
-          </li>
-        </ol>
+        <>
+          <p className="mb-2">
+            <strong>Con la app (recomendado):</strong> instala {name}, luego en TikTok toca en
+            Compartir en el video deseado y elige {name} de la lista - el video ya se abre aquí,
+            listo para descargar.
+          </p>
+          <p className="mb-1">
+            <strong>Con el navegador:</strong>
+          </p>
+          <ol className="list-decimal space-y-1 pl-5">
+            <li>Abre la app de TikTok en tu celular o PC.</li>
+            <li>Elige el video que quieres descargar.</li>
+            <li>Toca el botón Compartir, en la esquina inferior derecha.</li>
+            <li>Toca en "Copiar enlace".</li>
+            <li>Pega el enlace en {name}, haz clic en la flecha de descarga y elige el formato.</li>
+          </ol>
+        </>
       ),
     },
     {
@@ -235,12 +256,13 @@ const withName = (name) => ({
     {
       q: `¿Cómo instalo la app de ${name}?`,
       answerText:
-        'Haz clic en el banner de instalación en la parte inferior de la pantalla, o usa la opción "Instalar aplicación" en el menú del navegador.',
+        `Haz clic en el banner de instalación en la parte inferior de la pantalla, o usa la opción "Instalar aplicación" en el menú del navegador. Una vez instalada, ${name} aparece directo en el menú Compartir de TikTok.`,
       a: (
         <p>
           Si estás en Android o PC, solo haz clic en el banner en la parte inferior de la
           pantalla para instalar - es rápido y fácil. Si el banner no aparece, ve al menú del
-          navegador y haz clic en "Instalar aplicación".
+          navegador y haz clic en "Instalar aplicación". Una vez instalada, {name} aparece directo
+          en el menú Compartir de TikTok, haciendo la descarga aún más rápida.
         </p>
       ),
     },
@@ -249,18 +271,25 @@ const withName = (name) => ({
     {
       q: 'Cara download video TikTok tanpa watermark (langkah demi langkah)',
       answerText:
-        `Buka TikTok, pilih videonya, ketuk Bagikan lalu "Salin link". Tempel link tersebut di ${name}, klik panah download, dan pilih formatnya.`,
+        `Dua cara: lewat aplikasi, instal ${name} lalu bagikan video TikTok langsung ke aplikasinya; atau lewat browser, buka TikTok, ketuk Bagikan lalu "Salin link", tempel link tersebut di ${name}, klik panah download, dan pilih formatnya.`,
       a: (
-        <ol className="list-decimal space-y-1 pl-5">
-          <li>Buka aplikasi TikTok di HP atau PC.</li>
-          <li>Pilih video yang ingin diunduh.</li>
-          <li>Ketuk tombol Bagikan di pojok kanan bawah.</li>
-          <li>Ketuk "Salin link".</li>
-          <li>
-            Setelah itu tinggal tempel link-nya di {name}, klik panah download, pilih formatnya,
-            dan selesai. Kalau mau, instal aplikasinya lewat menu browser - lebih cepat lagi.
-          </li>
-        </ol>
+        <>
+          <p className="mb-2">
+            <strong>Lewat aplikasi (direkomendasikan):</strong> instal {name}, lalu di TikTok ketuk
+            Bagikan pada video yang diinginkan dan pilih {name} dari daftar - videonya langsung
+            terbuka di sini, siap diunduh.
+          </p>
+          <p className="mb-1">
+            <strong>Lewat browser:</strong>
+          </p>
+          <ol className="list-decimal space-y-1 pl-5">
+            <li>Buka aplikasi TikTok di HP atau PC.</li>
+            <li>Pilih video yang ingin diunduh.</li>
+            <li>Ketuk tombol Bagikan di pojok kanan bawah.</li>
+            <li>Ketuk "Salin link".</li>
+            <li>Tempel link-nya di {name}, klik panah download, dan pilih formatnya.</li>
+          </ol>
+        </>
       ),
     },
     {
@@ -315,12 +344,13 @@ const withName = (name) => ({
     {
       q: `Bagaimana cara menginstal aplikasi ${name}?`,
       answerText:
-        'Klik banner instalasi di bagian bawah layar, atau gunakan opsi "Instal aplikasi" di menu browser.',
+        `Klik banner instalasi di bagian bawah layar, atau gunakan opsi "Instal aplikasi" di menu browser. Setelah terinstal, ${name} akan langsung muncul di menu Bagikan TikTok.`,
       a: (
         <p>
           Jika Anda mengakses lewat Android atau PC, cukup klik banner di bagian bawah layar
           untuk menginstal - cepat dan mudah. Jika bannernya tidak muncul, buka menu browser dan
-          klik "Instal aplikasi".
+          klik "Instal aplikasi". Setelah terinstal, {name} akan langsung muncul di menu Bagikan
+          TikTok, jadi unduhan jadi lebih cepat lagi.
         </p>
       ),
     },
