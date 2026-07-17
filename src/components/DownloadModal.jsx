@@ -115,7 +115,7 @@ export function DownloadModal({ url, onClose, onDownloadSuccess, badge, onBadgeC
               )}
 
               <div className="flex flex-col gap-3 sm:flex-row">
-                <div className="glass-sm flex items-center gap-3 rounded-2xl p-3">
+                <div className="glass-sm flex flex-1 items-center gap-3 rounded-2xl p-3">
                   <img src={data.author.avatar} alt="avatar" className="h-11 w-11 shrink-0 rounded-full" />
                   <div className="min-w-0 flex-1">
                     <div className="truncate font-bold">{data.author.nickname}</div>
@@ -131,7 +131,7 @@ export function DownloadModal({ url, onClose, onDownloadSuccess, badge, onBadgeC
                   </a>
                 </div>
 
-                <div className="flex flex-1 gap-2 sm:w-64">
+                <div className="flex flex-2 gap-2 sm:w-64">
                   <button
                     type="button"
                     onClick={() => handleDownload(primaryKey)}
