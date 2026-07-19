@@ -29,18 +29,6 @@
       "sizes": "576x1280",
       "type": "image/jpeg",
       "form_factor": "narrow"
-    },
-    {
-      "src": "screenshots/03.jpg",
-      "sizes": "576x1280",
-      "type": "image/jpeg",
-      "form_factor": "narrow"
-    },
-    {
-      "src": "screenshots/04.jpg",
-      "sizes": "576x1280",
-      "type": "image/jpeg",
-      "form_factor": "narrow"
     }
   ],
   "icons": [
