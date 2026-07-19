@@ -35,7 +35,7 @@ export default {
   },
   home: {
     tagline: 'Download video TikTok tanpa watermark, gratis',
-    subtitle: 'Tempel link video TikTok di bawah ini dan unduh dalam HD, tanpa watermark, tanpa instal apa pun, dan tanpa perlu daftar.',
+    subtitle: 'Tempel link video TikTok di bawah ini dan unduh dalam HD, tanpa watermark, dan tanpa perlu daftar.',
     placeholder: 'Tempel link video TikTok di sini...',
     pasteTitle: 'Tempel link',
     paste: 'Tempel',

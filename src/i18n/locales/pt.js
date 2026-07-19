@@ -35,7 +35,7 @@ export default {
   },
   home: {
     tagline: "Baixar vídeo do TikTok sem marca d'água, grátis",
-    subtitle: "Cole o link do vídeo do TikTok abaixo e baixe em HD, sem marca d'água, sem instalar nada e sem cadastro.",
+    subtitle: "Cole o link do vídeo do TikTok abaixo e baixe em HD, sem marca d'água e sem cadastro.",
     placeholder: 'Cole o link do vídeo do TikTok aqui...',
     pasteTitle: 'Colar o link',
     paste: 'Colar',

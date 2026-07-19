@@ -35,7 +35,7 @@ export default {
   },
   home: {
     tagline: 'Descargar videos de TikTok sin marca de agua, gratis',
-    subtitle: 'Pega el enlace del video de TikTok abajo y descárgalo en HD, sin marca de agua, sin instalar nada y sin registro.',
+    subtitle: 'Pega el enlace del video de TikTok abajo y descárgalo en HD, sin marca de agua y sin registro.',
     placeholder: 'Pega aquí el enlace del video de TikTok...',
     pasteTitle: 'Pegar el enlace',
     paste: 'Pegar',

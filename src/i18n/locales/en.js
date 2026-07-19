@@ -35,7 +35,7 @@ export default {
   },
   home: {
     tagline: 'Download TikTok videos without watermark, free',
-    subtitle: 'Paste the TikTok video link below and download in HD, no watermark, no install, no sign-up.',
+    subtitle: 'Paste the TikTok video link below and download in HD, no watermark, no sign-up.',
     placeholder: 'Paste the TikTok video link here...',
     pasteTitle: 'Paste the link',
     paste: 'Paste',
